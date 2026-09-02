@@ -13,7 +13,7 @@ The full 2x2 is printed on test as well, for transparency rather than for
 selection.
 
 Robustness: per-band isotonic on a thin band overfits (the >$1k band has
-only ~26 fraud cases in val-A), so we re-run the whole thing under a strict
+only 36 fraud cases in val-A), so we re-run the whole thing under a strict
 minimum-positives rule to see whether the result survives.
 """
 

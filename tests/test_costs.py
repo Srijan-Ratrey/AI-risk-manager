@@ -21,6 +21,7 @@ from src.costs import (  # noqa: E402
     cost_optimal_threshold,
     decisions_amount_dependent,
     decisions_global,
+    derive_review_band,
 )
 
 
@@ -237,6 +238,44 @@ def test_adaptive_margin_grows_when_costs_are_more_amount_sensitive() -> None:
         amounts[test],
     )
     assert adaptive_cost < global_cost * 0.98, "expect a clear, not marginal, win"
+
+
+def test_review_band_interval_respects_the_ceiling_despite_ties() -> None:
+    """The served rate must equal the stated rate.
+
+    Regression guard for a real bug: the band was derived by taking the 5%
+    of rows nearest the cut and recording that set's [min, max]. Because
+    isotonic emits few distinct probabilities, the resulting INTERVAL swept
+    up tied rows the selection had excluded -- a band documented at 5.00%
+    routed 6.22% of traffic. Heavy ties here reproduce those conditions.
+    """
+    rng = np.random.default_rng(5)
+    # ~170 distinct values over 100k rows, as isotonic actually produces.
+    probabilities = np.round(rng.beta(0.5, 8.0, size=100_000), 3)
+    centre, max_rate = 0.13, 0.05
+
+    low, high = derive_review_band(probabilities, centre, max_rate)
+    served = ((probabilities >= low) & (probabilities < high)).mean()
+
+    assert served <= max_rate, f"band routes {served:.2%}, ceiling is {max_rate:.0%}"
+    assert low <= centre <= high, "the band must straddle the cost-optimal cut"
+
+
+def test_review_band_uses_most_of_its_budget() -> None:
+    """Respecting the ceiling by returning a tiny band would be useless."""
+    rng = np.random.default_rng(6)
+    probabilities = rng.uniform(0.0, 1.0, size=50_000)  # near-continuous
+    low, high = derive_review_band(probabilities, 0.13, 0.05)
+    served = ((probabilities >= low) & (probabilities < high)).mean()
+    assert 0.045 <= served <= 0.05
+
+
+def test_review_band_degenerates_safely_when_one_tie_group_busts_the_budget() -> None:
+    """If even the nearest tie-group exceeds capacity, review nobody rather
+    than silently overshooting the ceiling."""
+    probabilities = np.full(1_000, 0.13)  # every row identical
+    low, high = derive_review_band(probabilities, 0.13, 0.05)
+    assert ((probabilities >= low) & (probabilities < high)).sum() == 0
 
 
 def test_bootstrap_reports_an_interval_around_the_point_estimate(

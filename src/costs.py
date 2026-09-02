@@ -18,8 +18,14 @@ Two results matter here:
                <=>  p            >  c_FP(a) / (c_FP(a) + c_FN(a))
                <=>  p            >  t*(a)
 
-    t*(a) falls as the amount rises -- block high-value orders on weaker
-    evidence. That is the project's headline contribution.
+    With the shipped constants t*(a) falls as the amount rises -- block
+    high-value orders on weaker evidence.
+
+    MEASURED RESULT: this made no difference. On the test window t*(a) came
+    in at -Rs 1,830 per 10k against the best global threshold, 95% CI
+    [-76,937, +86,062] -- an interval spanning zero. It is kept here because
+    the negative result is reported, not because it is the contribution. See
+    EXPLAINER.md section 10. The headline is the F1-vs-cost gap instead.
 """
 
 from __future__ import annotations
@@ -191,6 +197,63 @@ def decisions_amount_dependent(
 ) -> np.ndarray:
     """Block using the per-transaction threshold t*(a). Our contribution."""
     return np.asarray(probabilities) >= model.optimal_threshold(amount_inr)
+
+
+def derive_review_band(
+    probabilities: np.ndarray, centre: float, max_rate: float
+) -> tuple[float, float]:
+    """Widest half-open band [low, high) around `centre` holding <= max_rate.
+
+    The band straddles the cost-optimal cut and escalates the transactions
+    where the model is closest to indifferent, widening until the review
+    capacity ceiling binds.
+
+    Why this is fiddlier than taking the nearest k rows: isotonic regression
+    emits a small number of distinct probabilities (171 across our 118k test
+    rows), so ties are large. Selecting the nearest k rows and then recording
+    only that set's min and max produces a band whose INTERVAL sweeps up all
+    the tied rows the selection excluded -- our first version reported a 5.00%
+    band that routed 6.22% of traffic. So we expand by whole tie-groups and
+    return the interval itself, which makes the stated rate the served rate.
+
+    `high` is the block threshold: it is the next distinct value above the
+    last one admitted, so every admitted value satisfies low <= p < high.
+    """
+    probabilities = np.asarray(probabilities, dtype=np.float64)
+    values, counts = np.unique(probabilities, return_counts=True)
+    budget = int(max_rate * len(probabilities))
+
+    # Start from the distinct value nearest the cut and grow outward, always
+    # taking whichever neighbour sits closer to it.
+    start = int(np.argmin(np.abs(values - centre)))
+    lo = hi = start
+    taken = int(counts[start])
+    if taken > budget:
+        # Even the single nearest tie-group busts the ceiling. Return an empty
+        # band at the cut rather than silently overshooting.
+        return float(centre), float(centre)
+
+    while True:
+        left = values[lo - 1] if lo > 0 else None
+        right = values[hi + 1] if hi + 1 < len(values) else None
+        if left is None and right is None:
+            break
+
+        take_left = right is None or (
+            left is not None and abs(left - centre) <= abs(right - centre)
+        )
+        nxt = lo - 1 if take_left else hi + 1
+        if taken + int(counts[nxt]) > budget:
+            break
+        taken += int(counts[nxt])
+        if take_left:
+            lo = nxt
+        else:
+            hi = nxt
+
+    low = float(values[lo])
+    high = float(values[hi + 1]) if hi + 1 < len(values) else float(np.nextafter(values[hi], np.inf))
+    return low, high
 
 
 # -- threshold sweep and uncertainty --------------------------------------

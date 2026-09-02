@@ -18,6 +18,8 @@ A complete walkthrough of *Rupee-Optimal Risk*. The [README](README.md) is the s
 12. [Can this be a workable demo?](#12-can-this-be-a-workable-demo)
 13. [What can be improved](#13-what-can-be-improved)
 14. [Known weaknesses, ranked by how much they'd embarrass you](#14-known-weaknesses-ranked-by-how-much-theyd-embarrass-you)
+15. [Artifact reference](#15-artifact-reference)
+16. [Subtleties and gotchas](#16-subtleties-and-gotchas)
 
 ---
 
@@ -74,7 +76,13 @@ The chain breaks if any link is weak. An uncalibrated `p` makes the cost arithme
 
 Everything lives in [`costs.yaml`](costs.yaml), versioned, and the version is stamped into every audit row so a historical decision can be replayed against the cost model that was in force.
 
+The whole file, since "everything lives here" is only a useful claim if you can see all of it:
+
 ```yaml
+version: "1.0.0"
+currency: INR
+usd_to_inr: 88.0                      # IEEE-CIS amounts are USD; see §3
+
 false_negative:                       # fraud approved
   chargeback_amount_multiplier: 1.0   # you eat the full transaction value
   chargeback_fee_inr: 1000.0          # flat scheme/gateway dispute fee
@@ -85,7 +93,13 @@ false_positive:                       # legitimate customer blocked
   churn_probability: 0.05
   customer_ltv_inr: 3000.0
   support_contact_inr: 100.0
+
+review:
+  cost_per_review_inr: 50.0           # analyst time per escalation
+  max_review_rate: 0.05               # operational capacity ceiling
 ```
+
+Two caveats on that file. `usd_to_inr` multiplies through **every** rupee figure in this project, so it belongs in view rather than in a footnote. And `cost_per_review_inr` is currently **decorative** — no reported number includes it (see §16).
 
 Which gives:
 
@@ -156,15 +170,15 @@ Raise the flat chargeback fee enough and the inequality flips, and it becomes op
 
 | Family | Count | What it is | Interpretable? |
 |---|---|---|---|
-| `TransactionAmt`, `ProductCD`, `card4`, `card6` | 4 | amount, product code, card network, debit/credit | **yes** |
-| `card1`, `card2`, `card3`, `card5` | 4 | masked bank/card attributes | no |
-| `addr1`, `addr2`, `dist1`, `dist2` | 4 | billing address/country, distances | partly |
-| `P_emaildomain`, `R_emaildomain` | 2 | email **domain** only, never the address | yes |
-| `C1`–`C14` | 14 | **counting features** — "how many addresses are associated with this card". Definitions masked. | partly |
-| `D1`–`D15` | 15 | timedeltas — "days since previous transaction" | partly |
-| `M1`–`M9` | 9 | match flags — "name on card matches address" | partly |
+| `TransactionAmt`, `ProductCD`, `card4`, `card6` | amount, product code, card network, debit/credit | **yes** |
+| `card1`, `card2`, `card3`, `card5` | masked bank/card attributes | no |
+| `addr1`, `addr2`, `dist1`, `dist2` | billing address/country, distances | partly |
+| `P_emaildomain`, `R_emaildomain` | email **domain** only, never the address | yes |
+| `C1`–`C14` | **counting features** — "how many addresses are associated with this card". Definitions masked. | partly |
+| `D1`–`D15` | timedeltas — "days since previous transaction" | partly |
+| `M1`–`M9` | match flags — "name on card matches address" | partly |
 | `V1`–`V339` | **339** | Vesta engineered features: ranking, counting, entity relations. Meanings masked. | **no** |
-| `id_01`–`id_38`, `DeviceType`, `DeviceInfo` | 40 | device/browser/OS. **Present on only 23.8% of rows.** | partly |
+| `id_01`–`id_38`, `DeviceType`, `DeviceInfo` | device/browser/OS. **Present on only 23.8% of rows.** | partly |
 
 **79% of the feature space is anonymised V-columns.** This has a direct consequence for the explainability story: SHAP will frequently name a `V` column as a top contributor, and the honest reason code is "aggregate risk feature (V258) elevated" — which is not a satisfying explanation. We say so rather than inventing a narrative.
 
@@ -211,8 +225,8 @@ Fraud is non-stationary — patterns drift as fraudsters adapt. A random split l
 
 | Fold | Rows | Fraud | Days | Its single job |
 |---|---|---|---|---|
-| train (minus tail) | ~318,900 | 3.38% | 1–91 | fit the trees |
-| train tail | ~35,400 | — | 91–101 | early stopping |
+| train (minus tail) | 318,892 | 3.401% | 1–91 | fit the trees |
+| train tail | 35,432 | 3.223% | 91–101 | early stopping |
 | **val-A** | 59,054 | **4.32%** | 101–121 | fit the calibrator |
 | **val-B** | 59,054 | 3.49% | 121–141 | choose the threshold |
 | test | 118,108 | 3.44% | 141–183 | read once |
@@ -256,12 +270,14 @@ Every rung is scored on the same test window under the same protocol the model f
 | Baseline | Uses | PR-AUC | Cost / 10k | Point |
 |---|---|---|---|---|
 | Never fraud | nothing | — | ₹4,957,414 | **96.56% accuracy, catches zero fraud** |
-| Block everything | nothing | — | ₹16,391,839 | the other extreme is 3.3× worse than doing nothing |
+| Block everything | nothing | — | ₹16,391,839 | the other extreme is 3.31× worse than doing nothing |
 | Random at base rate | nothing | 0.035 | ₹5,328,749 | worse than doing nothing |
-| Amount > threshold | 1 feature | 0.037 | ₹4,962,233 | tuning picked "block nothing" — amount alone is useless |
+| Amount > threshold | 1 feature | 0.037 | ₹4,962,233 | tuning could find nothing worth blocking — amount alone is useless |
 | **Count rule (C12 > 3)** | 1 feature | 0.161 | **₹4,669,678** | the honest foil |
 | Logistic regression | 5 features | 0.209 | ₹4,838,403 | **loses on money despite winning on PR-AUC** |
 | LightGBM | full | **0.498** | **₹3,295,395** | |
+
+Precisely: the tuned amount rule blocks **1 row out of 118,108** — a block rate of 8.5e-06. That single blocked legitimate transaction is *why* its cost is ₹4,820/10k **worse** than never-fraud rather than identical to it. Amount alone carries no usable signal at this base rate.
 
 ### The most important row-pair in the project
 
@@ -290,11 +306,17 @@ PARAMS = {
     "min_child_samples": 100,        # guards against leaves memorising rare fraud
     "feature_fraction": 0.7,
     "bagging_fraction": 0.8,
+    "bagging_freq": 1,               # without this LightGBM IGNORES bagging_fraction
     "lambda_l2": 1.0,
-    "seed": 42,
+    "max_bin": 255,
+    "verbosity": -1,
+    "seed": SEED,                    # 42
+    "num_threads": 0,                # all cores
     # Deliberately absent: scale_pos_weight / is_unbalance
 }
 ```
+
+Trained with `num_boost_round=3000` and `stopping_rounds=100`; early stopping fired at iteration **556**. `bagging_freq` is the non-obvious one — LightGBM silently ignores `bagging_fraction` unless a frequency is set, so omitting it would mean no bagging at all while the config appeared to ask for it.
 
 ### Why there is no class weighting — the correction that matters
 
@@ -308,10 +330,13 @@ The correct rule is: **any prior-shifting technique requires recalibration after
 
 | Metric | Test | Note |
 |---|---|---|
-| PR-AUC | **0.4981** | pre-registered expectation 0.50–0.65 |
+| **PR-AUC (raw)** | **0.4981** | ranking quality; pre-registered expectation 0.50–0.65 |
+| PR-AUC (calibrated) | 0.4792 | **what the policy actually consumes** |
 | ROC-AUC | 0.8825 | reported only for leaderboard comparison |
 | Recall @ 0.5% FPR | 0.3632 | the operationally meaningful one |
 | Best iteration | 556 | early stopping on train tail |
+
+**Both PR-AUC figures matter and they differ.** Every headline ranking metric here is computed on the *raw* booster output. Isotonic is a monotone step function, so it collapses many raw scores onto one probability — 171 distinct values over 118,108 rows — and those ties cost **0.019 PR-AUC**. Quoting only 0.4981 would be reporting the ranking of a score the decision policy never sees. It is a genuine trade: ranking resolution given up in exchange for probabilities the cost model can multiply.
 
 ### Why PR-AUC and not ROC-AUC
 
@@ -351,16 +376,28 @@ A 3.3× improvement, achieved despite the calibration fold having a 4.32% base r
 Binary approve/block is what everyone builds. Three outcomes is better:
 
 ```
-score < 0.0652            →  AUTO-APPROVE
-0.0652 ≤ score < 0.1852   →  MANUAL REVIEW    (5.00% of traffic, capped)
-score ≥ 0.1852            →  AUTO-BLOCK
+score < 0.0664            →  AUTO-APPROVE
+0.0664 ≤ score < 0.2000   →  MANUAL REVIEW    (4.03% of traffic on test)
+score ≥ 0.2000            →  AUTO-BLOCK
 ```
 
-**How the band is sized.** It straddles the cost-optimal cut (0.130) and widens outward — taking the transactions where the model is closest to indifferent — until the 5% operational ceiling binds. The band contains **9.31% fraud against a 3.44% base rate**, so it is genuinely selecting ambiguous cases rather than padding a queue.
+**How the band is sized.** `derive_review_band` (`src/costs.py`) starts at the distinct probability nearest the cost-optimal cut (0.130) and grows outward, always taking whichever neighbouring value sits closer to the cut, stopping before the band's mass would exceed the 5% capacity ceiling. Like every threshold in this project it is **derived on val-B and frozen**; 4.03% is the *realised* rate on test.
+
+The band contains **9.76% fraud against a 3.44% base rate**, so it is genuinely selecting ambiguous cases rather than padding a queue.
+
+**Why this is fiddlier than taking the nearest 5% of rows — and a bug it caused.** The first version did exactly that: select the nearest `k` rows by `|p − t_cost|`, then record that set's `[min, max]` as the band. The service then applied that pair as an interval. Because isotonic emits only 171 distinct probabilities over 118,108 rows, the *tie groups are large*: the row-selection excluded some rows at the boundary that the interval then swept back in. A band documented at **5.00%** actually routed **6.22%** of traffic — a review queue 24% over its stated ceiling, and a number in the README that was not true of the shipped system.
+
+The fix is to expand by whole tie-groups and return the interval itself, so the stated rate is the served rate. `tests/test_costs.py::test_review_band_interval_respects_the_ceiling_despite_ties` is the regression guard, and it reproduces the tie structure that caused the original bug.
+
+It also has to be derived on **val-B**, not test. The original derived the band from test probabilities while every other threshold came from val-B — the same oracle mistake the threshold protocol exists to avoid, hiding in the one place nobody was looking.
+
+Note that on val-B the band uses only **3.75%** of its 5% budget: the next tie-group would have overshot, so it stops short. Coarse quantisation means the ceiling is rarely hit exactly.
 
 **Why review rate is a first-class metric.** A model that routes 30% of traffic to human review is unusable at any precision — there aren't enough analysts. Reporting precision without reporting review rate hides that failure mode.
 
-**Note the deployed block threshold (0.1852) differs from the cost-optimal threshold (0.1300).** Transactions between the two are escalated rather than auto-blocked. This trades a small amount of expected cost for reversibility on the least certain decisions — which is the point of having a review band at all.
+**Note the deployed block threshold (0.2000) differs from the cost-optimal threshold (0.1300).** Transactions between the two are escalated rather than auto-blocked. This trades a small amount of expected cost for reversibility on the least certain decisions — which is the point of having a review band at all.
+
+**The serving path applies this global band, not `t*(a)`.** Since the amount-dependent rule measured as a null (§10), shipping it would add complexity for no measured gain. `amount_inr` is required by the request schema but is recorded for audit and cost attribution only — it does not enter the decision. The `Field` description in `src/service.py` says so, so the API docs cannot drift from this.
 
 **Bounded actions.** The service never moves money. Both `BLOCK` and `REVIEW` are reversible. Every decision is appealable through `POST /v1/appeal/{id}`, and an appeal is recorded as labelled feedback — never a deletion. The blast radius of a wrong call is one payment, recoverable.
 
@@ -368,7 +405,7 @@ score ≥ 0.1852            →  AUTO-BLOCK
 
 ## 9. The service
 
-[`src/service.py`](src/service.py) — FastAPI, ~310 lines.
+[`src/service.py`](src/service.py) — FastAPI.
 
 ### Endpoints
 
@@ -376,8 +413,37 @@ score ≥ 0.1852            →  AUTO-BLOCK
 |---|---|
 | `POST /v1/score` | Score a transaction, return a bounded decision |
 | `GET /v1/health` | Reports degraded state honestly, including load errors |
-| `GET /v1/audit/{id}` | Every decision recorded for a transaction |
-| `POST /v1/appeal/{id}` | Overturn a decision; logged, never deleted |
+| `GET /v1/audit/{id}` | Full history for a transaction: decisions + overturns |
+| `POST /v1/appeal/{id}` | Overturn a decision; appended, never overwritten |
+
+### Request and response schema
+
+**`POST /v1/score` request** (`ScoreRequest`):
+
+| Field | Type | Default | Notes |
+|---|---|---|---|
+| `transaction_id` | `str` | auto `txn_<uuid12>` | Caller's id; generated if omitted |
+| `amount_inr` | `float` | **required**, `≥ 0` | Audit and cost attribution only — **does not enter the decision** (see §8) |
+| `features` | `dict[str, Any]` | `{}` | Model features by name. Omitted ⇒ missing, which is a branch direction LightGBM learned, not an error |
+
+**Response** (`ScoreResponse`):
+
+| Field | Type | Notes |
+|---|---|---|
+| `transaction_id` | `str` | echoed |
+| `decision` | `str` | `APPROVE` / `REVIEW` / `BLOCK` |
+| `score` | `float` | calibrated probability; `0.0`/`1.0` in degraded mode |
+| `threshold_used` | `float` | block threshold (0.2000), or `FALLBACK_THRESHOLD` (3.0) when degraded |
+| `reason_codes` | `list[str]` | top-3 SHAP contributors, humanised |
+| `merchant_message` | `str` | customer-safe text; never contains feature names |
+| `model_version` | `str` | `lgbm-1.0.0` or `fallback-rule-1.0.0` |
+| `cost_model_version` | `str` | from `costs.yaml`, stamped for replay |
+| `degraded` | `bool` | whether the rule path served this request |
+| `latency_ms` | `float` | server-side, includes SHAP and the audit write |
+
+**`POST /v1/appeal/{id}`** takes `overturn_to` and optional `note` as **query parameters**, not a body. Returns `201` with the new `appeal_id`; `422` for a decision outside `{APPROVE, REVIEW, BLOCK}`; `404` if the transaction was never scored.
+
+**`GET /v1/audit/{id}`** returns `{transaction_id, decisions: [...], appeals: [...]}` — raw table rows, so `decisions` entries carry the 12 columns above plus `id` and `ts`.
 
 ### Schema pinning — the train/serve skew guard
 
@@ -402,15 +468,30 @@ If the model or schema fails to load, or scoring throws at request time, the ser
 The two wrong ways to fail:
 
 - **Fail open** (approve everything) → unbounded fraud exposure.
-- **Fail closed** (block everything) → ₹16.4M per 10k, which the cost model shows is **3.3× worse than doing nothing at all**.
+- **Fail closed** (block everything) → ₹16.4M per 10k, which the ladder measures at **3.31× worse than doing nothing at all**.
 
 The fallback rule was selected by the baseline ladder and costs ₹4.67M per 10k — less than approving everything. So degraded mode is *genuinely safe*, not a token gesture. That claim is measured, not asserted.
 
-**This path is tested.** `tests/test_service.py` points `MODEL_PATH` at a nonexistent file and asserts the service still starts, still returns correct `APPROVE`/`BLOCK` decisions, still marks them degraded, and still audits them.
+**A third way to fail, which we originally had.** The rule reads one feature, `C12`, and nothing in the request schema requires it. The first implementation did `value = 0.0 if value is None else float(value)` — so a payload *without* `C12` scored 0.0 and was **APPROVED**, with a confident-looking response. That is failing open on precisely the requests we know least about, and it was reachable with an ordinary payload.
+
+The rule now escalates to `REVIEW` when its own input is absent or non-numeric. This is the same principle the review band exists for: when unsure, do not guess with money. `_fallback` returns the decision directly rather than a score to be banded, because running a 0/1 rule output through a probability band is meaningless arithmetic.
+
+Two related fixes went in alongside it:
+
+- **`threshold_used` in degraded mode** used to record `0.1852`, a probability threshold that played no part in a rule decision — so a replayed audit row looked as though it had been judged against a threshold nobody chose. It now records the rule's own cut (3.0).
+- **`Engine.__init__` used to hardcode a fallback band** `[0.065, 0.185]` that merely *resembled* the real `[0.0664, 0.2000]`. If `thresholds.json` failed to load, the service would serve a different policy while reporting `degraded: false` and `status: ok`. There is now no default: absent thresholds degrade, exactly like an absent model.
+
+**This path is tested.** `tests/test_service.py` points `MODEL_PATH` at a nonexistent file and asserts the service still starts, returns correct `APPROVE`/`BLOCK` decisions, escalates when `C12` is absent, records the rule threshold, and audits all of it.
 
 ### Audit log
 
-Append-only SQLite. Every row carries transaction id, amount, score, threshold used, decision, reason codes, model version, **cost-model version**, degraded flag, latency, and any overturn. Stamping the cost-model version is what makes a historical decision replayable — if the constants change, you can still reconstruct why a decision was made in March.
+**Two** append-only SQLite tables.
+
+`decisions` carries transaction id, amount, score, threshold used, decision, reason codes, model version, **cost-model version**, degraded flag and latency. Stamping the cost-model version is what makes a historical decision replayable — if the constants change, you can still reconstruct why a decision was made in March.
+
+`appeals` carries overturns. This is a correction: the original implementation ran `UPDATE decisions SET overturned_to = ?`, which *mutated the audit row in place* while the docstring claimed "never a deletion". True — it wasn't a deletion, it was an overwrite, which for an audit log is no better. Retraining needs the **pair** (what the model said, what the human said), so overwriting the decision destroys the very label the appeal exists to collect. Appeals now append, and `GET /v1/audit/{id}` returns both lists.
+
+`POST /v1/appeal/{id}` also validates `overturn_to` against `{APPROVE, REVIEW, BLOCK}` — it previously accepted any string, including `"BANANA"` — and returns 404 for an unknown transaction rather than reporting success with `rows_updated: 0`.
 
 ### Merchant-facing vs internal explanations
 
@@ -426,9 +507,11 @@ Publishing the exact rule set teaches fraudsters what to avoid. A test asserts t
 
 | p50 | p95 | p99 | max |
 |---|---|---|---|
-| 56.7 ms | **75.6 ms** | 89.7 ms | 213.3 ms |
+| 58.5 ms | **78.2 ms** | 81.4 ms | 144.3 ms |
 
 Budget was p95 < 100 ms. Met, but with less headroom than a GBDT deserves — see [§13](#13-what-can-be-improved) for where the time actually goes.
+
+**Measured in-process**, via `fastapi.testclient.TestClient`, which calls the ASGI app directly. These figures therefore exclude uvicorn, HTTP parsing and socket overhead. The live-server verification in §12 covers endpoint *behaviour*, not this table — do not conflate the two.
 
 ---
 
@@ -490,24 +573,24 @@ Thin-band overfitting explains part of it: the > $1k band has only **36 fraud ca
 
 ## 11. File-by-file reference
 
-| File | Lines | What it does | Why it exists |
-|---|---|---|---|
-| [`costs.yaml`](costs.yaml) | 45 | Every rupee assumption, versioned | One auditable place; version stamped into audit rows |
-| [`src/costs.py`](src/costs.py) | 220 | `CostModel`, `t*(a)`, threshold sweep, bootstrap CIs | The heart — all money math |
-| [`src/data.py`](src/data.py) | 200 | Load, merge, downcast, temporal split, leakage assertions | Splits are the credibility budget |
-| [`src/evaluate.py`](src/evaluate.py) | 105 | PR-AUC, ECE (quantile-binned), reliability, recall@FPR | Metrics that survive 3.4% imbalance |
-| [`src/baselines.py`](src/baselines.py) | 175 | The six-rung ladder | Answers "how much was free?" |
-| [`src/model.py`](src/model.py) | 128 | LightGBM + isotonic, fold discipline | Model, plus the no-class-weighting rationale |
-| [`src/service.py`](src/service.py) | 310 | FastAPI, audit log, fallback, schema pinning | Bounded, explainable, degradable |
-| `build_schema.py` | 40 | Pins training dtypes to `models/schema.pkl` | Prevents train/serve skew |
-| `run_baselines.py` | 60 | Runs the ladder | |
-| `run_model.py` | 289 | Train → calibrate → threshold → cost curve → segments | The main pipeline |
-| `run_band_calibration.py` | 130 | Per-band diagnosis | Failure 2, diagnosis half |
-| `run_configuration_choice.py` | 165 | Honest configuration selection on val-B | Failure 2, verdict half |
-| `run_demo.py` | 120 | Replay real transactions + latency benchmark | The demo and the p95 number |
-| `run_figures.py` | 155 | Five figures | README and video |
-| [`tests/test_costs.py`](tests/test_costs.py) | 200 | 14 tests on the money math | A sign error here is invisible otherwise |
-| [`tests/test_service.py`](tests/test_service.py) | 120 | 8 tests incl. degraded mode | Proves the fallback rather than claiming it |
+| File | What it does | Why it exists |
+|---|---|---|
+| [`costs.yaml`](costs.yaml) | Every rupee assumption, versioned | One auditable place; version stamped into audit rows |
+| [`src/costs.py`](src/costs.py) | `CostModel`, `t*(a)`, threshold sweep, bootstrap CIs | The heart — all money math |
+| [`src/data.py`](src/data.py) | Load, merge, downcast, temporal split, leakage assertions | Splits are the credibility budget |
+| [`src/evaluate.py`](src/evaluate.py) | PR-AUC, ECE (quantile-binned), reliability, recall@FPR | Metrics that survive 3.4% imbalance |
+| [`src/baselines.py`](src/baselines.py) | The six-rung ladder | Answers "how much was free?" |
+| [`src/model.py`](src/model.py) | LightGBM + isotonic, fold discipline | Model, plus the no-class-weighting rationale |
+| [`src/service.py`](src/service.py) | FastAPI, audit log, fallback, schema pinning | Bounded, explainable, degradable |
+| `build_schema.py` | Pins training dtypes to `models/schema.pkl` | Prevents train/serve skew |
+| `run_baselines.py` | Runs the ladder | |
+| `run_model.py` | Train → calibrate → threshold → cost curve → segments | The main pipeline |
+| `run_band_calibration.py` | Per-band diagnosis | Failure 2, diagnosis half |
+| `run_configuration_choice.py` | Honest configuration selection on val-B | Failure 2, verdict half |
+| `run_demo.py` | Replay real transactions + latency benchmark | The demo and the p95 number |
+| `run_figures.py` | Five figures | README and video |
+| [`tests/test_costs.py`](tests/test_costs.py) | 17 tests on the money math | A sign error here is invisible otherwise |
+| [`tests/test_service.py`](tests/test_service.py) | 12 tests incl. degraded mode and fail-safe | Proves the fallback rather than claiming it |
 
 ### Execution order
 
@@ -518,6 +601,8 @@ src/data.py  →  run_baselines.py  →  run_model.py  →  build_schema.py
                                           ↓
                           run_figures.py    run_demo.py
 ```
+
+`src/data.py` is a **diagnostic**, not a required first step. It prints the split table and writes `data/splits.json`, but nothing reads that file — every downstream script recomputes `make_splits(df)` from the cached parquet. The real dependency is that `run_model.py` must precede `build_schema.py`, `run_figures.py` and `run_demo.py`, since they consume `models/fitted.pkl` and `models/thresholds.json`.
 
 ---
 
@@ -535,26 +620,33 @@ Verified against a live `uvicorn` server (not just the test client):
 
 - `GET /v1/health` → `{"status":"ok","model_loaded":true,...}`
 - `POST /v1/score` → full decision with reason codes in ~50–80 ms
-- `GET /v1/audit/{id}` → the logged row, with both version stamps
-- `POST /v1/appeal/{id}` → overturn recorded, original preserved
+- `GET /v1/audit/{id}` → `{decisions: [...], appeals: [...]}`, with both version stamps
+- `POST /v1/appeal/{id}` → `201` with a new `appeal_id`; the decision row is untouched
 - Kill the model file, restart → serves from the fallback rule, `degraded: true`, still audits
 
 `run_demo.py` replays 1,000 real test transactions and prints a live decision stream with all three outcomes plus the latency distribution. **That is your demo.**
 
 ### The constraint: you cannot hand-author a convincing fraudulent transaction
 
-This is the important finding. We measured how the score responds to payload completeness, using a real fraud transaction that the full pipeline blocks at 0.9000:
+This is the important finding. `run_payload_sensitivity.py` measures how the score responds to payload completeness, using a real fraud transaction (`TransactionID` 3513412, $34.00) that the full pipeline blocks at 0.9000. Reproduce it with:
+
+```bash
+.venv/bin/python run_payload_sensitivity.py   # -> reports/payload_sensitivity.csv
+```
 
 | Payload | Features sent | Score | Decision |
 |---|---|---|---|
 | Interpretable only (what a human can write) | 6 | 0.2067 | BLOCK |
 | + `C` counting features | 20 | 0.7831 | BLOCK |
 | + `D` time-delta features | 30 | **0.9000** | BLOCK |
-| All 431 features | 333 | 0.9000 | BLOCK |
+| All features | 333 | 0.9000 | BLOCK |
+| **Invented "card testing" values** | 8 | **0.0246** | **APPROVE** |
 
 Good news: **~30 real features reproduce the full score.** You do not need all 431, and the 339 anonymised V-columns add nothing beyond the C and D columns for this row.
 
-Bad news: those values must be *real*. A hand-crafted "card testing" payload with invented counts (`C1=45, C12=28, C13=60`) scored **0.0246 → APPROVE**. The model keys on the *joint pattern* across correlated features, not on individual large numbers. Inventing plausible-looking values produces an out-of-distribution row, and the model — correctly — does not recognise it as anything.
+Bad news, and it is the last row: those values must be *real*. A hand-crafted payload with invented counts (`C1=45, C12=28, C13=60`) scores 0.0246 and is approved. The model keys on the *joint pattern* across correlated features, not on individual large numbers. Inventing plausible-looking values produces an out-of-distribution row, and the model — correctly — does not recognise it as anything.
+
+Note also that 0.7831 and 0.0246 are **plateau values** shared by many transactions, not row-specific estimates: isotonic emits only 171 distinct probabilities (§16.1).
 
 ### What this means for your video
 
@@ -566,11 +658,11 @@ Bad news: those values must be *real*. A hand-crafted "card testing" payload wit
 
 1. `GET /v1/health` — model loaded, versions shown
 2. `POST /v1/score` on a real legit row → APPROVE with reason codes
-3. `POST /v1/score` on a real ambiguous row → REVIEW, and note the 5% queue cap
+3. `POST /v1/score` on a real ambiguous row → REVIEW, and note the 4.03% queue against a 5% ceiling
 4. `POST /v1/score` on a real fraud row → BLOCK at 0.90 with three reason codes
 5. `GET /v1/audit/{id}` — show the immutable row with both version stamps
-6. `POST /v1/appeal/{id}` — overturn it, show the original is preserved
-7. `mv models/fitted.pkl /tmp && restart` → `degraded: true`, still decides, still audits
+6. `POST /v1/appeal/{id}` — overturn it, then re-fetch the audit: a new `appeals` entry, the `decisions` row unchanged
+7. `mv models/fitted.pkl /tmp && restart` → `degraded: true`, still decides, still audits. Then POST a payload **without** `C12` → `REVIEW`, not a silent approve
 8. Then the figures: cost curve, baseline ladder, the two negative results
 
 Step 7 is the one nobody else will have.
@@ -615,11 +707,14 @@ Ordered by value per hour of work.
 
 11. **Delayed-label simulation.** Chargebacks arrive up to 120 days later. Simulating that delay and measuring how fast the model decays without fresh labels would be a genuinely novel result for a hackathon, and it directly addresses "measured outcomes" in a way nobody else will.
 
+12. **Wire the review cost into the reported figures.** `cost_per_review_inr: 50.0` is in the config and enters no number (§16.2). Every ₹/10k figure currently treats manual review as free, which flatters the three-way policy. Passing `reviewed=` through `sweep_thresholds` and the policy tables is maybe an hour, and it would make the review-band argument cost-complete rather than cost-adjacent.
+
 ### Housekeeping
 
-12. `plan.md` is still committed and now contradicts the README (it promises per-merchant thresholds, velocity features and UPI analysis). Delete it or add a header marking it superseded.
 13. Replace the deprecated `@app.on_event("startup")` with a lifespan handler.
 14. `run_configuration_choice.py` reloads the parquet and re-scores from scratch twice. Caching would cut its runtime substantially.
+15. Delete `model.top_reason_codes()` and `Splits.load()`, or wire them into the paths that reimplement them (§16.7).
+16. Derive `MODEL_VERSION` from the artifact rather than hand-editing a constant (§16.8).
 
 ---
 
@@ -644,6 +739,62 @@ Ordered by value per hour of work.
 8. **No production concerns addressed:** no auth on the API, no rate limiting, no model monitoring or drift alerting, no retraining pipeline, SQLite rather than a real database, no containerisation.
 
 9. **The three-way policy's review band is heuristic.** It straddles the cost-optimal cut and widens to the capacity ceiling. A more principled construction would size it by expected value of information — where human review actually changes the decision often enough to pay for itself.
+
+---
+
+## 15. Artifact reference
+
+Everything under `reports/` is generated and committed — `.gitignore` excludes `*.csv` for the 683 MB dataset but re-includes `!reports/**/*.csv`, because these tables *are* the evidence. `data/` and `models/` are not committed.
+
+| Artifact | Written by | Contains |
+|---|---|---|
+| `reports/results.json` | `run_model.py` | Every headline number: both PR-AUCs, ROC-AUC, recall@FPR, ECE before/after, the frozen and oracle thresholds, review band and rates, and both bootstrap CIs |
+| `reports/baseline_ladder.csv` | `run_baselines.py` | 6 rungs × PR-AUC, recall@FPR, precision, recall, block rate, ₹/10k |
+| `reports/policies.csv` | `run_model.py` | 4 operating points (cost-, F1-, accuracy-optimal, `t*(a)`) with realised test cost |
+| `reports/cost_curve.csv` | `run_model.py` | 1,001 rows — cost per 10k at every threshold on the 0.001 grid |
+| `reports/segments.csv` | `run_model.py` | 16 segments across ProductCD / card4 / card6 / amount band |
+| `reports/reliability_before.csv` · `_after.csv` | `run_model.py` | 20 and 14 quantile bins: mean predicted vs observed rate |
+| `reports/band_diagnosis.csv` | `run_band_calibration.py` | Per-amount-band fraud rate, mean predicted, ECE, PR-AUC — the evidence for the Failure 1 diagnosis |
+| `reports/band_calibration.csv` | `run_band_calibration.py` | Per-band ECE, global vs per-band calibration |
+| `reports/configuration_choice.json` | `run_configuration_choice.py` | The 2×2 selection under permissive and strict per-band rules — the Failure 2 verdict |
+| `reports/latency.json` | `run_demo.py` | p50/p95/p99/max over 1,000 requests, and whether the budget was met |
+| `reports/demo_decisions.csv` | `run_demo.py` | 1,000 replayed decisions with score, decision, reason codes, true label |
+| `reports/figures/*.png` | `run_figures.py` | cost_curve · baseline_ladder · reliability · threshold_curve · segments |
+| `models/fitted.pkl` · `schema.pkl` · `thresholds.json` | `run_model.py`, `build_schema.py` | Booster + calibrator, pinned dtypes, frozen thresholds. Gitignored. |
+| `data/splits.json` | `src/data.py` | Frozen split boundaries. Written for reproducibility; **nothing reads it** (see §11). |
+| `audit.db` | `src/service.py` | SQLite `decisions` + `appeals`. Gitignored. |
+
+**One artifact deserves more attention than it gets.** `band_calibration.csv` shows per-band calibration made ECE *worse* in 3 of 5 bands and worse overall (0.00492 vs 0.00408). That is independent corroboration of Failure 2 — the refinement was not merely unhelpful on cost, it was not even better calibrated — and it currently sits in a committed file that the narrative never cites.
+
+---
+
+## 16. Subtleties and gotchas
+
+Things in the code that are surprising, deliberate, or would mislead a reader who found them alone.
+
+**1. The "probability" takes only 171 distinct values.** Isotonic is a monotone step function over 118,108 test rows. In the 1,000-request demo, 183 rows share the single score `0.002863`. Anywhere this document quotes a score, it is a plateau value shared by many transactions, not a row-specific estimate. This is also why the review band needs tie-group logic (§8).
+
+**2. The ₹50 review cost never enters any reported number.** `CostModel.total_cost` accepts a `reviewed` argument, and every pipeline call passes `None`. Only `tests/test_costs.py` exercises it. So every ₹/10k figure treats manual review as free, which flatters the three-way policy against a pure block/approve baseline. Wiring it in is a modelling change we did not make in time; it is listed in §13.
+
+**3. Categorical dtypes are fitted over the full frame, test included.** `prepare_features` in `src/data.py`. This is defensible — a category *mapping* is not fitted knowledge about the label, and letting the encoding differ between train and test would silently corrupt inference — but in a project whose thesis is protocol hygiene, it deserves stating rather than hiding in a docstring. No label or aggregate statistic crosses a split boundary anywhere.
+
+**4. `TransactionDT` is deliberately excluded from the features.** `NON_FEATURES` in `src/data.py`. A tree will happily memorise the time axis and then collapse on an out-of-time window. This looks like an oversight and is not.
+
+**5. Latency is measured in-process.** `run_demo.py` uses `TestClient`, which calls the ASGI app directly — no uvicorn, no sockets. And 58 ms p50 is *slow* for a 556-tree model that should score in ~2 ms: the time goes to two separate `booster.predict()` calls (score, then `pred_contrib`) over a 431-column frame, DataFrame construction per request, and a synchronous SQLite write. §13 has the fix.
+
+**6. The demo sample is 25% fraud by construction.** `run_demo.py` oversamples so all three decisions appear on video. The printed decision mix is not production-representative; the base rate is 3.44%.
+
+**7. Dead code.** `model.top_reason_codes()` has zero callers — `service.py` reimplements it inline, so anyone tracing "where do reason codes come from?" will read the wrong function. `Splits.load()` likewise has none.
+
+**8. `MODEL_VERSION` is a hand-edited constant.** `"lgbm-1.0.0"` in `src/service.py`, not derived from the artifact. Retraining without editing it produces audit rows that claim a version the model no longer is.
+
+**9. Thresholds beyond the review band are written and never read.** `models/thresholds.json` carries `cost_optimal`, `f1_optimal` and `accuracy_optimal`; the service uses only `review_band`. They are kept for replay and analysis.
+
+**10. Threshold precision is not uniform.** The sweep runs on `linspace(0, 1, 1001)`, so `0.1300` and `0.1200` are 3-decimal grid points, while band edges like `0.066367` are isotonic plateau values carried at full precision. Tables mixing the two imply a uniformity that is not there.
+
+**11. `shap` is pinned in `requirements.txt` and never imported.** SHAP values come from LightGBM's own `pred_contrib`, which computes exact tree SHAP without a separate explainer object. Correct engineering, misleading dependency list.
+
+**12. `/v1/health` returns raw exception reprs** — including absolute filesystem paths — to unauthenticated callers. Fine locally, wrong in production. Listed under §14.8.
 
 ---
 

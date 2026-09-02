@@ -105,11 +105,14 @@ Fixed seed (42), frozen split indices in `data/splits.json`.
 
 | Metric | Test (out-of-time) |
 |---|---|
-| **PR-AUC** | **0.4981** |
+| **PR-AUC (raw score)** | **0.4981** |
+| PR-AUC (calibrated) | 0.4792 *(what the policy actually consumes)* |
 | ROC-AUC | 0.8825 *(for leaderboard comparison only)* |
 | Recall @ 0.5% FPR | 0.3632 |
 | Precision / recall at operating point (t=0.130) | 0.393 / 0.536 |
-| Review rate | 5.00% |
+| Review rate | 4.03% |
+
+The two PR-AUC figures differ because isotonic regression is a monotone *step* function: it maps many raw scores onto the same probability, leaving only 171 distinct values across 118,108 rows. Those ties cost 0.019 PR-AUC. That is a real price paid for probabilities the cost model can use, and we report both rather than quoting the flattering one.
 
 We **pre-registered** an expected PR-AUC of 0.50–0.65 for a temporal split of this dataset, and set >0.75 as a leakage alarm to be investigated rather than celebrated. The result landed at 0.498, at the bottom of the range — consistent with having no UID-based velocity features, which is where the published top solutions get most of their lift.
 
@@ -203,16 +206,22 @@ Thin-band overfitting explains part of it: the >$1k band has only 36 fraud cases
 ## 7. Decision policy — three outcomes, bounded
 
 ```
-score < 0.0652              →  AUTO-APPROVE
-0.0652 ≤ score < 0.1852     →  MANUAL REVIEW   (5.00% of traffic, capped)
-score ≥ 0.1852              →  AUTO-BLOCK
+score < 0.0664              →  AUTO-APPROVE
+0.0664 ≤ score < 0.2000     →  MANUAL REVIEW   (4.03% of traffic)
+score ≥ 0.2000              →  AUTO-BLOCK
 ```
 
-The review band straddles the cost-optimal cut and is widened until the 5% operational ceiling binds. It contains **9.31% fraud against a 3.44% base rate** — it is genuinely catching the ambiguous cases rather than padding the queue.
+The band straddles the cost-optimal cut and widens outward until the 5% review-capacity ceiling would be breached. Like every other threshold here it is **derived on val-B and frozen**, so the figure above is the *realised* rate on test, not a rate fitted to test. On val-B it used 3.75% of the 5% budget — the next group of tied scores would have overshot, so it stops short.
+
+The band contains **9.76% fraud against a 3.44% base rate** — it is genuinely catching ambiguous cases rather than padding the queue.
 
 Review rate is a first-class metric. A system routing 30% of traffic to humans is unusable at any precision.
 
-**Bounded actions.** The service never moves money. `BLOCK` and `REVIEW` are both reversible, every decision is appealable via `POST /v1/appeal/{id}`, and an appeal is recorded as labelled feedback — never as a deletion. Blast radius of a wrong call is one payment, recoverable.
+**Note the block threshold (0.2000) is not the cost-optimal threshold (0.1300).** Transactions between the two are escalated rather than auto-blocked, trading a little expected cost for reversibility on the least certain calls. That is the point of having a band at all.
+
+**The serving path uses this single global band, not the amount-dependent rule.** `t*(a)` measured as a null result (CI spans zero, §6), so shipping it would add complexity for no measured gain. `amount_inr` is recorded for audit and cost attribution and does not enter the decision.
+
+**Bounded actions.** The service never moves money. `BLOCK` and `REVIEW` are both reversible, and every decision is appealable via `POST /v1/appeal/{id}`. An appeal **appends** to a separate table; the original decision row is never modified or deleted. Blast radius of a wrong call is one payment, recoverable.
 
 ---
 
@@ -232,21 +241,27 @@ Review rate is a first-class metric. A system routing 30% of traffic to humans i
                      degraded, latency_ms }
 
   GET  /v1/health          ← reports degraded mode honestly
-  GET  /v1/audit/{id}      ← every decision ever recorded for a transaction
-  POST /v1/appeal/{id}     ← overturn, logged as labelled feedback
+  GET  /v1/audit/{id}      ← full history: decisions + any overturns
+  POST /v1/appeal/{id}     ← overturn, appended as labelled feedback
 ```
 
 **Latency** — 1,000 sequential requests replaying real test-window transactions, including SHAP reason codes and the audit write:
 
 | p50 | p95 | p99 | max |
 |---|---|---|---|
-| 56.7 ms | **75.6 ms** | 89.7 ms | 213.3 ms |
+| 58.5 ms | **78.2 ms** | 81.4 ms | 144.3 ms |
 
-Budget was p95 < 100 ms. **Met.**
+Budget was p95 < 100 ms. **Met.** Measured in-process against the ASGI app, so it excludes uvicorn and socket overhead — see the [EXPLAINER](EXPLAINER.md#16-subtleties-and-gotchas) for why it is far slower than a 556-tree model should be.
 
-**Graceful degradation.** If the model or the training schema fails to load, or scoring throws, the service falls back to the deterministic `C12 > 3` count rule and sets `degraded: true`. It does not fail open (approve everything — unbounded fraud) and it does not fail closed (block everything — which the cost model shows is ₹16.4M/10k, over 3× worse than doing nothing at all). The fallback rule was chosen by the baseline ladder and costs less per 10k than approving everything, so degraded mode is genuinely safe rather than a token gesture.
+**Graceful degradation.** If the model, the training schema, or the frozen thresholds fail to load, or scoring throws, the service falls back to the deterministic `C12 > 3` count rule and sets `degraded: true`.
 
-This path is **tested**, not asserted — `tests/test_service.py` removes the model file and verifies the service still returns correct `APPROVE`/`BLOCK` decisions and still audits them.
+- It does not **fail open** (approve everything — unbounded fraud).
+- It does not **fail closed** (block everything — which the ladder measures at ₹16.4M/10k, **3.31× worse** than doing nothing at all).
+- If the rule's own input is missing, it does not silently treat `C12` as zero — which *would* approve. It escalates to `REVIEW`, because the rule cannot see the one feature it needs and guessing either way would be unbounded.
+
+The fallback was chosen by the baseline ladder and costs ₹4.67M/10k, less than approving everything, so degraded mode is genuinely safe rather than a token gesture.
+
+This path is **tested**, not asserted. `tests/test_service.py` removes the model file and verifies the service still returns correct `APPROVE`/`BLOCK` decisions, escalates when `C12` is absent, records the rule's own threshold rather than the probability band, and audits all of it.
 
 **Train/serve skew** is prevented by pinning the training schema (`models/schema.pkl`) — the exact 31 categorical dtypes and their category sets. Inferring dtypes from whatever the caller happens to send is precisely how a model behaves differently in production than in the notebook; LightGBM rejects the frame outright when the categorical set differs.
 

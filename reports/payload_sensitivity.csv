@@ -1,0 +1,6 @@
+payload,features_sent,score,decision
+interpretable only (what a human can author),6,0.20668058455114824,BLOCK
++ C counting features,20,0.7831325301204819,BLOCK
++ D time-delta features,30,0.9,BLOCK
+ALL features (what run_demo.py replays),333,0.9,BLOCK
+INVENTED 'card testing' values,8,0.024603836530442035,APPROVE

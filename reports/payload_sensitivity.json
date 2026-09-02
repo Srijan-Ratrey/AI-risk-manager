@@ -1,0 +1,37 @@
+{
+  "transaction_id": 3513412,
+  "is_fraud": 1,
+  "amount_usd": 33.99800109863281,
+  "rows": [
+    {
+      "payload": "interpretable only (what a human can author)",
+      "features_sent": 6,
+      "score": 0.20668058455114824,
+      "decision": "BLOCK"
+    },
+    {
+      "payload": "+ C counting features",
+      "features_sent": 20,
+      "score": 0.7831325301204819,
+      "decision": "BLOCK"
+    },
+    {
+      "payload": "+ D time-delta features",
+      "features_sent": 30,
+      "score": 0.9,
+      "decision": "BLOCK"
+    },
+    {
+      "payload": "ALL features (what run_demo.py replays)",
+      "features_sent": 333,
+      "score": 0.9,
+      "decision": "BLOCK"
+    },
+    {
+      "payload": "INVENTED 'card testing' values",
+      "features_sent": 8,
+      "score": 0.024603836530442035,
+      "decision": "APPROVE"
+    }
+  ]
+}

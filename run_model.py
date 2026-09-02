@@ -29,6 +29,7 @@ from src.costs import (
     cost_optimal_threshold,
     decisions_amount_dependent,
     decisions_global,
+    derive_review_band,
     sweep_thresholds,
 )
 from src.data import (
@@ -101,9 +102,21 @@ def main() -> None:
         "test_roc_auc": roc_auc(y_test, raw_test),
         "test_recall_at_0.5pct_fpr": recall_at_fpr(y_test, raw_test, 0.005),
         "test_accuracy_never_fraud": float(1 - y_test.mean()),
+        "test_distinct_probabilities": int(len(np.unique(prob_test))),
     }
     print("\n=== ranking (test, out-of-time) ===")
-    print(f"PR-AUC              {results['test_pr_auc']:.4f}")
+    print(f"PR-AUC raw          {results['test_pr_auc']:.4f}   <- ranking quality")
+    print(
+        f"PR-AUC calibrated   {results['test_pr_auc_calibrated']:.4f}   "
+        f"<- what the policy consumes"
+    )
+    # Isotonic is a monotone step function, so it maps many raw scores onto
+    # one probability. Those ties cost ranking resolution -- a real price paid
+    # for probabilities the cost model can actually use.
+    print(
+        f"  ties cost {results['test_pr_auc'] - results['test_pr_auc_calibrated']:.4f} PR-AUC; "
+        f"{len(np.unique(prob_test))} distinct probabilities over {len(prob_test):,} rows"
+    )
     print(f"ROC-AUC             {results['test_roc_auc']:.4f}   (for leaderboard comparison only)")
     print(f"recall @ 0.5% FPR   {results['test_recall_at_0.5pct_fpr']:.4f}")
     if results["test_pr_auc"] > 0.75:
@@ -221,19 +234,22 @@ def main() -> None:
     )
 
     # ---- three-way policy and review rate --------------------------------
-    # Review band straddles the cost-optimal cut: escalate where the model is
-    # closest to indifferent, widened until the review-rate ceiling binds.
-    order = np.argsort(np.abs(prob_test - t_cost))
-    n_review = int(costs.max_review_rate * len(prob_test))
-    reviewed = np.zeros(len(prob_test), dtype=bool)
-    reviewed[order[:n_review]] = True
-    band = prob_test[reviewed]
-    results["review_band"] = [float(band.min()), float(band.max())]
+    # The band is derived on val-B and frozen, exactly like the thresholds
+    # above. Deriving it on test and then reporting the test review rate
+    # would be the same oracle mistake the threshold protocol avoids.
+    band_low, band_high = derive_review_band(prob_val_b, t_cost, costs.max_review_rate)
+    reviewed_val = (prob_val_b >= band_low) & (prob_val_b < band_high)
+    reviewed = (prob_test >= band_low) & (prob_test < band_high)
+
+    results["review_band"] = [band_low, band_high]
+    results["review_rate_val_b"] = float(reviewed_val.mean())
     results["review_rate"] = float(reviewed.mean())
     results["fraud_share_in_review_band"] = float(y_test[reviewed].mean())
-    print("\n=== three-way policy ===")
-    print(f"review band       [{band.min():.4f}, {band.max():.4f}]")
-    print(f"review rate       {reviewed.mean():.2%}  (ceiling {costs.max_review_rate:.0%})")
+
+    print("\n=== three-way policy (band frozen from val-B) ===")
+    print(f"review band       [{band_low:.4f}, {band_high:.4f})")
+    print(f"review rate val-B {reviewed_val.mean():.2%}  (ceiling {costs.max_review_rate:.0%})")
+    print(f"review rate test  {reviewed.mean():.2%}  <- realised at the frozen band")
     print(f"fraud in band     {y_test[reviewed].mean():.2%}  vs {y_test.mean():.2%} overall")
 
     # ---- cost curve ------------------------------------------------------

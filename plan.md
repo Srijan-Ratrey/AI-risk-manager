@@ -1,3 +1,25 @@
+> [!WARNING]
+> **SUPERSEDED — kept for provenance, do not read as current.**
+>
+> This is the ORIGINAL plan, written before the dataset was inspected. Three of
+> its signature features turned out to be uncomputable on IEEE-CIS, which has no
+> merchant identifier, no card/device/IP identifier, and no payment-method or
+> currency column:
+>
+> - per-merchant thresholds (section 6)
+> - per-card velocity features (section 2) and the velocity baseline (section 4)
+> - the UPI-vs-cards analysis (sections 1, 3)
+>
+> It also contains a technical error: section 5 recommends `scale_pos_weight`
+> instead of SMOTE on calibration grounds, but reweighting shifts the predicted
+> base rate and breaks calibration just as surely.
+>
+> **[README.md](README.md) is the submission. [EXPLAINER.md](EXPLAINER.md) is
+> the engineering rationale.** Where this file disagrees with either, they are
+> right and this is wrong.
+
+---
+
 # Razorpay Buildathon — Track 2: AI Risk Manager
 ## Full build plan
 

@@ -7,6 +7,7 @@
   "test_roc_auc": 0.8824602090138162,
   "test_recall_at_0.5pct_fpr": 0.3631889763779528,
   "test_accuracy_never_fraud": 0.9655908151861009,
+  "test_distinct_probabilities": 171,
   "test_ece_before": 0.013603931923210966,
   "test_ece_after": 0.004079356184067287,
   "test_oracle_threshold": 0.12,
@@ -27,9 +28,10 @@
     "crosses_zero": true
   },
   "review_band": [
-    0.06521739130434782,
-    0.18518518518518517
+    0.06636663078413042,
+    0.2
   ],
-  "review_rate": 0.04999661326921123,
-  "fraud_share_in_review_band": 0.09314140558848434
+  "review_rate_val_b": 0.037541910793511026,
+  "review_rate": 0.04033596369424594,
+  "fraud_share_in_review_band": 0.09760705289672544
 }
