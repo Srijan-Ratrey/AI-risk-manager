@@ -1,0 +1,47 @@
+# Cost model — every rupee assumption in this project lives here.
+#
+# This file is versioned and its version is stamped into every audit-log row,
+# so any historical decision can be replayed against the cost model that was
+# in force when it was made.
+#
+# HONESTY NOTE: IEEE-CIS TransactionAmt is denominated in USD (US e-commerce,
+# Vesta 2019). We re-denominate at a single fixed declared rate below. The
+# METHOD transfers to an Indian merchant unchanged; the absolute rupee figures
+# are illustrative, not measured from Indian payment traffic.
+version: "1.0.0"
+currency: INR
+usd_to_inr: 88.0
+
+# ---------------------------------------------------------------------------
+# False negative: fraud approved. Merchant eats the chargeback.
+# ---------------------------------------------------------------------------
+false_negative:
+  # Fraction of transaction value lost. 1.0 = goods/service already delivered
+  # and the full amount is clawed back.
+  chargeback_amount_multiplier: 1.0
+  # Flat scheme + gateway dispute fee, charged per chargeback regardless of value.
+  chargeback_fee_inr: 1000.0
+  # Ops time to handle the dispute.
+  ops_handling_inr: 200.0
+
+# ---------------------------------------------------------------------------
+# False positive: legitimate customer blocked.
+#
+# The subtle point: you lose the MARGIN on that order, not the order value.
+# Treating a blocked ₹10,000 order as a ₹10,000 loss overstates FP cost ~8x
+# and pushes the optimal threshold far too high.
+# ---------------------------------------------------------------------------
+false_positive:
+  margin_rate: 0.12
+  churn_probability: 0.05
+  customer_ltv_inr: 3000.0
+  support_contact_inr: 100.0
+
+# ---------------------------------------------------------------------------
+# Manual review band.
+# ---------------------------------------------------------------------------
+review:
+  cost_per_review_inr: 50.0
+  # Operational ceiling. A model that routes 30% of traffic to humans is
+  # unusable no matter how precise it is.
+  max_review_rate: 0.05

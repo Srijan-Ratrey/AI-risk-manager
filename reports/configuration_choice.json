@@ -1,0 +1,30 @@
+[
+  {
+    "label": "permissive per-band calibration",
+    "min_positives": 20,
+    "chosen": "per-band+global",
+    "val_b_gain_vs_default": 75314.22944449633,
+    "chosen_test_cost": 3510104.30231831,
+    "default_test_cost": 3295394.5069214683,
+    "ci": {
+      "point_estimate": 214709.7953968416,
+      "ci_low": 66365.6803386752,
+      "ci_high": 345740.9511179516,
+      "crosses_zero": false
+    }
+  },
+  {
+    "label": "strict per-band calibration",
+    "min_positives": 200,
+    "chosen": "per-band+global",
+    "val_b_gain_vs_default": 77364.47681475244,
+    "chosen_test_cost": 3362585.4577478208,
+    "default_test_cost": 3295394.5069214683,
+    "ci": {
+      "point_estimate": 67190.95082635246,
+      "ci_low": -61787.34429804407,
+      "ci_high": 191681.38113951051,
+      "crosses_zero": true
+    }
+  }
+]

@@ -1,0 +1,39 @@
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+kaggle.json
+*.pem
+*.key
+
+# Data — 1.35 GB, downloaded from Kaggle (see README)
+data/
+*.csv
+*.csv.zip
+*.parquet
+# ...but the generated report tables ARE the evidence, so keep them.
+!reports/**/*.csv
+
+# Models & artifacts
+models/
+*.pkl
+*.joblib
+*.txt.model
+audit.db
+*.sqlite
+*.sqlite3
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

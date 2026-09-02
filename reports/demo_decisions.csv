@@ -1,0 +1,1001 @@
+transaction_id,amount_inr,is_fraud,score,decision,reason_codes
+txn_3496645,9499.599731445312,0,0.0028625954198473282,APPROVE,purchaser email domain risk signal | aggregate risk feature (V29) elevated | aggregate risk feature (V130) elevated
+txn_3535576,5099.600067138672,0,0.005319148936170213,APPROVE,billing/shipping distance unusual | card type (debit/credit) risk signal | card5 contributed to risk
+txn_3505624,10296.0,0,0.004826060727930827,APPROVE,time-since-previous-activity signal (D2) unusual | purchaser email domain risk signal | aggregate risk feature (V70) elevated
+txn_3497830,8536.0,0,0.004826060727930827,APPROVE,velocity/count signal (C9) elevated | velocity/count signal (C1) elevated | aggregate risk feature (V136) elevated
+txn_3487569,3432.0,0,0.022616136919315404,APPROVE,card2 contributed to risk | identity match flag (M5) inconsistent | velocity/count signal (C13) elevated
+txn_3494532,5187.600067138672,0,0.004826060727930827,APPROVE,velocity/count signal (C1) elevated | velocity/count signal (C11) elevated | time-since-previous-activity signal (D15) unusual
+txn_3513412,2991.8240966796875,1,0.9,BLOCK,velocity/count signal (C1) elevated | aggregate risk feature (V258) elevated | time-since-previous-activity signal (D14) unusual
+txn_3542820,3168.0,0,0.008030488634816932,APPROVE,velocity/count signal (C6) elevated | aggregate risk feature (V70) elevated | identity match flag (M3) inconsistent
+txn_3489365,5192.0,0,0.004474861805738351,APPROVE,velocity/count signal (C1) elevated | velocity/count signal (C2) elevated | velocity/count signal (C11) elevated
+txn_3482280,2905.3199462890625,0,0.0028625954198473282,APPROVE,card type (debit/credit) risk signal | velocity/count signal (C13) elevated | id_14 contributed to risk
+txn_3548965,573.4960174560547,1,0.5267857142857142,BLOCK,velocity/count signal (C1) elevated | aggregate risk feature (V258) elevated | velocity/count signal (C12) elevated
+txn_3539348,4219.600067138672,0,0.0028625954198473282,APPROVE,velocity/count signal (C6) elevated | velocity/count signal (C11) elevated | velocity/count signal (C9) elevated
+txn_3483049,2283.600067138672,1,0.0028625954198473282,APPROVE,velocity/count signal (C1) elevated | velocity/count signal (C6) elevated | card1 contributed to risk
+txn_3563792,1601.4239959716797,1,0.5267857142857142,BLOCK,velocity/count signal (C14) elevated | velocity/count signal (C13) elevated | aggregate risk feature (V258) elevated
+txn_3504555,15048.0,0,0.014556962025316455,APPROVE,transaction amount unusual for this profile | purchaser email domain risk signal | time-since-previous-activity signal (D10) unusual
+txn_3491099,6336.0,0,0.0028625954198473282,APPROVE,aggregate risk feature (V311) elevated | aggregate risk feature (V62) elevated | aggregate risk feature (V309) elevated
+txn_3521161,4312.0,0,0.024603836530442035,APPROVE,card1 contributed to risk | purchaser email domain risk signal | identity match flag (M6) inconsistent
+txn_3571313,9548.0,0,0.004826060727930827,APPROVE,velocity/count signal (C13) elevated | aggregate risk feature (V70) elevated | identity match flag (M5) inconsistent
+txn_3558520,3163.600067138672,0,0.004474861805738351,APPROVE,velocity/count signal (C13) elevated | card2 contributed to risk | purchaser email domain risk signal
+txn_3559491,24640.0,0,0.008030488634816932,APPROVE,transaction amount unusual for this profile | time-since-previous-activity signal (D2) unusual | aggregate risk feature (V136) elevated
+txn_3487062,2283.600067138672,0,0.0028625954198473282,APPROVE,velocity/count signal (C1) elevated | aggregate risk feature (V294) elevated | velocity/count signal (C6) elevated
+txn_3510458,2283.600067138672,0,0.0028625954198473282,APPROVE,purchaser email domain risk signal | card type (debit/credit) risk signal | velocity/count signal (C1) elevated
+txn_3565807,2723.600067138672,0,0.0028625954198473282,APPROVE,billing address risk signal | velocity/count signal (C13) elevated | velocity/count signal (C1) elevated
+txn_3544844,29480.0,0,0.004826060727930827,APPROVE,transaction amount unusual for this profile | aggregate risk feature (V82) elevated | time-since-previous-activity signal (D2) unusual
+txn_3567035,12408.0,0,0.022616136919315404,APPROVE,transaction amount unusual for this profile | velocity/count signal (C13) elevated | identity match flag (M5) inconsistent
+txn_3460726,4400.0,0,0.008030488634816932,APPROVE,operating system risk signal | aggregate risk feature (V294) elevated | card type (debit/credit) risk signal
+txn_3541670,31944.0,1,0.5267857142857142,BLOCK,transaction amount unusual for this profile | aggregate risk feature (V281) elevated | aggregate risk feature (V294) elevated
+txn_3465390,18832.0,0,0.022616136919315404,APPROVE,aggregate risk feature (V294) elevated | velocity/count signal (C1) elevated | card type (debit/credit) risk signal
+txn_3518858,3432.0,1,0.011466505733252867,APPROVE,identity match flag (M5) inconsistent | aggregate risk feature (V294) elevated | velocity/count signal (C6) elevated
+txn_3474663,2992.0,0,0.0028625954198473282,APPROVE,velocity/count signal (C13) elevated | aggregate risk feature (V70) elevated | card2 contributed to risk
+txn_3478846,8800.0,0,0.0032074126870990736,APPROVE,aggregate risk feature (V258) elevated | card type (debit/credit) risk signal | id_11 contributed to risk
+txn_3533820,29480.0,0,0.01620491374803973,APPROVE,transaction amount unusual for this profile | card2 contributed to risk | time-since-previous-activity signal (D10) unusual
+txn_3564752,2640.0,1,0.024603836530442035,APPROVE,velocity/count signal (C8) elevated | aggregate risk feature (V294) elevated | velocity/count signal (C1) elevated
+txn_3555358,2992.0,1,0.7831325301204819,BLOCK,velocity/count signal (C1) elevated | time-since-previous-activity signal (D4) unusual | billing/shipping distance unusual
+txn_3496392,7119.903747558594,0,0.022616136919315404,APPROVE,card type (debit/credit) risk signal | velocity/count signal (C13) elevated | purchaser email domain risk signal
+txn_3552300,5099.600067138672,0,1e-06,APPROVE,velocity/count signal (C1) elevated | velocity/count signal (C11) elevated | velocity/count signal (C5) elevated
+txn_3510650,4840.0,1,0.01620491374803973,APPROVE,velocity/count signal (C8) elevated | velocity/count signal (C11) elevated | time-since-previous-activity signal (D2) unusual
+txn_3524545,1926.055923461914,1,0.008030488634816932,APPROVE,browser risk signal | aggregate risk feature (V258) elevated | recipient email domain risk signal
+txn_3526334,16715.599731445312,0,0.0028625954198473282,APPROVE,transaction amount unusual for this profile | card2 contributed to risk | time-since-previous-activity signal (D10) unusual
+txn_3512125,2552.0,0,0.0028625954198473282,APPROVE,velocity/count signal (C6) elevated | aggregate risk feature (V54) elevated | card2 contributed to risk
+txn_3488414,3163.600067138672,0,0.0028625954198473282,APPROVE,velocity/count signal (C1) elevated | velocity/count signal (C11) elevated | velocity/count signal (C2) elevated
+txn_3507012,13200.0,1,0.2807017543859649,BLOCK,transaction amount unusual for this profile | velocity/count signal (C14) elevated | velocity/count signal (C13) elevated
+txn_3507769,7788.880187988281,0,0.0028625954198473282,APPROVE,velocity/count signal (C1) elevated | velocity/count signal (C11) elevated | velocity/count signal (C2) elevated
+txn_3509265,4312.0,0,0.0028625954198473282,APPROVE,card type (debit/credit) risk signal | velocity/count signal (C6) elevated | aggregate risk feature (V70) elevated
+txn_3474628,10296.0,1,0.06026785714285715,APPROVE,velocity/count signal (C13) elevated | velocity/count signal (C14) elevated | purchaser email domain risk signal
+txn_3474693,26400.0,0,0.11591962905718702,REVIEW,browser risk signal | transaction amount unusual for this profile | velocity/count signal (C13) elevated
+txn_3577242,27451.60107421875,0,0.022616136919315404,APPROVE,transaction amount unusual for this profile | time-since-previous-activity signal (D10) unusual | card1 contributed to risk
+txn_3558325,9499.599731445312,0,0.0028625954198473282,APPROVE,identity match flag (M6) inconsistent | velocity/count signal (C13) elevated | transaction amount unusual for this profile
+txn_3467736,19536.0,1,0.04038461538461539,APPROVE,aggregate risk feature (V294) elevated | aggregate risk feature (V317) elevated | transaction amount unusual for this profile
+txn_3522403,1677.1920013427734,1,0.78,BLOCK,velocity/count signal (C14) elevated | aggregate risk feature (V258) elevated | recipient email domain risk signal
+txn_3569361,6776.0,0,0.011466505733252867,APPROVE,time-since-previous-activity signal (D10) unusual | aggregate risk feature (V294) elevated | card1 contributed to risk
+txn_3547032,8800.0,0,0.0028625954198473282,APPROVE,id_20 contributed to risk | velocity/count signal (C13) elevated | card type (debit/credit) risk signal
+txn_3554410,11875.599731445312,0,0.004826060727930827,APPROVE,time-since-previous-activity signal (D10) unusual | transaction amount unusual for this profile | card5 contributed to risk
+txn_3557564,5979.5997314453125,0,0.0028625954198473282,APPROVE,card1 contributed to risk | purchaser email domain risk signal | billing address risk signal
+txn_3521959,4400.0,0,0.0028625954198473282,APPROVE,card type (debit/credit) risk signal | velocity/count signal (C13) elevated | time-since-previous-activity signal (D1) unusual
+txn_3571932,13200.0,0,0.11591962905718702,REVIEW,aggregate risk feature (V258) elevated | transaction amount unusual for this profile | velocity/count signal (C13) elevated
+txn_3483879,1931.6000671386719,0,0.004474861805738351,APPROVE,velocity/count signal (C11) elevated | time-since-previous-activity signal (D10) unusual | velocity/count signal (C13) elevated
+txn_3553791,3036.0,0,0.022616136919315404,APPROVE,velocity/count signal (C13) elevated | identity match flag (M5) inconsistent | aggregate risk feature (V70) elevated
+txn_3547514,5192.0,0,0.008030488634816932,APPROVE,time-since-previous-activity signal (D2) unusual | velocity/count signal (C1) elevated | aggregate risk feature (V70) elevated
+txn_3489719,4747.600067138672,0,0.0032074126870990736,APPROVE,velocity/count signal (C1) elevated | card2 contributed to risk | velocity/count signal (C11) elevated
+txn_3538156,10296.0,0,0.37628865979381443,BLOCK,card2 contributed to risk | card1 contributed to risk | velocity/count signal (C13) elevated
+txn_3567011,5099.600067138672,0,0.008030488634816932,APPROVE,card type (debit/credit) risk signal | velocity/count signal (C13) elevated | billing address risk signal
+txn_3488630,5099.600067138672,0,0.0028625954198473282,APPROVE,card1 contributed to risk | velocity/count signal (C6) elevated | time-since-previous-activity signal (D4) unusual
+txn_3537503,3083.8718872070312,1,0.6266666666666667,BLOCK,aggregate risk feature (V258) elevated | velocity/count signal (C1) elevated | velocity/count signal (C13) elevated
+txn_3465738,595.1440010070801,0,0.014556962025316455,APPROVE,browser risk signal | purchaser email domain risk signal | card3 contributed to risk
+txn_3564268,3872.0,0,0.004474861805738351,APPROVE,billing/shipping distance unusual | velocity/count signal (C9) elevated | card2 contributed to risk
+txn_3473538,3163.600067138672,0,0.008030488634816932,APPROVE,time-since-previous-activity signal (D15) unusual | billing address risk signal | purchaser email domain risk signal
+txn_3506356,2547.600067138672,0,0.0028625954198473282,APPROVE,velocity/count signal (C1) elevated | card1 contributed to risk | aggregate risk feature (V7) elevated
+txn_3572748,9499.599731445312,0,0.0028625954198473282,APPROVE,velocity/count signal (C1) elevated | card1 contributed to risk | purchaser email domain risk signal
+txn_3561930,2921.5121154785156,1,0.6266666666666667,BLOCK,velocity/count signal (C14) elevated | velocity/count signal (C13) elevated | aggregate risk feature (V258) elevated
+txn_3494889,9587.599731445312,0,0.01620491374803973,APPROVE,aggregate risk feature (V311) elevated | aggregate risk feature (V281) elevated | time-since-previous-activity signal (D2) unusual
+txn_3517483,4944.984069824219,0,0.011466505733252867,APPROVE,velocity/count signal (C13) elevated | velocity/count signal (C14) elevated | card1 contributed to risk
+txn_3462632,18563.599731445312,1,0.005319148936170213,APPROVE,velocity/count signal (C1) elevated | transaction amount unusual for this profile | card type (debit/credit) risk signal
+txn_3460905,3036.0,0,0.004826060727930827,APPROVE,card2 contributed to risk | purchaser email domain risk signal | card5 contributed to risk
+txn_3540934,22000.0,1,0.04038461538461539,APPROVE,transaction amount unusual for this profile | velocity/count signal (C13) elevated | velocity/count signal (C14) elevated
+txn_3494100,17771.599731445312,0,0.008030488634816932,APPROVE,transaction amount unusual for this profile | billing/shipping distance unusual | purchaser email domain risk signal
+txn_3470649,1579.6000671386719,0,0.0028625954198473282,APPROVE,time-since-previous-activity signal (D2) unusual | velocity/count signal (C2) elevated | velocity/count signal (C1) elevated
+txn_3543186,3163.600067138672,0,0.0032074126870990736,APPROVE,velocity/count signal (C5) elevated | card2 contributed to risk | velocity/count signal (C1) elevated
+txn_3532948,4312.0,0,0.036511156186612576,APPROVE,velocity/count signal (C13) elevated | identity match flag (M5) inconsistent | identity match flag (M6) inconsistent
+txn_3477728,3872.0,0,0.022616136919315404,APPROVE,aggregate risk feature (V294) elevated | card2 contributed to risk | aggregate risk feature (V38) elevated
+txn_3504670,4400.0,0,0.0028625954198473282,APPROVE,aggregate risk feature (V152) elevated | velocity/count signal (C13) elevated | product category carries elevated risk
+txn_3478033,2488.728012084961,0,0.014556962025316455,APPROVE,velocity/count signal (C14) elevated | velocity/count signal (C13) elevated | recipient email domain risk signal
+txn_3567979,4312.0,0,0.008030488634816932,APPROVE,card type (debit/credit) risk signal | time-since-previous-activity signal (D5) unusual | aggregate risk feature (V70) elevated
+txn_3551046,20411.599731445312,0,0.011466505733252867,APPROVE,transaction amount unusual for this profile | card2 contributed to risk | velocity/count signal (C6) elevated
+txn_3555950,18128.0,1,0.024603836530442035,APPROVE,aggregate risk feature (V294) elevated | transaction amount unusual for this profile | time-since-previous-activity signal (D15) unusual
+txn_3566844,6776.0,1,0.008030488634816932,APPROVE,aggregate risk feature (V294) elevated | velocity/count signal (C9) elevated | aggregate risk feature (V54) elevated
+txn_3509348,2488.728012084961,0,0.036511156186612576,APPROVE,card type (debit/credit) risk signal | id_20 contributed to risk | velocity/count signal (C13) elevated
+txn_3491540,8800.0,0,0.0028625954198473282,APPROVE,recipient email domain risk signal | velocity/count signal (C13) elevated | id_13 contributed to risk
+txn_3565730,2640.0,1,0.926605504587156,BLOCK,aggregate risk feature (V258) elevated | velocity/count signal (C1) elevated | velocity/count signal (C13) elevated
+txn_3563318,14075.599731445312,0,0.004474861805738351,APPROVE,transaction amount unusual for this profile | aggregate risk feature (V320) elevated | time-since-previous-activity signal (D10) unusual
+txn_3465909,4312.0,0,0.004826060727930827,APPROVE,identity match flag (M5) inconsistent | purchaser email domain risk signal | card1 contributed to risk
+txn_3487627,10296.0,0,0.022616136919315404,APPROVE,velocity/count signal (C6) elevated | purchaser email domain risk signal | card1 contributed to risk
+txn_3473556,58432.0,1,0.06521739130434782,REVIEW,billing address risk signal | transaction amount unusual for this profile | velocity/count signal (C13) elevated
+txn_3552031,4659.600067138672,0,0.0028625954198473282,APPROVE,card1 contributed to risk | card type (debit/credit) risk signal | velocity/count signal (C11) elevated
+txn_3475876,19888.0,0,0.023761031907671416,APPROVE,velocity/count signal (C14) elevated | velocity/count signal (C13) elevated | aggregate risk feature (V294) elevated
+txn_3509703,42323.60107421875,0,0.04038461538461539,APPROVE,transaction amount unusual for this profile | velocity/count signal (C14) elevated | velocity/count signal (C13) elevated
+txn_3485198,2716.032028198242,0,0.004826060727930827,APPROVE,velocity/count signal (C13) elevated | velocity/count signal (C14) elevated | browser risk signal
+txn_3491635,5192.0,1,0.04038461538461539,APPROVE,card type (debit/credit) risk signal | aggregate risk feature (V294) elevated | time-since-previous-activity signal (D15) unusual
+txn_3531890,5099.600067138672,0,0.0028625954198473282,APPROVE,velocity/count signal (C1) elevated | velocity/count signal (C2) elevated | velocity/count signal (C11) elevated
+txn_3552102,697.9280204772949,1,0.37628865979381443,BLOCK,aggregate risk feature (V258) elevated | velocity/count signal (C1) elevated | velocity/count signal (C13) elevated
+txn_3487146,2200.0,1,0.24630541871921183,BLOCK,velocity/count signal (C14) elevated | velocity/count signal (C13) elevated | aggregate risk feature (V258) elevated
+txn_3575326,23760.0,0,0.11591962905718702,REVIEW,transaction amount unusual for this profile | velocity/count signal (C13) elevated | purchaser email domain risk signal
+txn_3500440,3432.0,1,0.37628865979381443,BLOCK,velocity/count signal (C6) elevated | card1 contributed to risk | aggregate risk feature (V294) elevated
+txn_3500395,10296.0,1,0.014556962025316455,APPROVE,aggregate risk feature (V294) elevated | card1 contributed to risk | card2 contributed to risk
+txn_3564917,5099.600067138672,0,0.004474861805738351,APPROVE,purchaser email domain risk signal | card1 contributed to risk | velocity/count signal (C13) elevated
+txn_3572426,14075.599731445312,0,0.008030488634816932,APPROVE,transaction amount unusual for this profile | billing/shipping distance unusual | card5 contributed to risk
+txn_3576554,7299.5997314453125,0,0.008030488634816932,APPROVE,velocity/count signal (C6) elevated | card type (debit/credit) risk signal | card2 contributed to risk
+txn_3532823,10296.0,0,0.004474861805738351,APPROVE,card2 contributed to risk | identity match flag (M6) inconsistent | aggregate risk feature (V70) elevated
+txn_3567741,15048.0,0,0.06026785714285715,APPROVE,transaction amount unusual for this profile | velocity/count signal (C13) elevated | purchaser email domain risk signal
+txn_3577364,6156.831726074219,1,0.07626076260762607,REVIEW,device fingerprint risk signal | velocity/count signal (C13) elevated | velocity/count signal (C14) elevated
+txn_3541801,39160.0,1,0.023761031907671416,APPROVE,transaction amount unusual for this profile | velocity/count signal (C13) elevated | purchaser email domain risk signal
+txn_3471105,3163.600067138672,0,0.01620491374803973,APPROVE,aggregate risk feature (V311) elevated | aggregate risk feature (V309) elevated | time-since-previous-activity signal (D2) unusual
+txn_3550297,3408.4158630371094,1,0.7831325301204819,BLOCK,aggregate risk feature (V258) elevated | aggregate risk feature (V87) elevated | recipient email domain risk signal
+txn_3558843,932.0960006713867,1,0.926605504587156,BLOCK,aggregate risk feature (V258) elevated | velocity/count signal (C1) elevated | velocity/count signal (C8) elevated
+txn_3562793,3163.600067138672,0,0.0028625954198473282,APPROVE,card2 contributed to risk | billing address risk signal | velocity/count signal (C11) elevated
+txn_3460881,4400.0,0,0.004826060727930827,APPROVE,recipient email domain risk signal | purchaser email domain risk signal | card2 contributed to risk
+txn_3524849,5192.0,0,0.008030488634816932,APPROVE,card1 contributed to risk | purchaser email domain risk signal | aggregate risk feature (V70) elevated
+txn_3485039,6947.5997314453125,0,0.008030488634816932,APPROVE,card1 contributed to risk | transaction amount unusual for this profile | card2 contributed to risk
+txn_3559828,5192.0,0,0.0028625954198473282,APPROVE,velocity/count signal (C6) elevated | velocity/count signal (C1) elevated | identity match flag (M5) inconsistent
+txn_3472000,2200.0,0,0.0028625954198473282,APPROVE,id_02 contributed to risk | operating system risk signal | screen resolution risk signal
+txn_3554788,8536.0,1,0.11591962905718702,REVIEW,card type (debit/credit) risk signal | aggregate risk feature (V70) elevated | velocity/count signal (C2) elevated
+txn_3465573,3432.0,0,0.004826060727930827,APPROVE,aggregate risk feature (V54) elevated | card type (debit/credit) risk signal | aggregate risk feature (V70) elevated
+txn_3504408,4400.0,0,1e-06,APPROVE,aggregate risk feature (V258) elevated | id_02 contributed to risk | velocity/count signal (C4) elevated
+txn_3469416,15048.0,0,0.022616136919315404,APPROVE,time-since-previous-activity signal (D2) unusual | transaction amount unusual for this profile | aggregate risk feature (V294) elevated
+txn_3537998,9548.0,0,0.01235657546337158,APPROVE,purchaser email domain risk signal | card1 contributed to risk | aggregate risk feature (V70) elevated
+txn_3467979,4796.0,0,0.024603836530442035,APPROVE,card type (debit/credit) risk signal | card1 contributed to risk | time-since-previous-activity signal (D4) unusual
+txn_3520264,15048.0,0,0.5267857142857142,BLOCK,card2 contributed to risk | card type (debit/credit) risk signal | purchaser email domain risk signal
+txn_3513937,5192.0,1,0.37628865979381443,BLOCK,card1 contributed to risk | billing/shipping distance unusual | card2 contributed to risk
+txn_3482136,10296.0,0,0.04038461538461539,APPROVE,card2 contributed to risk | card type (debit/credit) risk signal | transaction amount unusual for this profile
+txn_3529004,1568.9520416259766,0,0.008030488634816932,APPROVE,velocity/count signal (C13) elevated | recipient email domain risk signal | card3 contributed to risk
+txn_3519200,4483.600067138672,0,0.008030488634816932,APPROVE,card1 contributed to risk | billing address risk signal | purchaser email domain risk signal
+txn_3551578,3722.2240295410156,0,0.024603836530442035,APPROVE,velocity/count signal (C13) elevated | velocity/count signal (C14) elevated | time-since-previous-activity signal (D1) unusual
+txn_3462286,2992.0,0,0.0011547344110854503,APPROVE,aggregate risk feature (V70) elevated | time-since-previous-activity signal (D1) unusual | time-since-previous-activity signal (D11) unusual
+txn_3507315,17600.0,0,0.022616136919315404,APPROVE,velocity/count signal (C14) elevated | velocity/count signal (C13) elevated | transaction amount unusual for this profile
+txn_3494554,2185.743942260742,0,0.004826060727930827,APPROVE,velocity/count signal (C13) elevated | card1 contributed to risk | id_14 contributed to risk
+txn_3521942,5192.0,0,0.04038461538461539,APPROVE,card1 contributed to risk | velocity/count signal (C13) elevated | time-since-previous-activity signal (D4) unusual
+txn_3513277,3867.600067138672,0,0.0028625954198473282,APPROVE,card type (debit/credit) risk signal | card3 contributed to risk | purchaser email domain risk signal
+txn_3511273,3916.0,0,0.01620491374803973,APPROVE,velocity/count signal (C13) elevated | velocity/count signal (C14) elevated | aggregate risk feature (V70) elevated
+txn_3516731,5979.5997314453125,0,0.01235657546337158,APPROVE,aggregate risk feature (V294) elevated | aggregate risk feature (V12) elevated | velocity/count signal (C1) elevated
+txn_3526149,15048.0,0,0.011466505733252867,APPROVE,transaction amount unusual for this profile | aggregate risk feature (V70) elevated | card5 contributed to risk
+txn_3503906,2552.0,0,0.06521739130434782,REVIEW,purchaser email domain risk signal | card5 contributed to risk | billing address risk signal
+txn_3515828,4263.2479248046875,1,0.9024390243902439,BLOCK,aggregate risk feature (V258) elevated | velocity/count signal (C1) elevated | velocity/count signal (C13) elevated
+txn_3530121,41360.0,1,0.11591962905718702,REVIEW,transaction amount unusual for this profile | velocity/count signal (C13) elevated | velocity/count signal (C14) elevated
+txn_3514628,5192.0,0,0.008030488634816932,APPROVE,billing address risk signal | card2 contributed to risk | aggregate risk feature (V61) elevated
+txn_3520632,52800.0,1,0.5267857142857142,BLOCK,velocity/count signal (C1) elevated | device fingerprint risk signal | aggregate risk feature (V189) elevated
+txn_3461373,87472.0,1,0.07626076260762607,REVIEW,transaction amount unusual for this profile | card type (debit/credit) risk signal | velocity/count signal (C13) elevated
+txn_3515855,10296.0,0,0.0032074126870990736,APPROVE,card2 contributed to risk | velocity/count signal (C13) elevated | purchaser email domain risk signal
+txn_3567650,5187.600067138672,0,0.0032074126870990736,APPROVE,velocity/count signal (C13) elevated | purchaser email domain risk signal | card5 contributed to risk
+txn_3530061,34320.0,0,0.11591962905718702,REVIEW,transaction amount unusual for this profile | card2 contributed to risk | card type (debit/credit) risk signal
+txn_3550720,13288.0,0,0.008030488634816932,APPROVE,card3 contributed to risk | transaction amount unusual for this profile | card type (debit/credit) risk signal
+txn_3547513,5540.128112792969,1,0.926605504587156,BLOCK,velocity/count signal (C13) elevated | velocity/count signal (C1) elevated | velocity/count signal (C14) elevated
+txn_3540473,20299.224365234375,1,0.926605504587156,BLOCK,velocity/count signal (C14) elevated | transaction amount unusual for this profile | velocity/count signal (C13) elevated
+txn_3574056,10120.0,0,0.004826060727930827,APPROVE,card1 contributed to risk | billing address risk signal | aggregate risk feature (V70) elevated
+txn_3551012,1709.6639556884766,0,0.022616136919315404,APPROVE,card2 contributed to risk | velocity/count signal (C13) elevated | id_05 contributed to risk
+txn_3477831,77.26400184631348,0,0.11591962905718702,REVIEW,browser risk signal | velocity/count signal (C13) elevated | aggregate risk feature (V62) elevated
+txn_3484044,19888.0,0,0.04038461538461539,APPROVE,transaction amount unusual for this profile | velocity/count signal (C1) elevated | card1 contributed to risk
+txn_3467755,19536.0,0,0.0028625954198473282,APPROVE,transaction amount unusual for this profile | time-since-previous-activity signal (D10) unusual | time-since-previous-activity signal (D2) unusual
+txn_3567464,9108.0,0,0.008030488634816932,APPROVE,card1 contributed to risk | aggregate risk feature (V70) elevated | velocity/count signal (C2) elevated
+txn_3528533,7044.1357421875,0,0.7831325301204819,BLOCK,aggregate risk feature (V258) elevated | velocity/count signal (C13) elevated | velocity/count signal (C14) elevated
+txn_3546828,4312.0,0,0.008030488634816932,APPROVE,velocity/count signal (C6) elevated | card1 contributed to risk | aggregate risk feature (V70) elevated
+txn_3556380,2200.0,0,0.0015037593984962407,APPROVE,id_11 contributed to risk | card type (debit/credit) risk signal | id_02 contributed to risk
+txn_3513374,19888.0,0,0.6266666666666667,BLOCK,purchaser email domain risk signal | transaction amount unusual for this profile | billing address risk signal
+txn_3556797,4312.0,0,0.0028625954198473282,APPROVE,aggregate risk feature (V54) elevated | card2 contributed to risk | purchaser email domain risk signal
+txn_3533383,9235.599731445312,0,0.022616136919315404,APPROVE,purchaser email domain risk signal | card5 contributed to risk | card type (debit/credit) risk signal
+txn_3503057,3163.600067138672,0,0.014556962025316455,APPROVE,card1 contributed to risk | card2 contributed to risk | velocity/count signal (C13) elevated
+txn_3528042,2640.0,0,0.004474861805738351,APPROVE,operating system risk signal | id_02 contributed to risk | purchaser email domain risk signal
+txn_3559363,2156.0,0,0.0032074126870990736,APPROVE,billing address risk signal | velocity/count signal (C11) elevated | velocity/count signal (C6) elevated
+txn_3573147,3163.600067138672,0,1e-06,APPROVE,time-since-previous-activity signal (D2) unusual | velocity/count signal (C1) elevated | billing/shipping distance unusual
+txn_3509142,5192.0,0,0.024603836530442035,APPROVE,card type (debit/credit) risk signal | aggregate risk feature (V294) elevated | velocity/count signal (C13) elevated
+txn_3473614,19888.0,0,0.0032074126870990736,APPROVE,transaction amount unusual for this profile | card2 contributed to risk | time-since-previous-activity signal (D5) unusual
+txn_3560057,3256.0,0,0.004826060727930827,APPROVE,velocity/count signal (C2) elevated | aggregate risk feature (V70) elevated | velocity/count signal (C1) elevated
+txn_3551640,4312.0,0,0.022616136919315404,APPROVE,card2 contributed to risk | identity match flag (M5) inconsistent | billing/shipping distance unusual
+txn_3498426,9587.599731445312,0,0.004826060727930827,APPROVE,time-since-previous-activity signal (D5) unusual | velocity/count signal (C13) elevated | time-since-previous-activity signal (D10) unusual
+txn_3487178,48659.60107421875,0,0.022616136919315404,APPROVE,transaction amount unusual for this profile | velocity/count signal (C13) elevated | card type (debit/credit) risk signal
+txn_3520565,31042.0,0,0.008030488634816932,APPROVE,transaction amount unusual for this profile | card2 contributed to risk | velocity/count signal (C14) elevated
+txn_3493228,11199.231994628906,0,0.023761031907671416,APPROVE,velocity/count signal (C13) elevated | id_13 contributed to risk | velocity/count signal (C10) elevated
+txn_3539151,58432.0,0,0.023761031907671416,APPROVE,transaction amount unusual for this profile | aggregate risk feature (V320) elevated | purchaser email domain risk signal
+txn_3517102,735.7680053710938,0,0.008030488634816932,APPROVE,card type (debit/credit) risk signal | velocity/count signal (C13) elevated | card3 contributed to risk
+txn_3533451,3432.0,0,0.004474861805738351,APPROVE,card2 contributed to risk | identity match flag (M6) inconsistent | aggregate risk feature (V70) elevated
+txn_3506904,17600.0,0,0.0028625954198473282,APPROVE,aggregate risk feature (V311) elevated | card2 contributed to risk | transaction amount unusual for this profile
+txn_3551160,6776.0,0,0.023761031907671416,APPROVE,velocity/count signal (C13) elevated | velocity/count signal (C14) elevated | aggregate risk feature (V70) elevated
+txn_3544081,10296.0,0,0.07626076260762607,REVIEW,card type (debit/credit) risk signal | velocity/count signal (C13) elevated | aggregate risk feature (V70) elevated
+txn_3563723,22000.0,1,0.008030488634816932,APPROVE,transaction amount unusual for this profile | id_01 contributed to risk | card type (debit/credit) risk signal
+txn_3575392,14168.0,1,0.036511156186612576,APPROVE,aggregate risk feature (V294) elevated | card1 contributed to risk | transaction amount unusual for this profile
+txn_3459967,31851.60107421875,0,0.004826060727930827,APPROVE,transaction amount unusual for this profile | card5 contributed to risk | aggregate risk feature (V310) elevated
+txn_3495687,10296.0,0,0.04038461538461539,APPROVE,velocity/count signal (C13) elevated | card5 contributed to risk | billing/shipping distance unusual
+txn_3540900,2021.3599395751953,0,0.0028625954198473282,APPROVE,velocity/count signal (C13) elevated | card5 contributed to risk | time-since-previous-activity signal (D4) unusual
+txn_3526716,2371.600067138672,0,0.004474861805738351,APPROVE,velocity/count signal (C13) elevated | card5 contributed to risk | purchaser email domain risk signal
+txn_3568082,4312.0,0,0.014556962025316455,APPROVE,velocity/count signal (C2) elevated | time-since-previous-activity signal (D3) unusual | purchaser email domain risk signal
+txn_3525078,4400.0,0,0.06666666666666667,REVIEW,velocity/count signal (C14) elevated | velocity/count signal (C13) elevated | recipient email domain risk signal
+txn_3472133,18832.0,0,0.004826060727930827,APPROVE,time-since-previous-activity signal (D5) unusual | velocity/count signal (C1) elevated | transaction amount unusual for this profile
+txn_3510805,1590.6000671386719,0,0.06026785714285715,APPROVE,velocity/count signal (C14) elevated | velocity/count signal (C13) elevated | id_01 contributed to risk
+txn_3565453,5192.0,1,0.20668058455114824,BLOCK,velocity/count signal (C13) elevated | velocity/count signal (C14) elevated | card type (debit/credit) risk signal
+txn_3513649,4752.0,0,0.024603836530442035,APPROVE,velocity/count signal (C13) elevated | card1 contributed to risk | time-since-previous-activity signal (D2) unusual
+txn_3559831,16338.959838867188,0,0.20668058455114824,BLOCK,transaction amount unusual for this profile | id_01 contributed to risk | card type (debit/credit) risk signal
+txn_3543510,4312.0,1,0.07626076260762607,REVIEW,velocity/count signal (C13) elevated | aggregate risk feature (V294) elevated | aggregate risk feature (V70) elevated
+txn_3545951,4025.2080993652344,0,0.008030488634816932,APPROVE,aggregate risk feature (V294) elevated | aggregate risk feature (V67) elevated | velocity/count signal (C13) elevated
+txn_3572727,2640.0,0,0.004474861805738351,APPROVE,velocity/count signal (C8) elevated | id_02 contributed to risk | card1 contributed to risk
+txn_3508570,1933.3599395751953,0,0.0028625954198473282,APPROVE,time-since-previous-activity signal (D2) unusual | purchaser email domain risk signal | card5 contributed to risk
+txn_3534153,5187.600067138672,0,0.004474861805738351,APPROVE,purchaser email domain risk signal | card5 contributed to risk | time-since-previous-activity signal (D11) unusual
+txn_3460088,1082.0479583740234,0,0.01620491374803973,APPROVE,velocity/count signal (C11) elevated | card3 contributed to risk | purchaser email domain risk signal
+txn_3498585,18475.599731445312,0,0.008030488634816932,APPROVE,transaction amount unusual for this profile | velocity/count signal (C6) elevated | billing/shipping distance unusual
+txn_3502528,23320.0,0,0.004474861805738351,APPROVE,transaction amount unusual for this profile | velocity/count signal (C11) elevated | velocity/count signal (C6) elevated
+txn_3553257,26400.0,1,0.004474861805738351,APPROVE,transaction amount unusual for this profile | velocity/count signal (C14) elevated | velocity/count signal (C13) elevated
+txn_3523981,10296.0,0,0.0028625954198473282,APPROVE,time-since-previous-activity signal (D10) unusual | billing address risk signal | card5 contributed to risk
+txn_3554098,1265.9679718017578,1,0.926605504587156,BLOCK,aggregate risk feature (V258) elevated | velocity/count signal (C14) elevated | velocity/count signal (C13) elevated
+txn_3511865,5099.600067138672,0,0.0028625954198473282,APPROVE,purchaser email domain risk signal | velocity/count signal (C1) elevated | velocity/count signal (C11) elevated
+txn_3513314,2283.600067138672,0,0.0028625954198473282,APPROVE,velocity/count signal (C1) elevated | card type (debit/credit) risk signal | card3 contributed to risk
+txn_3518246,5247.9681396484375,1,0.8557692307692307,BLOCK,velocity/count signal (C1) elevated | aggregate risk feature (V258) elevated | id_01 contributed to risk
+txn_3476486,15048.0,1,0.008030488634816932,APPROVE,transaction amount unusual for this profile | aggregate risk feature (V294) elevated | identity match flag (M3) inconsistent
+txn_3563733,930.599983215332,0,0.008030488634816932,APPROVE,card type (debit/credit) risk signal | id_05 contributed to risk | velocity/count signal (C13) elevated
+txn_3476156,3163.600067138672,0,0.0028625954198473282,APPROVE,aggregate risk feature (V294) elevated | velocity/count signal (C1) elevated | purchaser email domain risk signal
+txn_3531793,6600.0,0,0.0028625954198473282,APPROVE,velocity/count signal (C13) elevated | aggregate risk feature (V67) elevated | aggregate risk feature (V62) elevated
+txn_3547011,443.6079902648926,0,0.06026785714285715,APPROVE,aggregate risk feature (V258) elevated | velocity/count signal (C1) elevated | card type (debit/credit) risk signal
+txn_3516596,15400.0,1,0.37628865979381443,BLOCK,velocity/count signal (C1) elevated | velocity/count signal (C8) elevated | transaction amount unusual for this profile
+txn_3556504,27715.60107421875,0,0.04038461538461539,APPROVE,time-since-previous-activity signal (D2) unusual | velocity/count signal (C13) elevated | card type (debit/credit) risk signal
+txn_3546602,2200.0,1,0.004474861805738351,APPROVE,recipient email domain risk signal | velocity/count signal (C8) elevated | id_02 contributed to risk
+txn_3553613,7656.0,0,0.11591962905718702,REVIEW,velocity/count signal (C13) elevated | aggregate risk feature (V294) elevated | time-since-previous-activity signal (D2) unusual
+txn_3562106,8800.0,0,0.0028625954198473282,APPROVE,aggregate risk feature (V294) elevated | aggregate risk feature (V312) elevated | velocity/count signal (C1) elevated
+txn_3491188,3432.0,0,0.11591962905718702,REVIEW,aggregate risk feature (V294) elevated | velocity/count signal (C13) elevated | aggregate risk feature (V67) elevated
+txn_3573011,58432.0,1,0.07626076260762607,REVIEW,transaction amount unusual for this profile | velocity/count signal (C13) elevated | aggregate risk feature (V131) elevated
+txn_3568855,2816.0,0,0.04038461538461539,APPROVE,velocity/count signal (C6) elevated | aggregate risk feature (V294) elevated | aggregate risk feature (V62) elevated
+txn_3473643,11484.0,0,0.004826060727930827,APPROVE,velocity/count signal (C13) elevated | transaction amount unusual for this profile | time-since-previous-activity signal (D4) unusual
+txn_3473240,4312.0,1,0.024603836530442035,APPROVE,time-since-previous-activity signal (D2) unusual | time-since-previous-activity signal (D15) unusual | aggregate risk feature (V281) elevated
+txn_3529720,5099.600067138672,0,0.0032074126870990736,APPROVE,card1 contributed to risk | velocity/count signal (C1) elevated | velocity/count signal (C11) elevated
+txn_3541013,2023.3840026855469,1,0.8557692307692307,BLOCK,velocity/count signal (C14) elevated | velocity/count signal (C1) elevated | velocity/count signal (C13) elevated
+txn_3538047,10296.0,0,0.004474861805738351,APPROVE,card type (debit/credit) risk signal | aggregate risk feature (V70) elevated | transaction amount unusual for this profile
+txn_3558684,7552.687683105469,1,0.024603836530442035,APPROVE,aggregate risk feature (V258) elevated | velocity/count signal (C13) elevated | velocity/count signal (C11) elevated
+txn_3483180,5099.600067138672,0,0.036511156186612576,APPROVE,aggregate risk feature (V311) elevated | billing address risk signal | time-since-previous-activity signal (D11) unusual
+txn_3502950,14688.783935546875,1,0.926605504587156,BLOCK,device fingerprint risk signal | velocity/count signal (C1) elevated | velocity/count signal (C13) elevated
+txn_3543057,11686.1357421875,1,0.78,BLOCK,velocity/count signal (C1) elevated | id_02 contributed to risk | recipient email domain risk signal
+txn_3569954,844.0079650878906,1,0.926605504587156,BLOCK,velocity/count signal (C1) elevated | aggregate risk feature (V258) elevated | velocity/count signal (C13) elevated
+txn_3471814,19888.0,0,0.0028625954198473282,APPROVE,transaction amount unusual for this profile | aggregate risk feature (V70) elevated | identity match flag (M3) inconsistent
+txn_3513756,1947.7039489746094,1,0.06026785714285715,APPROVE,card type (debit/credit) risk signal | velocity/count signal (C13) elevated | recipient email domain risk signal
+txn_3527932,5192.0,1,0.37628865979381443,BLOCK,velocity/count signal (C13) elevated | card type (debit/credit) risk signal | card5 contributed to risk
+txn_3476828,5099.600067138672,0,0.0028625954198473282,APPROVE,card type (debit/credit) risk signal | velocity/count signal (C2) elevated | card5 contributed to risk
+txn_3518401,8800.0,0,0.0015037593984962407,APPROVE,card1 contributed to risk | recipient email domain risk signal | velocity/count signal (C13) elevated
+txn_3573349,11704.0,0,0.005319148936170213,APPROVE,card2 contributed to risk | transaction amount unusual for this profile | aggregate risk feature (V70) elevated
+txn_3544946,10296.0,1,0.11591962905718702,REVIEW,aggregate risk feature (V294) elevated | velocity/count signal (C1) elevated | time-since-previous-activity signal (D2) unusual
+txn_3529487,3163.600067138672,0,0.004474861805738351,APPROVE,card2 contributed to risk | card1 contributed to risk | aggregate risk feature (V70) elevated
+txn_3563819,2371.600067138672,0,0.004474861805738351,APPROVE,velocity/count signal (C13) elevated | billing address risk signal | billing/shipping distance unusual
+txn_3536470,4219.600067138672,0,0.0032074126870990736,APPROVE,aggregate risk feature (V311) elevated | time-since-previous-activity signal (D2) unusual | velocity/count signal (C11) elevated
+txn_3518382,3830.4639892578125,0,0.0028625954198473282,APPROVE,velocity/count signal (C13) elevated | time-since-previous-activity signal (D14) unusual | id_20 contributed to risk
+txn_3461187,4219.600067138672,0,0.0032074126870990736,APPROVE,velocity/count signal (C13) elevated | aggregate risk feature (V70) elevated | card1 contributed to risk
+txn_3488182,6115.119812011719,0,0.0028625954198473282,APPROVE,purchaser email domain risk signal | aggregate risk feature (V87) elevated | identity match flag (M6) inconsistent
+txn_3549946,2552.0,0,0.024603836530442035,APPROVE,aggregate risk feature (V294) elevated | card type (debit/credit) risk signal | card5 contributed to risk
+txn_3522509,87472.0,1,0.04038461538461539,APPROVE,transaction amount unusual for this profile | velocity/count signal (C14) elevated | velocity/count signal (C13) elevated
+txn_3472818,11435.599731445312,0,0.024603836530442035,APPROVE,aggregate risk feature (V13) elevated | aggregate risk feature (V294) elevated | card1 contributed to risk
+txn_3477966,2552.0,0,0.14136125654450263,REVIEW,velocity/count signal (C13) elevated | velocity/count signal (C14) elevated | identity match flag (M5) inconsistent
+txn_3535905,20325.360107421875,0,0.004474861805738351,APPROVE,transaction amount unusual for this profile | aggregate risk feature (V294) elevated | card2 contributed to risk
+txn_3502030,19888.0,1,0.11591962905718702,REVIEW,card2 contributed to risk | card1 contributed to risk | aggregate risk feature (V320) elevated
+txn_3520371,6776.0,1,0.023761031907671416,APPROVE,velocity/count signal (C14) elevated | velocity/count signal (C13) elevated | card2 contributed to risk
+txn_3469221,6470.639892578125,1,0.6266666666666667,BLOCK,velocity/count signal (C14) elevated | velocity/count signal (C13) elevated | aggregate risk feature (V258) elevated
+txn_3555783,15048.0,0,0.17045454545454544,REVIEW,velocity/count signal (C13) elevated | velocity/count signal (C14) elevated | transaction amount unusual for this profile
+txn_3527291,3520.0,0,0.022616136919315404,APPROVE,aggregate risk feature (V258) elevated | aggregate risk feature (V256) elevated | screen resolution risk signal
+txn_3514316,18475.599731445312,0,0.0032074126870990736,APPROVE,transaction amount unusual for this profile | velocity/count signal (C2) elevated | card5 contributed to risk
+txn_3551224,2552.0,0,0.004826060727930827,APPROVE,velocity/count signal (C13) elevated | identity match flag (M5) inconsistent | aggregate risk feature (V70) elevated
+txn_3515651,3432.0,0,0.008030488634816932,APPROVE,card1 contributed to risk | velocity/count signal (C6) elevated | billing address risk signal
+txn_3468126,9416.0,1,0.022616136919315404,APPROVE,velocity/count signal (C6) elevated | velocity/count signal (C2) elevated | purchaser email domain risk signal
+txn_3531424,5128.904083251953,0,0.0028625954198473282,APPROVE,dist2 contributed to risk | card type (debit/credit) risk signal | time-since-previous-activity signal (D8) unusual
+txn_3475602,9196.0,0,0.04038461538461539,APPROVE,aggregate risk feature (V294) elevated | velocity/count signal (C13) elevated | card2 contributed to risk
+txn_3565352,13200.0,0,0.024603836530442035,APPROVE,velocity/count signal (C14) elevated | velocity/count signal (C13) elevated | transaction amount unusual for this profile
+txn_3494203,6600.0,1,0.04038461538461539,APPROVE,velocity/count signal (C13) elevated | velocity/count signal (C14) elevated | purchaser email domain risk signal
+txn_3562777,3432.0,0,0.005319148936170213,APPROVE,velocity/count signal (C13) elevated | purchaser email domain risk signal | identity match flag (M5) inconsistent
+txn_3487545,30870.83935546875,1,0.9024390243902439,BLOCK,aggregate risk feature (V258) elevated | aggregate risk feature (V189) elevated | id_09 contributed to risk
+txn_3577086,2552.0,0,0.022616136919315404,APPROVE,aggregate risk feature (V320) elevated | card5 contributed to risk | card2 contributed to risk
+txn_3535728,18744.0,0,0.004826060727930827,APPROVE,card1 contributed to risk | velocity/count signal (C6) elevated | transaction amount unusual for this profile
+txn_3497670,37400.0,1,0.14136125654450263,REVIEW,transaction amount unusual for this profile | card type (debit/credit) risk signal | card network risk signal
+txn_3556066,19888.0,0,0.11591962905718702,REVIEW,aggregate risk feature (V294) elevated | transaction amount unusual for this profile | aggregate risk feature (V313) elevated
+txn_3485016,2304.8079986572266,1,0.024603836530442035,APPROVE,aggregate risk feature (V258) elevated | card type (debit/credit) risk signal | velocity/count signal (C13) elevated
+txn_3553230,4312.0,0,0.004826060727930827,APPROVE,aggregate risk feature (V294) elevated | billing address risk signal | velocity/count signal (C2) elevated
+txn_3558690,5192.0,0,0.004826060727930827,APPROVE,aggregate risk feature (V294) elevated | purchaser email domain risk signal | identity match flag (M3) inconsistent
+txn_3545446,1755.6000671386719,0,0.0028625954198473282,APPROVE,velocity/count signal (C13) elevated | card1 contributed to risk | purchaser email domain risk signal
+txn_3577235,4796.0,0,0.008030488634816932,APPROVE,velocity/count signal (C13) elevated | aggregate risk feature (V70) elevated | purchaser email domain risk signal
+txn_3560006,4796.0,0,0.004826060727930827,APPROVE,velocity/count signal (C13) elevated | aggregate risk feature (V70) elevated | card2 contributed to risk
+txn_3473024,4400.0,0,0.008030488634816932,APPROVE,velocity/count signal (C13) elevated | purchaser email domain risk signal | aggregate risk feature (V70) elevated
+txn_3530190,2552.0,0,0.0028625954198473282,APPROVE,aggregate risk feature (V70) elevated | time-since-previous-activity signal (D1) unusual | purchaser email domain risk signal
+txn_3547792,15048.0,1,0.2807017543859649,BLOCK,time-since-previous-activity signal (D2) unusual | velocity/count signal (C13) elevated | transaction amount unusual for this profile
+txn_3537581,4752.0,0,0.008030488634816932,APPROVE,aggregate risk feature (V294) elevated | velocity/count signal (C9) elevated | time-since-previous-activity signal (D10) unusual
+txn_3496786,10296.0,0,0.008030488634816932,APPROVE,billing address risk signal | purchaser email domain risk signal | card5 contributed to risk
+txn_3508269,10296.0,0,0.004474861805738351,APPROVE,billing/shipping distance unusual | aggregate risk feature (V70) elevated | identity match flag (M4) inconsistent
+txn_3520433,10296.0,0,0.0028625954198473282,APPROVE,card2 contributed to risk | aggregate risk feature (V70) elevated | identity match flag (M5) inconsistent
+txn_3560297,24640.0,0,0.022616136919315404,APPROVE,transaction amount unusual for this profile | velocity/count signal (C13) elevated | time-since-previous-activity signal (D4) unusual
+txn_3542472,4679.840026855469,1,0.8557692307692307,BLOCK,aggregate risk feature (V258) elevated | velocity/count signal (C14) elevated | velocity/count signal (C13) elevated
+txn_3500736,3051.399932861328,0,0.004826060727930827,APPROVE,velocity/count signal (C13) elevated | id_20 contributed to risk | recipient email domain risk signal
+txn_3488392,30870.83935546875,1,0.926605504587156,BLOCK,velocity/count signal (C1) elevated | aggregate risk feature (V258) elevated | browser risk signal
+txn_3567429,6665.3836669921875,0,0.008030488634816932,APPROVE,card type (debit/credit) risk signal | velocity/count signal (C13) elevated | card2 contributed to risk
+txn_3541443,19888.0,0,0.022616136919315404,APPROVE,transaction amount unusual for this profile | identity match flag (M5) inconsistent | identity match flag (M6) inconsistent
+txn_3535948,2552.0,0,0.0028625954198473282,APPROVE,purchaser email domain risk signal | velocity/count signal (C13) elevated | aggregate risk feature (V70) elevated
+txn_3512848,2991.8240966796875,1,0.5648148148148149,BLOCK,velocity/count signal (C1) elevated | time-since-previous-activity signal (D14) unusual | aggregate risk feature (V258) elevated
+txn_3469797,2283.600067138672,0,0.005319148936170213,APPROVE,card1 contributed to risk | billing address risk signal | card2 contributed to risk
+txn_3567361,5099.600067138672,0,0.004826060727930827,APPROVE,card1 contributed to risk | velocity/count signal (C1) elevated | purchaser email domain risk signal
+txn_3518459,5247.9681396484375,1,0.5648148148148149,BLOCK,velocity/count signal (C1) elevated | velocity/count signal (C14) elevated | velocity/count signal (C13) elevated
+txn_3544307,4400.0,0,0.0032074126870990736,APPROVE,purchaser email domain risk signal | velocity/count signal (C13) elevated | product category carries elevated risk
+txn_3511342,3163.600067138672,0,0.0028625954198473282,APPROVE,card2 contributed to risk | purchaser email domain risk signal | identity match flag (M6) inconsistent
+txn_3524592,9499.599731445312,0,0.014556962025316455,APPROVE,aggregate risk feature (V311) elevated | billing address risk signal | aggregate risk feature (V309) elevated
+txn_3561690,5192.0,0,0.0028625954198473282,APPROVE,billing/shipping distance unusual | aggregate risk feature (V70) elevated | identity match flag (M6) inconsistent
+txn_3542523,10296.0,0,0.004826060727930827,APPROVE,aggregate risk feature (V311) elevated | identity match flag (M6) inconsistent | time-since-previous-activity signal (D15) unusual
+txn_3519818,26400.0,0,0.022616136919315404,APPROVE,transaction amount unusual for this profile | velocity/count signal (C13) elevated | velocity/count signal (C14) elevated
+txn_3477962,27940.0,1,0.06026785714285715,APPROVE,velocity/count signal (C13) elevated | velocity/count signal (C14) elevated | transaction amount unusual for this profile
+txn_3487200,165435.595703125,0,0.008030488634816932,APPROVE,transaction amount unusual for this profile | purchaser email domain risk signal | velocity/count signal (C13) elevated
+txn_3524307,5192.0,0,0.004826060727930827,APPROVE,card1 contributed to risk | aggregate risk feature (V70) elevated | card5 contributed to risk
+txn_3473122,17600.0,0,0.036511156186612576,APPROVE,transaction amount unusual for this profile | recipient email domain risk signal | id_01 contributed to risk
+txn_3559114,1568.9520416259766,1,0.78,BLOCK,aggregate risk feature (V258) elevated | velocity/count signal (C14) elevated | velocity/count signal (C13) elevated
+txn_3461170,5099.600067138672,0,0.0028625954198473282,APPROVE,purchaser email domain risk signal | card5 contributed to risk | billing address risk signal
+txn_3488471,2371.600067138672,0,0.0032074126870990736,APPROVE,velocity/count signal (C13) elevated | card5 contributed to risk | billing/shipping distance unusual
+txn_3475470,8800.0,1,0.2807017543859649,BLOCK,recipient email domain risk signal | velocity/count signal (C13) elevated | velocity/count signal (C14) elevated
+txn_3522555,12135.199462890625,0,0.022616136919315404,APPROVE,velocity/count signal (C13) elevated | velocity/count signal (C11) elevated | card1 contributed to risk
+txn_3474576,31851.60107421875,0,0.004826060727930827,APPROVE,transaction amount unusual for this profile | card2 contributed to risk | aggregate risk feature (V5) elevated
+txn_3504107,9499.599731445312,1,0.04038461538461539,APPROVE,velocity/count signal (C1) elevated | velocity/count signal (C9) elevated | aggregate risk feature (V70) elevated
+txn_3492863,8800.0,1,0.926605504587156,BLOCK,aggregate risk feature (V258) elevated | velocity/count signal (C14) elevated | velocity/count signal (C13) elevated
+txn_3525645,8096.0,1,0.06026785714285715,APPROVE,card1 contributed to risk | billing/shipping distance unusual | velocity/count signal (C6) elevated
+txn_3493244,10120.0,0,0.0028625954198473282,APPROVE,card1 contributed to risk | velocity/count signal (C1) elevated | card2 contributed to risk
+txn_3470646,5979.5997314453125,0,0.0011547344110854503,APPROVE,identity match flag (M6) inconsistent | transaction amount unusual for this profile | purchaser email domain risk signal
+txn_3529018,5099.600067138672,0,0.0028625954198473282,APPROVE,billing/shipping distance unusual | velocity/count signal (C9) elevated | card type (debit/credit) risk signal
+txn_3573825,18744.0,1,0.07626076260762607,REVIEW,transaction amount unusual for this profile | velocity/count signal (C13) elevated | card5 contributed to risk
+txn_3496717,15048.0,1,0.11591962905718702,REVIEW,velocity/count signal (C2) elevated | card1 contributed to risk | purchaser email domain risk signal
+txn_3523810,36960.0,0,0.01235657546337158,APPROVE,transaction amount unusual for this profile | aggregate risk feature (V67) elevated | velocity/count signal (C11) elevated
+txn_3499641,8536.0,1,0.06521739130434782,REVIEW,time-since-previous-activity signal (D2) unusual | transaction amount unusual for this profile | billing/shipping distance unusual
+txn_3540634,3163.600067138672,0,0.0032074126870990736,APPROVE,card2 contributed to risk | card1 contributed to risk | card5 contributed to risk
+txn_3481079,4219.600067138672,1,0.0028625954198473282,APPROVE,identity match flag (M6) inconsistent | velocity/count signal (C1) elevated | aggregate risk feature (V310) elevated
+txn_3539834,5099.600067138672,0,0.0028625954198473282,APPROVE,velocity/count signal (C6) elevated | card1 contributed to risk | velocity/count signal (C1) elevated
+txn_3547840,11000.0,0,0.008547008547008548,APPROVE,aggregate risk feature (V294) elevated | velocity/count signal (C8) elevated | velocity/count signal (C1) elevated
+txn_3505057,4674.471954345703,0,0.04038461538461539,APPROVE,id_06 contributed to risk | velocity/count signal (C13) elevated | card type (debit/credit) risk signal
+txn_3512621,30800.0,1,0.926605504587156,BLOCK,velocity/count signal (C13) elevated | aggregate risk feature (V149) elevated | transaction amount unusual for this profile
+txn_3547578,38808.0,1,0.11591962905718702,REVIEW,card type (debit/credit) risk signal | transaction amount unusual for this profile | card network risk signal
+txn_3553299,34866.479248046875,0,0.022616136919315404,APPROVE,transaction amount unusual for this profile | velocity/count signal (C13) elevated | card type (debit/credit) risk signal
+txn_3534025,8800.0,0,0.004826060727930827,APPROVE,id_02 contributed to risk | velocity/count signal (C13) elevated | purchaser email domain risk signal
+txn_3525915,4840.0,0,0.008030488634816932,APPROVE,aggregate risk feature (V258) elevated | id_02 contributed to risk | aggregate risk feature (V294) elevated
+txn_3563106,9499.599731445312,0,0.01620491374803973,APPROVE,transaction amount unusual for this profile | purchaser email domain risk signal | billing/shipping distance unusual
+txn_3489974,3163.600067138672,0,0.0028625954198473282,APPROVE,card2 contributed to risk | velocity/count signal (C2) elevated | card5 contributed to risk
+txn_3539952,5247.9681396484375,0,0.01620491374803973,APPROVE,aggregate risk feature (V258) elevated | id_20 contributed to risk | id_02 contributed to risk
+txn_3535870,1395.8560409545898,1,0.926605504587156,BLOCK,velocity/count signal (C1) elevated | aggregate risk feature (V258) elevated | velocity/count signal (C12) elevated
+txn_3497319,8800.0,0,0.0011547344110854503,APPROVE,id_19 contributed to risk | velocity/count signal (C13) elevated | card type (debit/credit) risk signal
+txn_3460007,7656.0,0,0.004474861805738351,APPROVE,velocity/count signal (C9) elevated | velocity/count signal (C2) elevated | time-since-previous-activity signal (D2) unusual
+txn_3462956,19888.0,1,0.24630541871921183,BLOCK,velocity/count signal (C14) elevated | velocity/count signal (C13) elevated | transaction amount unusual for this profile
+txn_3488695,1282.2480087280273,1,0.022616136919315404,APPROVE,device fingerprint risk signal | id_01 contributed to risk | card1 contributed to risk
+txn_3482730,19888.0,0,0.022616136919315404,APPROVE,transaction amount unusual for this profile | card2 contributed to risk | purchaser email domain risk signal
+txn_3531653,42675.60107421875,0,0.023761031907671416,APPROVE,transaction amount unusual for this profile | card network risk signal | velocity/count signal (C13) elevated
+txn_3554922,5187.600067138672,1,0.036511156186612576,APPROVE,billing/shipping distance unusual | card1 contributed to risk | purchaser email domain risk signal
+txn_3508563,4717.768005371094,0,0.01235657546337158,APPROVE,velocity/count signal (C13) elevated | velocity/count signal (C11) elevated | aggregate risk feature (V281) elevated
+txn_3469630,4312.0,0,0.008030488634816932,APPROVE,velocity/count signal (C13) elevated | card1 contributed to risk | aggregate risk feature (V70) elevated
+txn_3559204,5192.0,0,0.0028625954198473282,APPROVE,purchaser email domain risk signal | aggregate risk feature (V83) elevated | aggregate risk feature (V309) elevated
+txn_3501382,9943.119812011719,0,0.008030488634816932,APPROVE,card1 contributed to risk | aggregate risk feature (V70) elevated | billing address risk signal
+txn_3487112,10296.0,0,0.0028625954198473282,APPROVE,velocity/count signal (C1) elevated | velocity/count signal (C11) elevated | billing address risk signal
+txn_3521551,10296.0,0,0.0028625954198473282,APPROVE,aggregate risk feature (V70) elevated | purchaser email domain risk signal | billing/shipping distance unusual
+txn_3493366,272267.595703125,0,0.024603836530442035,APPROVE,card type (debit/credit) risk signal | purchaser email domain risk signal | velocity/count signal (C13) elevated
+txn_3507117,3432.0,0,0.0028625954198473282,APPROVE,card type (debit/credit) risk signal | card1 contributed to risk | card2 contributed to risk
+txn_3510279,5669.927978515625,1,0.8557692307692307,BLOCK,aggregate risk feature (V258) elevated | velocity/count signal (C1) elevated | velocity/count signal (C13) elevated
+txn_3574271,4312.0,1,0.26666666666666666,BLOCK,velocity/count signal (C1) elevated | velocity/count signal (C6) elevated | card1 contributed to risk
+txn_3573656,800.7119979858398,1,0.37628865979381443,BLOCK,velocity/count signal (C14) elevated | velocity/count signal (C13) elevated | recipient email domain risk signal
+txn_3519247,17688.0,0,0.004826060727930827,APPROVE,transaction amount unusual for this profile | aggregate risk feature (V70) elevated | purchaser email domain risk signal
+txn_3480371,5099.600067138672,0,0.004826060727930827,APPROVE,velocity/count signal (C11) elevated | time-since-previous-activity signal (D15) unusual | card5 contributed to risk
+txn_3507889,5187.600067138672,1,0.004826060727930827,APPROVE,billing country risk signal | velocity/count signal (C13) elevated | card1 contributed to risk
+txn_3571210,5192.0,0,0.008030488634816932,APPROVE,billing address risk signal | identity match flag (M3) inconsistent | identity match flag (M6) inconsistent
+txn_3487742,10296.0,0,0.01235657546337158,APPROVE,velocity/count signal (C1) elevated | velocity/count signal (C6) elevated | card1 contributed to risk
+txn_3555365,38278.240966796875,0,0.008030488634816932,APPROVE,transaction amount unusual for this profile | velocity/count signal (C13) elevated | card1 contributed to risk
+txn_3463616,8536.0,0,0.07626076260762607,REVIEW,velocity/count signal (C1) elevated | card1 contributed to risk | purchaser email domain risk signal
+txn_3558815,40553.919677734375,0,0.004826060727930827,APPROVE,transaction amount unusual for this profile | aggregate risk feature (V281) elevated | time-since-previous-activity signal (D2) unusual
+txn_3480759,5099.600067138672,0,0.004826060727930827,APPROVE,velocity/count signal (C11) elevated | time-since-previous-activity signal (D4) unusual | card5 contributed to risk
+txn_3488667,2552.0,0,0.0028625954198473282,APPROVE,card1 contributed to risk | card type (debit/credit) risk signal | purchaser email domain risk signal
+txn_3528433,3163.600067138672,0,0.0028625954198473282,APPROVE,card1 contributed to risk | aggregate risk feature (V20) elevated | aggregate risk feature (V70) elevated
+txn_3497933,8096.0,0,0.008030488634816932,APPROVE,card2 contributed to risk | card type (debit/credit) risk signal | aggregate risk feature (V70) elevated
+txn_3532312,7271.351806640625,0,0.0032074126870990736,APPROVE,velocity/count signal (C13) elevated | time-since-previous-activity signal (D2) unusual | aggregate risk feature (V272) elevated
+txn_3477239,3432.0,1,0.07626076260762607,REVIEW,card2 contributed to risk | purchaser email domain risk signal | card1 contributed to risk
+txn_3554057,4571.600067138672,0,0.008030488634816932,APPROVE,aggregate risk feature (V294) elevated | identity match flag (M3) inconsistent | time-since-previous-activity signal (D2) unusual
+txn_3537469,2537.3919677734375,1,0.926605504587156,BLOCK,velocity/count signal (C1) elevated | aggregate risk feature (V258) elevated | velocity/count signal (C13) elevated
+txn_3526679,1980.1760711669922,0,0.004474861805738351,APPROVE,velocity/count signal (C13) elevated | purchaser email domain risk signal | card2 contributed to risk
+txn_3535698,29480.0,0,0.005319148936170213,APPROVE,transaction amount unusual for this profile | card network risk signal | card type (debit/credit) risk signal
+txn_3498699,7827.5997314453125,0,0.004826060727930827,APPROVE,billing/shipping distance unusual | card5 contributed to risk | transaction amount unusual for this profile
+txn_3511888,3432.0,0,0.004826060727930827,APPROVE,velocity/count signal (C13) elevated | aggregate risk feature (V70) elevated | billing/shipping distance unusual
+txn_3513670,2137.0799865722656,0,0.008030488634816932,APPROVE,velocity/count signal (C13) elevated | purchaser email domain risk signal | recipient email domain risk signal
+txn_3537576,2992.0,0,0.004474861805738351,APPROVE,billing address risk signal | aggregate risk feature (V70) elevated | purchaser email domain risk signal
+txn_3536575,12848.0,0,0.022616136919315404,APPROVE,transaction amount unusual for this profile | velocity/count signal (C13) elevated | purchaser email domain risk signal
+txn_3575072,1092.871971130371,1,0.926605504587156,BLOCK,velocity/count signal (C1) elevated | aggregate risk feature (V258) elevated | aggregate risk feature (V189) elevated
+txn_3577526,22000.0,1,0.37628865979381443,BLOCK,transaction amount unusual for this profile | screen resolution risk signal | operating system risk signal
+txn_3513829,52800.0,1,0.999999,BLOCK,velocity/count signal (C13) elevated | aggregate risk feature (V149) elevated | transaction amount unusual for this profile
+txn_3515767,7387.5997314453125,0,0.01620491374803973,APPROVE,card2 contributed to risk | velocity/count signal (C13) elevated | purchaser email domain risk signal
+txn_3558240,5187.600067138672,0,0.0028625954198473282,APPROVE,purchaser email domain risk signal | aggregate risk feature (V19) elevated | velocity/count signal (C13) elevated
+txn_3546032,3163.600067138672,0,0.0028625954198473282,APPROVE,card1 contributed to risk | velocity/count signal (C6) elevated | velocity/count signal (C2) elevated
+txn_3468923,15158.879516601562,1,0.24630541871921183,BLOCK,time-since-previous-activity signal (D2) unusual | transaction amount unusual for this profile | card type (debit/credit) risk signal
+txn_3517436,10296.0,0,0.004826060727930827,APPROVE,card1 contributed to risk | card5 contributed to risk | billing address risk signal
+txn_3460319,9499.599731445312,0,1e-06,APPROVE,card1 contributed to risk | billing address risk signal | identity match flag (M6) inconsistent
+txn_3498797,4840.0,1,0.5267857142857142,BLOCK,screen resolution risk signal | operating system risk signal | velocity/count signal (C8) elevated
+txn_3557906,8096.0,0,0.04038461538461539,APPROVE,card type (debit/credit) risk signal | time-since-previous-activity signal (D2) unusual | purchaser email domain risk signal
+txn_3545729,9548.0,0,0.024603836530442035,APPROVE,velocity/count signal (C13) elevated | velocity/count signal (C14) elevated | identity match flag (M5) inconsistent
+txn_3523365,2552.0,0,0.004826060727930827,APPROVE,velocity/count signal (C13) elevated | card2 contributed to risk | purchaser email domain risk signal
+txn_3541976,9499.599731445312,0,0.022616136919315404,APPROVE,velocity/count signal (C6) elevated | purchaser email domain risk signal | billing/shipping distance unusual
+txn_3556292,1536.4799194335938,0,0.01620491374803973,APPROVE,velocity/count signal (C13) elevated | id_01 contributed to risk | card3 contributed to risk
+txn_3531283,2552.0,0,0.0032074126870990736,APPROVE,velocity/count signal (C6) elevated | card2 contributed to risk | aggregate risk feature (V70) elevated
+txn_3505525,2552.0,0,0.20668058455114824,BLOCK,velocity/count signal (C13) elevated | velocity/count signal (C14) elevated | identity match flag (M5) inconsistent
+txn_3566800,5192.0,0,0.004474861805738351,APPROVE,card2 contributed to risk | velocity/count signal (C9) elevated | card5 contributed to risk
+txn_3518252,5247.9681396484375,1,0.926605504587156,BLOCK,velocity/count signal (C1) elevated | aggregate risk feature (V258) elevated | id_01 contributed to risk
+txn_3497777,5979.5997314453125,0,0.004826060727930827,APPROVE,velocity/count signal (C11) elevated | velocity/count signal (C13) elevated | billing address risk signal
+txn_3473803,3163.600067138672,0,0.0028625954198473282,APPROVE,aggregate risk feature (V294) elevated | velocity/count signal (C1) elevated | aggregate risk feature (V281) elevated
+txn_3566035,10296.0,0,0.01235657546337158,APPROVE,purchaser email domain risk signal | billing/shipping distance unusual | aggregate risk feature (V70) elevated
+txn_3549150,29480.0,0,0.04038461538461539,APPROVE,transaction amount unusual for this profile | card network risk signal | card type (debit/credit) risk signal
+txn_3492508,9149.360107421875,0,0.24630541871921183,BLOCK,velocity/count signal (C14) elevated | velocity/count signal (C13) elevated | velocity/count signal (C1) elevated
+txn_3520062,12848.0,0,0.11591962905718702,REVIEW,aggregate risk feature (V294) elevated | velocity/count signal (C13) elevated | card1 contributed to risk
+txn_3493060,8096.0,1,0.004826060727930827,APPROVE,aggregate risk feature (V294) elevated | aggregate risk feature (V320) elevated | purchaser email domain risk signal
+txn_3464685,17248.0,0,0.004826060727930827,APPROVE,aggregate risk feature (V294) elevated | aggregate risk feature (V317) elevated | transaction amount unusual for this profile
+txn_3488373,9147.599731445312,0,0.008030488634816932,APPROVE,velocity/count signal (C1) elevated | billing address risk signal | velocity/count signal (C2) elevated
+txn_3545818,833.1840362548828,1,0.37628865979381443,BLOCK,aggregate risk feature (V258) elevated | velocity/count signal (C1) elevated | aggregate risk feature (V189) elevated
+txn_3501806,5016.0,0,0.008030488634816932,APPROVE,aggregate risk feature (V38) elevated | velocity/count signal (C6) elevated | aggregate risk feature (V70) elevated
+txn_3569454,3163.600067138672,0,0.0028625954198473282,APPROVE,velocity/count signal (C13) elevated | billing/shipping distance unusual | time-since-previous-activity signal (D4) unusual
+txn_3470075,5099.600067138672,0,0.0028625954198473282,APPROVE,velocity/count signal (C1) elevated | velocity/count signal (C11) elevated | velocity/count signal (C2) elevated
+txn_3562595,18475.599731445312,0,0.004474861805738351,APPROVE,card1 contributed to risk | transaction amount unusual for this profile | velocity/count signal (C1) elevated
+txn_3522721,2034.2960510253906,1,0.015625,APPROVE,browser risk signal | velocity/count signal (C4) elevated | velocity/count signal (C8) elevated
+txn_3525941,9328.0,0,0.008030488634816932,APPROVE,aggregate risk feature (V258) elevated | screen resolution risk signal | aggregate risk feature (V294) elevated
+txn_3522631,5843.024230957031,1,0.999999,BLOCK,velocity/count signal (C1) elevated | aggregate risk feature (V258) elevated | velocity/count signal (C11) elevated
+txn_3533580,5099.600067138672,0,0.01620491374803973,APPROVE,card1 contributed to risk | purchaser email domain risk signal | billing address risk signal
+txn_3502399,13987.599731445312,0,0.023761031907671416,APPROVE,transaction amount unusual for this profile | billing address risk signal | velocity/count signal (C13) elevated
+txn_3494238,2272.3360443115234,0,0.0028625954198473282,APPROVE,time-since-previous-activity signal (D2) unusual | card type (debit/credit) risk signal | aggregate risk feature (V261) elevated
+txn_3575822,7040.0,0,0.008030488634816932,APPROVE,billing address risk signal | card1 contributed to risk | billing/shipping distance unusual
+txn_3522922,4659.600067138672,0,0.014556962025316455,APPROVE,velocity/count signal (C1) elevated | velocity/count signal (C13) elevated | velocity/count signal (C11) elevated
+txn_3545643,676.2799949645996,0,0.011466505733252867,APPROVE,velocity/count signal (C13) elevated | recipient email domain risk signal | purchaser email domain risk signal
+txn_3533971,11523.599731445312,0,0.036511156186612576,APPROVE,card1 contributed to risk | transaction amount unusual for this profile | velocity/count signal (C13) elevated
+txn_3573838,18128.0,0,0.022616136919315404,APPROVE,transaction amount unusual for this profile | velocity/count signal (C13) elevated | aggregate risk feature (V70) elevated
+txn_3520742,14080.0,0,0.004474861805738351,APPROVE,aggregate risk feature (V258) elevated | aggregate risk feature (V187) elevated | velocity/count signal (C1) elevated
+txn_3464852,2705.1199798583984,1,0.024603836530442035,APPROVE,dist2 contributed to risk | browser risk signal | purchaser email domain risk signal
+txn_3569669,15048.0,1,0.20668058455114824,BLOCK,card type (debit/credit) risk signal | time-since-previous-activity signal (D2) unusual | aggregate risk feature (V131) elevated
+txn_3538881,2596.0,1,0.004826060727930827,APPROVE,identity match flag (M5) inconsistent | aggregate risk feature (V294) elevated | aggregate risk feature (V70) elevated
+txn_3477708,5192.0,0,0.04038461538461539,APPROVE,card2 contributed to risk | card1 contributed to risk | velocity/count signal (C13) elevated
+txn_3570998,34320.0,0,0.008030488634816932,APPROVE,transaction amount unusual for this profile | velocity/count signal (C9) elevated | purchaser email domain risk signal
+txn_3504520,9186.583801269531,1,0.926605504587156,BLOCK,browser risk signal | velocity/count signal (C14) elevated | velocity/count signal (C13) elevated
+txn_3529438,4312.0,0,0.01235657546337158,APPROVE,card1 contributed to risk | purchaser email domain risk signal | time-since-previous-activity signal (D4) unusual
+txn_3528508,34320.0,1,0.036511156186612576,APPROVE,transaction amount unusual for this profile | aggregate risk feature (V294) elevated | billing/shipping distance unusual
+txn_3559637,2552.0,0,0.008030488634816932,APPROVE,aggregate risk feature (V5) elevated | aggregate risk feature (V70) elevated | aggregate risk feature (V82) elevated
+txn_3555788,1760.0,0,0.011466505733252867,APPROVE,id_02 contributed to risk | purchaser email domain risk signal | id_01 contributed to risk
+txn_3479812,25251.60107421875,0,0.0028625954198473282,APPROVE,transaction amount unusual for this profile | velocity/count signal (C1) elevated | velocity/count signal (C11) elevated
+txn_3539776,9499.599731445312,0,0.008030488634816932,APPROVE,velocity/count signal (C13) elevated | purchaser email domain risk signal | billing/shipping distance unusual
+txn_3550275,2552.0,0,0.008030488634816932,APPROVE,purchaser email domain risk signal | aggregate risk feature (V70) elevated | identity match flag (M5) inconsistent
+txn_3516206,2596.8800201416016,0,0.0032074126870990736,APPROVE,time-since-previous-activity signal (D14) unusual | aggregate risk feature (V258) elevated | browser risk signal
+txn_3467342,1491.6000671386719,0,0.0028625954198473282,APPROVE,velocity/count signal (C13) elevated | time-since-previous-activity signal (D15) unusual | billing address risk signal
+txn_3546094,9328.0,0,0.022616136919315404,APPROVE,aggregate risk feature (V294) elevated | screen resolution risk signal | velocity/count signal (C1) elevated
+txn_3569272,4219.600067138672,0,0.004474861805738351,APPROVE,card1 contributed to risk | card5 contributed to risk | purchaser email domain risk signal
+txn_3510263,4400.0,0,0.036511156186612576,APPROVE,recipient email domain risk signal | operating system risk signal | card1 contributed to risk
+txn_3476439,4916.296051025391,0,0.008030488634816932,APPROVE,card type (debit/credit) risk signal | velocity/count signal (C13) elevated | recipient email domain risk signal
+txn_3476607,440.0,0,0.07626076260762607,REVIEW,velocity/count signal (C1) elevated | aggregate risk feature (V294) elevated | velocity/count signal (C10) elevated
+txn_3575462,2723.600067138672,0,0.0028625954198473282,APPROVE,velocity/count signal (C1) elevated | card2 contributed to risk | aggregate risk feature (V108) elevated
+txn_3487477,15048.0,0,0.37628865979381443,BLOCK,aggregate risk feature (V294) elevated | aggregate risk feature (V12) elevated | aggregate risk feature (V13) elevated
+txn_3479080,7216.0,1,0.008030488634816932,APPROVE,aggregate risk feature (V136) elevated | aggregate risk feature (V70) elevated | time-since-previous-activity signal (D2) unusual
+txn_3479917,6776.0,0,0.008030488634816932,APPROVE,velocity/count signal (C9) elevated | velocity/count signal (C1) elevated | velocity/count signal (C11) elevated
+txn_3535907,7739.5997314453125,0,0.0028625954198473282,APPROVE,card5 contributed to risk | card2 contributed to risk | transaction amount unusual for this profile
+txn_3539796,5715.5997314453125,0,0.004826060727930827,APPROVE,velocity/count signal (C11) elevated | velocity/count signal (C2) elevated | time-since-previous-activity signal (D15) unusual
+txn_3481028,42944.0,0,0.008030488634816932,APPROVE,transaction amount unusual for this profile | aggregate risk feature (V294) elevated | aggregate risk feature (V133) elevated
+txn_3485759,880.0,1,0.5267857142857142,BLOCK,aggregate risk feature (V258) elevated | velocity/count signal (C1) elevated | velocity/count signal (C13) elevated
+txn_3491055,4312.0,0,0.014556962025316455,APPROVE,aggregate risk feature (V294) elevated | velocity/count signal (C1) elevated | aggregate risk feature (V108) elevated
+txn_3492192,4312.0,0,0.004826060727930827,APPROVE,velocity/count signal (C13) elevated | aggregate risk feature (V70) elevated | billing/shipping distance unusual
+txn_3538306,4793.360107421875,0,0.0028625954198473282,APPROVE,velocity/count signal (C13) elevated | time-since-previous-activity signal (D1) unusual | card network risk signal
+txn_3567927,5192.0,0,0.0028625954198473282,APPROVE,aggregate risk feature (V294) elevated | time-since-previous-activity signal (D10) unusual | card5 contributed to risk
+txn_3502613,19888.0,0,0.0028625954198473282,APPROVE,transaction amount unusual for this profile | aggregate risk feature (V83) elevated | aggregate risk feature (V70) elevated
+txn_3518557,13244.0,0,0.004826060727930827,APPROVE,transaction amount unusual for this profile | card1 contributed to risk | card5 contributed to risk
+txn_3512729,11000.0,0,0.0028625954198473282,APPROVE,aggregate risk feature (V258) elevated | aggregate risk feature (V187) elevated | velocity/count signal (C13) elevated
+txn_3576222,11435.599731445312,0,0.014556962025316455,APPROVE,velocity/count signal (C13) elevated | transaction amount unusual for this profile | time-since-previous-activity signal (D4) unusual
+txn_3476878,15048.0,0,0.023761031907671416,APPROVE,velocity/count signal (C13) elevated | card1 contributed to risk | transaction amount unusual for this profile
+txn_3552758,4307.600067138672,0,0.0032074126870990736,APPROVE,velocity/count signal (C13) elevated | aggregate risk feature (V5) elevated | card2 contributed to risk
+txn_3544296,346.2799949645996,1,0.024603836530442035,APPROVE,aggregate risk feature (V258) elevated | recipient email domain risk signal | velocity/count signal (C13) elevated
+txn_3469411,8800.0,0,0.004474861805738351,APPROVE,purchaser email domain risk signal | velocity/count signal (C1) elevated | velocity/count signal (C2) elevated
+txn_3552965,2542.8479919433594,1,0.6266666666666667,BLOCK,velocity/count signal (C1) elevated | velocity/count signal (C13) elevated | card type (debit/credit) risk signal
+txn_3475993,2552.0,1,0.24630541871921183,BLOCK,velocity/count signal (C6) elevated | card1 contributed to risk | aggregate risk feature (V294) elevated
+txn_3570850,31235.60107421875,0,0.004474861805738351,APPROVE,transaction amount unusual for this profile | card type (debit/credit) risk signal | velocity/count signal (C13) elevated
+txn_3551337,5192.0,0,0.024603836530442035,APPROVE,velocity/count signal (C13) elevated | billing address risk signal | identity match flag (M5) inconsistent
+txn_3470695,10296.0,0,0.004826060727930827,APPROVE,purchaser email domain risk signal | time-since-previous-activity signal (D2) unusual | aggregate risk feature (V70) elevated
+txn_3476932,2195.600067138672,0,0.0028625954198473282,APPROVE,velocity/count signal (C11) elevated | velocity/count signal (C13) elevated | aggregate risk feature (V45) elevated
+txn_3520735,10296.0,0,0.024603836530442035,APPROVE,velocity/count signal (C13) elevated | card1 contributed to risk | transaction amount unusual for this profile
+txn_3532467,8800.0,0,0.0028625954198473282,APPROVE,velocity/count signal (C13) elevated | card type (debit/credit) risk signal | id_02 contributed to risk
+txn_3472211,19888.0,1,0.14136125654450263,REVIEW,transaction amount unusual for this profile | time-since-previous-activity signal (D2) unusual | aggregate risk feature (V309) elevated
+txn_3467309,19888.0,0,0.008030488634816932,APPROVE,transaction amount unusual for this profile | time-since-previous-activity signal (D11) unusual | aggregate risk feature (V70) elevated
+txn_3485778,5751.063720703125,1,0.926605504587156,BLOCK,aggregate risk feature (V258) elevated | velocity/count signal (C13) elevated | browser risk signal
+txn_3540581,340269.595703125,0,0.022616136919315404,APPROVE,card network risk signal | velocity/count signal (C13) elevated | card2 contributed to risk
+txn_3553122,4111.799865722656,1,0.8557692307692307,BLOCK,velocity/count signal (C1) elevated | velocity/count signal (C13) elevated | aggregate risk feature (V258) elevated
+txn_3513784,117128.0,1,0.20668058455114824,BLOCK,velocity/count signal (C13) elevated | velocity/count signal (C14) elevated | transaction amount unusual for this profile
+txn_3470727,4747.600067138672,0,0.014556962025316455,APPROVE,velocity/count signal (C1) elevated | card2 contributed to risk | velocity/count signal (C2) elevated
+txn_3472855,19888.0,1,0.24630541871921183,BLOCK,transaction amount unusual for this profile | card type (debit/credit) risk signal | velocity/count signal (C13) elevated
+txn_3480110,17600.0,0,0.014556962025316455,APPROVE,transaction amount unusual for this profile | id_20 contributed to risk | purchaser email domain risk signal
+txn_3482343,9499.599731445312,0,0.0028625954198473282,APPROVE,billing address risk signal | card1 contributed to risk | velocity/count signal (C2) elevated
+txn_3523723,14168.0,0,0.008030488634816932,APPROVE,transaction amount unusual for this profile | purchaser email domain risk signal | aggregate risk feature (V70) elevated
+txn_3532573,5192.0,0,0.0032074126870990736,APPROVE,purchaser email domain risk signal | billing address risk signal | time-since-previous-activity signal (D10) unusual
+txn_3553826,5192.0,0,0.022616136919315404,APPROVE,velocity/count signal (C13) elevated | velocity/count signal (C14) elevated | aggregate risk feature (V70) elevated
+txn_3545189,48312.0,0,0.008030488634816932,APPROVE,transaction amount unusual for this profile | purchaser email domain risk signal | velocity/count signal (C13) elevated
+txn_3465277,13288.0,0,0.011466505733252867,APPROVE,transaction amount unusual for this profile | card2 contributed to risk | purchaser email domain risk signal
+txn_3475516,29480.0,0,0.023761031907671416,APPROVE,aggregate risk feature (V294) elevated | transaction amount unusual for this profile | card2 contributed to risk
+txn_3576721,1087.5039825439453,1,0.8557692307692307,BLOCK,aggregate risk feature (V258) elevated | velocity/count signal (C13) elevated | velocity/count signal (C1) elevated
+txn_3528557,4219.600067138672,0,0.0028625954198473282,APPROVE,velocity/count signal (C1) elevated | card type (debit/credit) risk signal | velocity/count signal (C9) elevated
+txn_3477623,14075.599731445312,0,0.004826060727930827,APPROVE,velocity/count signal (C1) elevated | transaction amount unusual for this profile | velocity/count signal (C11) elevated
+txn_3465992,19888.0,0,0.11591962905718702,REVIEW,transaction amount unusual for this profile | card1 contributed to risk | identity match flag (M5) inconsistent
+txn_3530097,10296.0,0,0.24630541871921183,BLOCK,velocity/count signal (C13) elevated | velocity/count signal (C14) elevated | purchaser email domain risk signal
+txn_3508593,3904.2960510253906,0,0.014556962025316455,APPROVE,card type (debit/credit) risk signal | aggregate risk feature (V294) elevated | velocity/count signal (C13) elevated
+txn_3550649,10296.0,0,0.004826060727930827,APPROVE,velocity/count signal (C1) elevated | velocity/count signal (C11) elevated | aggregate risk feature (V294) elevated
+txn_3467124,10296.0,1,0.024603836530442035,APPROVE,aggregate risk feature (V294) elevated | purchaser email domain risk signal | aggregate risk feature (V309) elevated
+txn_3515058,12408.0,0,0.024603836530442035,APPROVE,transaction amount unusual for this profile | velocity/count signal (C13) elevated | purchaser email domain risk signal
+txn_3572331,8800.0,0,0.004474861805738351,APPROVE,velocity/count signal (C13) elevated | card type (debit/credit) risk signal | product category carries elevated risk
+txn_3495808,4977.456024169922,1,0.26666666666666666,BLOCK,velocity/count signal (C13) elevated | velocity/count signal (C14) elevated | recipient email domain risk signal
+txn_3459879,87472.0,1,0.04038461538461539,APPROVE,transaction amount unusual for this profile | velocity/count signal (C13) elevated | card type (debit/credit) risk signal
+txn_3529960,4400.0,1,0.06521739130434782,REVIEW,aggregate risk feature (V294) elevated | velocity/count signal (C8) elevated | id_02 contributed to risk
+txn_3549696,2200.0,1,0.004474861805738351,APPROVE,id_09 contributed to risk | id_03 contributed to risk | velocity/count signal (C8) elevated
+txn_3507820,7739.5997314453125,0,0.0028625954198473282,APPROVE,transaction amount unusual for this profile | velocity/count signal (C6) elevated | velocity/count signal (C11) elevated
+txn_3507474,18475.599731445312,0,0.0028625954198473282,APPROVE,transaction amount unusual for this profile | billing address risk signal | aggregate risk feature (V5) elevated
+txn_3533517,39160.0,1,0.01620491374803973,APPROVE,transaction amount unusual for this profile | purchaser email domain risk signal | billing/shipping distance unusual
+txn_3468928,15048.0,0,0.022616136919315404,APPROVE,transaction amount unusual for this profile | velocity/count signal (C13) elevated | card type (debit/credit) risk signal
+txn_3474977,17600.0,0,0.023761031907671416,APPROVE,id_05 contributed to risk | id_01 contributed to risk | transaction amount unusual for this profile
+txn_3519634,7387.5997314453125,0,0.0028625954198473282,APPROVE,purchaser email domain risk signal | aggregate risk feature (V26) elevated | transaction amount unusual for this profile
+txn_3499292,9499.599731445312,0,0.0028625954198473282,APPROVE,velocity/count signal (C1) elevated | card1 contributed to risk | time-since-previous-activity signal (D10) unusual
+txn_3561660,8800.0,0,0.0028625954198473282,APPROVE,velocity/count signal (C13) elevated | velocity/count signal (C14) elevated | screen resolution risk signal
+txn_3495806,14075.599731445312,0,0.0011547344110854503,APPROVE,transaction amount unusual for this profile | aggregate risk feature (V5) elevated | aggregate risk feature (V313) elevated
+txn_3536951,39160.0,1,0.06521739130434782,REVIEW,velocity/count signal (C14) elevated | velocity/count signal (C13) elevated | transaction amount unusual for this profile
+txn_3510135,3432.0,0,0.20668058455114824,BLOCK,aggregate risk feature (V294) elevated | billing/shipping distance unusual | aggregate risk feature (V281) elevated
+txn_3489182,16715.599731445312,0,0.0028625954198473282,APPROVE,transaction amount unusual for this profile | velocity/count signal (C1) elevated | billing/shipping distance unusual
+txn_3511623,2992.0,0,0.023761031907671416,APPROVE,velocity/count signal (C13) elevated | identity match flag (M5) inconsistent | purchaser email domain risk signal
+txn_3534445,14075.599731445312,0,0.0028625954198473282,APPROVE,transaction amount unusual for this profile | card2 contributed to risk | velocity/count signal (C1) elevated
+txn_3524898,24640.0,0,0.06026785714285715,APPROVE,transaction amount unusual for this profile | velocity/count signal (C13) elevated | card type (debit/credit) risk signal
+txn_3485988,2376.0,0,0.023761031907671416,APPROVE,card1 contributed to risk | velocity/count signal (C13) elevated | aggregate risk feature (V70) elevated
+txn_3528443,29480.0,0,0.01235657546337158,APPROVE,aggregate risk feature (V294) elevated | card type (debit/credit) risk signal | velocity/count signal (C1) elevated
+txn_3499776,8800.0,0,0.0032074126870990736,APPROVE,velocity/count signal (C13) elevated | card2 contributed to risk | purchaser email domain risk signal
+txn_3558429,5720.0,1,0.004826060727930827,APPROVE,operating system risk signal | screen resolution risk signal | velocity/count signal (C13) elevated
+txn_3522660,5399.415863037109,0,0.022616136919315404,APPROVE,browser risk signal | purchaser email domain risk signal | recipient email domain risk signal
+txn_3545772,39160.0,0,0.06026785714285715,APPROVE,transaction amount unusual for this profile | time-since-previous-activity signal (D2) unusual | aggregate risk feature (V313) elevated
+txn_3543894,13200.0,1,0.14136125654450263,REVIEW,recipient email domain risk signal | transaction amount unusual for this profile | velocity/count signal (C13) elevated
+txn_3559643,22000.0,0,0.01620491374803973,APPROVE,transaction amount unusual for this profile | operating system risk signal | recipient email domain risk signal
+txn_3531641,47696.0,0,0.036511156186612576,APPROVE,aggregate risk feature (V294) elevated | card type (debit/credit) risk signal | transaction amount unusual for this profile
+txn_3476287,3432.0,0,0.008030488634816932,APPROVE,aggregate risk feature (V294) elevated | card2 contributed to risk | aggregate risk feature (V133) elevated
+txn_3520455,8096.0,0,0.0028625954198473282,APPROVE,aggregate risk feature (V70) elevated | velocity/count signal (C6) elevated | transaction amount unusual for this profile
+txn_3544623,5099.600067138672,0,0.0028625954198473282,APPROVE,velocity/count signal (C6) elevated | time-since-previous-activity signal (D10) unusual | card5 contributed to risk
+txn_3542261,3916.0,0,0.022616136919315404,APPROVE,card type (debit/credit) risk signal | velocity/count signal (C13) elevated | aggregate risk feature (V70) elevated
+txn_3466470,5016.0,1,0.008030488634816932,APPROVE,aggregate risk feature (V294) elevated | aggregate risk feature (V281) elevated | aggregate risk feature (V54) elevated
+txn_3516764,3432.0,1,0.023761031907671416,APPROVE,velocity/count signal (C6) elevated | aggregate risk feature (V70) elevated | identity match flag (M5) inconsistent
+txn_3542449,10296.0,0,0.023761031907671416,APPROVE,velocity/count signal (C1) elevated | card2 contributed to risk | purchaser email domain risk signal
+txn_3546843,4219.600067138672,0,0.0028625954198473282,APPROVE,velocity/count signal (C1) elevated | billing address risk signal | purchaser email domain risk signal
+txn_3512765,1403.599983215332,0,1e-06,APPROVE,billing/shipping distance unusual | time-since-previous-activity signal (D2) unusual | identity match flag (M6) inconsistent
+txn_3522540,83072.0,1,0.024603836530442035,APPROVE,transaction amount unusual for this profile | velocity/count signal (C14) elevated | velocity/count signal (C13) elevated
+txn_3471535,4890.863922119141,1,0.926605504587156,BLOCK,velocity/count signal (C13) elevated | velocity/count signal (C14) elevated | id_09 contributed to risk
+txn_3544984,2596.0,0,0.022616136919315404,APPROVE,card5 contributed to risk | billing/shipping distance unusual | aggregate risk feature (V281) elevated
+txn_3542494,6600.0,0,0.0028625954198473282,APPROVE,velocity/count signal (C13) elevated | time-since-previous-activity signal (D1) unusual | purchaser email domain risk signal
+txn_3559487,23315.60107421875,0,0.024603836530442035,APPROVE,transaction amount unusual for this profile | purchaser email domain risk signal | card1 contributed to risk
+txn_3531084,735.7680053710938,1,0.11591962905718702,REVIEW,aggregate risk feature (V258) elevated | velocity/count signal (C1) elevated | aggregate risk feature (V87) elevated
+txn_3561223,1742.1360778808594,1,0.11591962905718702,REVIEW,velocity/count signal (C14) elevated | velocity/count signal (C13) elevated | card1 contributed to risk
+txn_3473900,10296.0,0,0.014556962025316455,APPROVE,velocity/count signal (C13) elevated | aggregate risk feature (V294) elevated | aggregate risk feature (V70) elevated
+txn_3515207,8536.0,0,0.024603836530442035,APPROVE,card1 contributed to risk | card2 contributed to risk | purchaser email domain risk signal
+txn_3574815,2552.0,0,0.036511156186612576,APPROVE,card1 contributed to risk | aggregate risk feature (V294) elevated | aggregate risk feature (V13) elevated
+txn_3501879,7299.5997314453125,0,1e-06,APPROVE,card type (debit/credit) risk signal | velocity/count signal (C11) elevated | identity match flag (M3) inconsistent
+txn_3472943,8800.0,0,0.04038461538461539,APPROVE,velocity/count signal (C14) elevated | velocity/count signal (C13) elevated | id_01 contributed to risk
+txn_3554554,10490.479919433594,1,0.926605504587156,BLOCK,velocity/count signal (C1) elevated | aggregate risk feature (V258) elevated | aggregate risk feature (V189) elevated
+txn_3512544,13200.0,0,0.024603836530442035,APPROVE,transaction amount unusual for this profile | aggregate risk feature (V187) elevated | recipient email domain risk signal
+txn_3514970,23755.60107421875,1,0.014556962025316455,APPROVE,transaction amount unusual for this profile | aggregate risk feature (V294) elevated | aggregate risk feature (V99) elevated
+txn_3466348,2723.600067138672,0,0.004474861805738351,APPROVE,card2 contributed to risk | velocity/count signal (C13) elevated | card5 contributed to risk
+txn_3534567,3165.0079650878906,1,0.34146341463414637,BLOCK,velocity/count signal (C14) elevated | velocity/count signal (C13) elevated | id_01 contributed to risk
+txn_3574755,2552.0,0,0.004826060727930827,APPROVE,card2 contributed to risk | identity match flag (M5) inconsistent | purchaser email domain risk signal
+txn_3576132,17600.0,0,0.0032074126870990736,APPROVE,transaction amount unusual for this profile | id_01 contributed to risk | velocity/count signal (C13) elevated
+txn_3491869,4030.6641235351562,1,0.6266666666666667,BLOCK,velocity/count signal (C4) elevated | velocity/count signal (C1) elevated | recipient email domain risk signal
+txn_3568532,9499.599731445312,0,0.004826060727930827,APPROVE,transaction amount unusual for this profile | card2 contributed to risk | card type (debit/credit) risk signal
+txn_3553523,10490.479919433594,1,0.37628865979381443,BLOCK,velocity/count signal (C1) elevated | aggregate risk feature (V258) elevated | velocity/count signal (C13) elevated
+txn_3491495,1655.5439758300781,1,0.5648148148148149,BLOCK,aggregate risk feature (V258) elevated | velocity/count signal (C14) elevated | velocity/count signal (C1) elevated
+txn_3545782,5099.600067138672,0,0.0028625954198473282,APPROVE,card1 contributed to risk | card5 contributed to risk | time-since-previous-activity signal (D10) unusual
+txn_3535816,2759.239959716797,0,0.023761031907671416,APPROVE,velocity/count signal (C13) elevated | id_20 contributed to risk | velocity/count signal (C11) elevated
+txn_3463737,5192.0,0,0.04038461538461539,APPROVE,aggregate risk feature (V294) elevated | identity match flag (M5) inconsistent | purchaser email domain risk signal
+txn_3540663,2023.3840026855469,1,0.5648148148148149,BLOCK,velocity/count signal (C1) elevated | velocity/count signal (C14) elevated | velocity/count signal (C13) elevated
+txn_3482506,24640.0,1,0.24630541871921183,BLOCK,velocity/count signal (C13) elevated | velocity/count signal (C14) elevated | card type (debit/credit) risk signal
+txn_3567539,6776.0,0,1e-06,APPROVE,time-since-previous-activity signal (D4) unusual | aggregate risk feature (V70) elevated | aggregate risk feature (V30) elevated
+txn_3544581,5192.0,0,0.004474861805738351,APPROVE,purchaser email domain risk signal | identity match flag (M6) inconsistent | aggregate risk feature (V70) elevated
+txn_3495438,1760.0,1,0.926605504587156,BLOCK,screen resolution risk signal | velocity/count signal (C1) elevated | operating system risk signal
+txn_3479089,6776.0,1,0.06521739130434782,REVIEW,card2 contributed to risk | velocity/count signal (C13) elevated | time-since-previous-activity signal (D15) unusual
+txn_3477517,9587.599731445312,0,0.022616136919315404,APPROVE,card1 contributed to risk | time-since-previous-activity signal (D15) unusual | card5 contributed to risk
+txn_3544833,11924.0,0,0.004474861805738351,APPROVE,card1 contributed to risk | aggregate risk feature (V70) elevated | transaction amount unusual for this profile
+txn_3505213,10296.0,1,0.0032074126870990736,APPROVE,card2 contributed to risk | velocity/count signal (C11) elevated | identity match flag (M6) inconsistent
+txn_3510022,5192.0,0,0.0011547344110854503,APPROVE,identity match flag (M6) inconsistent | aggregate risk feature (V70) elevated | identity match flag (M5) inconsistent
+txn_3552086,784.5199966430664,1,0.06026785714285715,APPROVE,aggregate risk feature (V258) elevated | velocity/count signal (C1) elevated | velocity/count signal (C13) elevated
+txn_3559534,14864.608032226562,1,0.11591962905718702,REVIEW,velocity/count signal (C14) elevated | velocity/count signal (C13) elevated | transaction amount unusual for this profile
+txn_3515119,7736.6080322265625,0,0.06026785714285715,APPROVE,device fingerprint risk signal | velocity/count signal (C13) elevated | card1 contributed to risk
+txn_3517075,7299.5997314453125,0,0.37628865979381443,BLOCK,card2 contributed to risk | billing address risk signal | purchaser email domain risk signal
+txn_3554546,4219.600067138672,0,0.0028625954198473282,APPROVE,velocity/count signal (C1) elevated | velocity/count signal (C2) elevated | velocity/count signal (C11) elevated
+txn_3492767,6438.168273925781,0,0.011466505733252867,APPROVE,id_02 contributed to risk | card type (debit/credit) risk signal | velocity/count signal (C13) elevated
+txn_3523209,3432.0,0,0.022616136919315404,APPROVE,velocity/count signal (C13) elevated | time-since-previous-activity signal (D2) unusual | velocity/count signal (C11) elevated
+txn_3472488,2552.0,0,0.008030488634816932,APPROVE,card2 contributed to risk | aggregate risk feature (V311) elevated | card1 contributed to risk
+txn_3518336,52800.0,1,0.8557692307692307,BLOCK,velocity/count signal (C1) elevated | aggregate risk feature (V149) elevated | aggregate risk feature (V258) elevated
+txn_3544132,7656.0,0,0.0028625954198473282,APPROVE,card2 contributed to risk | aggregate risk feature (V320) elevated | aggregate risk feature (V136) elevated
+txn_3545693,4752.0,0,0.022616136919315404,APPROVE,velocity/count signal (C13) elevated | card2 contributed to risk | aggregate risk feature (V70) elevated
+txn_3460379,9587.599731445312,0,0.014556962025316455,APPROVE,velocity/count signal (C13) elevated | purchaser email domain risk signal | aggregate risk feature (V70) elevated
+txn_3528704,1817.8159637451172,1,0.8557692307692307,BLOCK,velocity/count signal (C14) elevated | velocity/count signal (C13) elevated | id_04 contributed to risk
+txn_3534140,3515.600067138672,0,0.008030488634816932,APPROVE,aggregate risk feature (V311) elevated | time-since-previous-activity signal (D2) unusual | aggregate risk feature (V294) elevated
+txn_3554835,5187.600067138672,0,0.01620491374803973,APPROVE,velocity/count signal (C13) elevated | card type (debit/credit) risk signal | card network risk signal
+txn_3550276,4400.0,0,0.0032074126870990736,APPROVE,time-since-previous-activity signal (D2) unusual | card5 contributed to risk | purchaser email domain risk signal
+txn_3496060,5192.0,0,0.0032074126870990736,APPROVE,identity match flag (M5) inconsistent | purchaser email domain risk signal | aggregate risk feature (V70) elevated
+txn_3468353,6776.0,1,0.036511156186612576,APPROVE,velocity/count signal (C13) elevated | card1 contributed to risk | billing address risk signal
+txn_3553463,9059.599731445312,0,0.0028625954198473282,APPROVE,card2 contributed to risk | card5 contributed to risk | transaction amount unusual for this profile
+txn_3528996,4771.799865722656,1,0.926605504587156,BLOCK,velocity/count signal (C1) elevated | velocity/count signal (C4) elevated | aggregate risk feature (V189) elevated
+txn_3567937,6776.0,0,0.14136125654450263,REVIEW,card1 contributed to risk | velocity/count signal (C13) elevated | time-since-previous-activity signal (D2) unusual
+txn_3533673,9944.0,0,0.008030488634816932,APPROVE,card1 contributed to risk | card2 contributed to risk | velocity/count signal (C6) elevated
+txn_3462057,1931.6000671386719,0,0.0028625954198473282,APPROVE,card2 contributed to risk | card1 contributed to risk | aggregate risk feature (V70) elevated
+txn_3515397,4659.600067138672,0,0.0028625954198473282,APPROVE,velocity/count signal (C1) elevated | velocity/count signal (C11) elevated | velocity/count signal (C2) elevated
+txn_3471984,10296.0,0,0.004474861805738351,APPROVE,aggregate risk feature (V294) elevated | billing/shipping distance unusual | card type (debit/credit) risk signal
+txn_3461978,19888.0,1,0.022616136919315404,APPROVE,velocity/count signal (C13) elevated | transaction amount unusual for this profile | time-since-previous-activity signal (D2) unusual
+txn_3558977,16275.599731445312,0,0.0028625954198473282,APPROVE,transaction amount unusual for this profile | purchaser email domain risk signal | card2 contributed to risk
+txn_3562673,5192.0,0,0.0028625954198473282,APPROVE,aggregate risk feature (V131) elevated | aggregate risk feature (V312) elevated | time-since-previous-activity signal (D2) unusual
+txn_3516737,27451.60107421875,0,0.0028625954198473282,APPROVE,transaction amount unusual for this profile | velocity/count signal (C13) elevated | card2 contributed to risk
+txn_3539063,7076.6080322265625,1,0.926605504587156,BLOCK,aggregate risk feature (V258) elevated | velocity/count signal (C1) elevated | velocity/count signal (C13) elevated
+txn_3568853,11435.599731445312,0,0.036511156186612576,APPROVE,card1 contributed to risk | velocity/count signal (C13) elevated | purchaser email domain risk signal
+txn_3572228,5099.600067138672,0,0.008030488634816932,APPROVE,velocity/count signal (C9) elevated | velocity/count signal (C2) elevated | velocity/count signal (C1) elevated
+txn_3470435,9499.599731445312,0,0.004826060727930827,APPROVE,velocity/count signal (C1) elevated | velocity/count signal (C5) elevated | card5 contributed to risk
+txn_3518569,4400.0,0,0.0028625954198473282,APPROVE,velocity/count signal (C14) elevated | velocity/count signal (C13) elevated | id_13 contributed to risk
+txn_3556337,44000.0,1,0.926605504587156,BLOCK,transaction amount unusual for this profile | aggregate risk feature (V149) elevated | screen resolution risk signal
+txn_3460092,7920.0,0,0.0011547344110854503,APPROVE,aggregate risk feature (V70) elevated | card5 contributed to risk | velocity/count signal (C6) elevated
+txn_3548360,6600.0,0,0.024603836530442035,APPROVE,aggregate risk feature (V294) elevated | velocity/count signal (C8) elevated | velocity/count signal (C1) elevated
+txn_3552375,5192.0,0,0.01620491374803973,APPROVE,card type (debit/credit) risk signal | aggregate risk feature (V70) elevated | time-since-previous-activity signal (D15) unusual
+txn_3471235,17600.0,0,0.004826060727930827,APPROVE,transaction amount unusual for this profile | browser risk signal | recipient email domain risk signal
+txn_3553410,87472.0,1,0.01620491374803973,APPROVE,transaction amount unusual for this profile | velocity/count signal (C13) elevated | card type (debit/credit) risk signal
+txn_3553555,6600.0,0,0.0028625954198473282,APPROVE,velocity/count signal (C13) elevated | card5 contributed to risk | card1 contributed to risk
+txn_3478732,5192.0,0,0.004474861805738351,APPROVE,aggregate risk feature (V311) elevated | aggregate risk feature (V294) elevated | card2 contributed to risk
+txn_3575113,15048.0,1,0.06521739130434782,REVIEW,card2 contributed to risk | velocity/count signal (C2) elevated | transaction amount unusual for this profile
+txn_3546103,9328.0,0,0.01620491374803973,APPROVE,aggregate risk feature (V294) elevated | screen resolution risk signal | velocity/count signal (C8) elevated
+txn_3573298,5187.600067138672,0,0.004826060727930827,APPROVE,velocity/count signal (C11) elevated | velocity/count signal (C13) elevated | purchaser email domain risk signal
+txn_3526557,4400.0,0,0.0028625954198473282,APPROVE,screen resolution risk signal | time-since-previous-activity signal (D8) unusual | id_02 contributed to risk
+txn_3496364,9587.599731445312,0,0.0028625954198473282,APPROVE,purchaser email domain risk signal | billing address risk signal | time-since-previous-activity signal (D5) unusual
+txn_3513627,9499.599731445312,0,0.004474861805738351,APPROVE,time-since-previous-activity signal (D10) unusual | purchaser email domain risk signal | card5 contributed to risk
+txn_3558440,3432.0,0,0.0028625954198473282,APPROVE,billing/shipping distance unusual | aggregate risk feature (V70) elevated | velocity/count signal (C6) elevated
+txn_3510788,2283.600067138672,0,0.0028625954198473282,APPROVE,card2 contributed to risk | card5 contributed to risk | purchaser email domain risk signal
+txn_3562046,10120.0,0,0.0028625954198473282,APPROVE,transaction amount unusual for this profile | aggregate risk feature (V70) elevated | aggregate risk feature (V30) elevated
+txn_3483151,5192.0,0,0.011466505733252867,APPROVE,velocity/count signal (C13) elevated | aggregate risk feature (V70) elevated | purchaser email domain risk signal
+txn_3553557,58432.0,0,0.06026785714285715,APPROVE,transaction amount unusual for this profile | aggregate risk feature (V320) elevated | aggregate risk feature (V321) elevated
+txn_3460465,17600.0,0,0.004826060727930827,APPROVE,transaction amount unusual for this profile | velocity/count signal (C13) elevated | aggregate risk feature (V54) elevated
+txn_3553171,573.4960174560547,1,0.37628865979381443,BLOCK,device fingerprint risk signal | card type (debit/credit) risk signal | card3 contributed to risk
+txn_3464756,4840.0,0,0.008030488634816932,APPROVE,card1 contributed to risk | velocity/count signal (C6) elevated | aggregate risk feature (V70) elevated
+txn_3491256,15048.0,0,0.06026785714285715,APPROVE,transaction amount unusual for this profile | velocity/count signal (C13) elevated | aggregate risk feature (V70) elevated
+txn_3490906,5099.600067138672,0,0.008030488634816932,APPROVE,velocity/count signal (C1) elevated | purchaser email domain risk signal | card type (debit/credit) risk signal
+txn_3478814,9499.599731445312,0,0.008030488634816932,APPROVE,card1 contributed to risk | purchaser email domain risk signal | transaction amount unusual for this profile
+txn_3512987,2723.600067138672,0,0.014556962025316455,APPROVE,card3 contributed to risk | card type (debit/credit) risk signal | purchaser email domain risk signal
+txn_3511203,3872.0,1,0.37628865979381443,BLOCK,velocity/count signal (C6) elevated | aggregate risk feature (V294) elevated | card1 contributed to risk
+txn_3566721,27940.0,0,0.04038461538461539,APPROVE,velocity/count signal (C13) elevated | identity match flag (M5) inconsistent | aggregate risk feature (V70) elevated
+txn_3557965,5099.600067138672,0,0.005319148936170213,APPROVE,billing address risk signal | card1 contributed to risk | card2 contributed to risk
+txn_3513839,44000.0,1,0.11591962905718702,REVIEW,transaction amount unusual for this profile | velocity/count signal (C1) elevated | velocity/count signal (C11) elevated
+txn_3543315,5192.0,1,0.24630541871921183,BLOCK,aggregate risk feature (V294) elevated | aggregate risk feature (V67) elevated | card2 contributed to risk
+txn_3521272,2904.0,0,0.004826060727930827,APPROVE,velocity/count signal (C1) elevated | aggregate risk feature (V70) elevated | card2 contributed to risk
+txn_3531605,5187.600067138672,0,0.0032074126870990736,APPROVE,velocity/count signal (C13) elevated | card5 contributed to risk | identity match flag (M6) inconsistent
+txn_3528634,5099.600067138672,0,0.0032074126870990736,APPROVE,time-since-previous-activity signal (D10) unusual | card2 contributed to risk | card5 contributed to risk
+txn_3541358,15048.0,0,0.004826060727930827,APPROVE,transaction amount unusual for this profile | aggregate risk feature (V294) elevated | purchaser email domain risk signal
+txn_3522756,3592.4241638183594,1,0.008030488634816932,APPROVE,card type (debit/credit) risk signal | velocity/count signal (C13) elevated | time-since-previous-activity signal (D14) unusual
+txn_3515519,3527.4799194335938,0,0.06026785714285715,APPROVE,card type (debit/credit) risk signal | recipient email domain risk signal | card3 contributed to risk
+txn_3558797,4307.600067138672,0,0.0032074126870990736,APPROVE,card type (debit/credit) risk signal | velocity/count signal (C13) elevated | purchaser email domain risk signal
+txn_3561107,19888.0,0,0.004474861805738351,APPROVE,velocity/count signal (C13) elevated | transaction amount unusual for this profile | card2 contributed to risk
+txn_3548479,9328.0,0,0.008030488634816932,APPROVE,aggregate risk feature (V294) elevated | velocity/count signal (C8) elevated | velocity/count signal (C1) elevated
+txn_3557735,5192.0,0,0.022616136919315404,APPROVE,card1 contributed to risk | billing address risk signal | velocity/count signal (C11) elevated
+txn_3495383,5099.600067138672,0,0.0032074126870990736,APPROVE,velocity/count signal (C1) elevated | time-since-previous-activity signal (D5) unusual | velocity/count signal (C6) elevated
+txn_3468246,5099.600067138672,0,0.005319148936170213,APPROVE,time-since-previous-activity signal (D10) unusual | card5 contributed to risk | time-since-previous-activity signal (D11) unusual
+txn_3498115,15048.0,0,0.008030488634816932,APPROVE,transaction amount unusual for this profile | aggregate risk feature (V83) elevated | card2 contributed to risk
+txn_3538049,2318.6239624023438,0,0.0028625954198473282,APPROVE,velocity/count signal (C13) elevated | card type (debit/credit) risk signal | card5 contributed to risk
+txn_3573910,12056.0,0,0.06026785714285715,APPROVE,card2 contributed to risk | velocity/count signal (C13) elevated | aggregate risk feature (V294) elevated
+txn_3470479,1298.4400100708008,0,0.008030488634816932,APPROVE,card type (debit/credit) risk signal | velocity/count signal (C13) elevated | card3 contributed to risk
+txn_3518599,773.6959838867188,0,0.008030488634816932,APPROVE,browser risk signal | purchaser email domain risk signal | recipient email domain risk signal
+txn_3577147,3380.43212890625,1,0.926605504587156,BLOCK,aggregate risk feature (V258) elevated | velocity/count signal (C1) elevated | velocity/count signal (C13) elevated
+txn_3475916,44000.0,0,0.023761031907671416,APPROVE,transaction amount unusual for this profile | velocity/count signal (C13) elevated | card1 contributed to risk
+txn_3474451,2315.543975830078,1,0.06521739130434782,REVIEW,browser risk signal | velocity/count signal (C13) elevated | recipient email domain risk signal
+txn_3522512,87472.0,1,0.04038461538461539,APPROVE,transaction amount unusual for this profile | card type (debit/credit) risk signal | aggregate risk feature (V320) elevated
+txn_3481470,2200.0,1,0.005319148936170213,APPROVE,aggregate risk feature (V258) elevated | recipient email domain risk signal | velocity/count signal (C1) elevated
+txn_3503000,4312.0,0,0.008030488634816932,APPROVE,aggregate risk feature (V294) elevated | card type (debit/credit) risk signal | billing/shipping distance unusual
+txn_3474092,10296.0,0,0.04038461538461539,APPROVE,velocity/count signal (C13) elevated | transaction amount unusual for this profile | purchaser email domain risk signal
+txn_3575689,4796.0,0,0.036511156186612576,APPROVE,velocity/count signal (C9) elevated | aggregate risk feature (V70) elevated | card2 contributed to risk
+txn_3460277,1276.7919845581055,0,0.06026785714285715,APPROVE,card type (debit/credit) risk signal | browser risk signal | id_20 contributed to risk
+txn_3559264,3163.600067138672,0,0.0028625954198473282,APPROVE,aggregate risk feature (V90) elevated | billing address risk signal | velocity/count signal (C11) elevated
+txn_3553400,14256.0,0,0.06521739130434782,REVIEW,transaction amount unusual for this profile | velocity/count signal (C1) elevated | time-since-previous-activity signal (D2) unusual
+txn_3522144,69955.60107421875,0,0.07626076260762607,REVIEW,transaction amount unusual for this profile | card2 contributed to risk | purchaser email domain risk signal
+txn_3503216,27451.60107421875,0,0.004474861805738351,APPROVE,transaction amount unusual for this profile | velocity/count signal (C2) elevated | velocity/count signal (C6) elevated
+txn_3576734,9416.0,0,0.01620491374803973,APPROVE,velocity/count signal (C13) elevated | purchaser email domain risk signal | time-since-previous-activity signal (D15) unusual
+txn_3573109,432.78401947021484,0,0.0028625954198473282,APPROVE,velocity/count signal (C13) elevated | card3 contributed to risk | identity match flag (M4) inconsistent
+txn_3519903,3163.600067138672,0,0.0032074126870990736,APPROVE,velocity/count signal (C13) elevated | billing address risk signal | billing/shipping distance unusual
+txn_3493030,8624.0,1,0.004474861805738351,APPROVE,aggregate risk feature (V294) elevated | purchaser email domain risk signal | time-since-previous-activity signal (D15) unusual
+txn_3482124,3163.600067138672,0,1e-06,APPROVE,purchaser email domain risk signal | card1 contributed to risk | time-since-previous-activity signal (D10) unusual
+txn_3564993,10138.831726074219,0,0.008030488634816932,APPROVE,velocity/count signal (C13) elevated | purchaser email domain risk signal | transaction amount unusual for this profile
+txn_3560468,58432.0,0,0.0028625954198473282,APPROVE,transaction amount unusual for this profile | velocity/count signal (C1) elevated | card1 contributed to risk
+txn_3461310,9944.0,0,0.022616136919315404,APPROVE,purchaser email domain risk signal | transaction amount unusual for this profile | card1 contributed to risk
+txn_3472861,3520.0,0,0.008030488634816932,APPROVE,recipient email domain risk signal | card type (debit/credit) risk signal | velocity/count signal (C8) elevated
+txn_3508252,2640.0,0,0.0015037593984962407,APPROVE,screen resolution risk signal | aggregate risk feature (V152) elevated | velocity/count signal (C13) elevated
+txn_3508174,5099.600067138672,0,0.0028625954198473282,APPROVE,velocity/count signal (C1) elevated | time-since-previous-activity signal (D10) unusual | velocity/count signal (C11) elevated
+txn_3469614,562.672004699707,0,0.926605504587156,BLOCK,velocity/count signal (C1) elevated | aggregate risk feature (V258) elevated | aggregate risk feature (V189) elevated
+txn_3461099,5099.600067138672,0,0.0028625954198473282,APPROVE,billing address risk signal | card1 contributed to risk | card2 contributed to risk
+txn_3543511,9149.360107421875,0,0.0028625954198473282,APPROVE,card2 contributed to risk | time-since-previous-activity signal (D10) unusual | card1 contributed to risk
+txn_3477549,10296.0,0,0.004474861805738351,APPROVE,card1 contributed to risk | transaction amount unusual for this profile | card5 contributed to risk
+txn_3556164,29480.0,0,0.5648148148148149,BLOCK,transaction amount unusual for this profile | card network risk signal | card type (debit/credit) risk signal
+txn_3488327,11875.599731445312,0,0.0028625954198473282,APPROVE,velocity/count signal (C1) elevated | purchaser email domain risk signal | transaction amount unusual for this profile
+txn_3560517,4468.904083251953,1,0.6266666666666667,BLOCK,device fingerprint risk signal | velocity/count signal (C13) elevated | velocity/count signal (C14) elevated
+txn_3493401,9499.599731445312,0,0.04038461538461539,APPROVE,velocity/count signal (C13) elevated | card2 contributed to risk | purchaser email domain risk signal
+txn_3463291,6947.5997314453125,0,0.0028625954198473282,APPROVE,card5 contributed to risk | billing address risk signal | transaction amount unusual for this profile
+txn_3558248,10296.0,1,0.04038461538461539,APPROVE,aggregate risk feature (V82) elevated | purchaser email domain risk signal | card2 contributed to risk
+txn_3557935,5099.600067138672,0,0.0028625954198473282,APPROVE,card1 contributed to risk | time-since-previous-activity signal (D10) unusual | billing address risk signal
+txn_3508350,3251.600067138672,0,0.0028625954198473282,APPROVE,time-since-previous-activity signal (D10) unusual | velocity/count signal (C6) elevated | card2 contributed to risk
+txn_3480175,19888.0,0,0.01235657546337158,APPROVE,transaction amount unusual for this profile | time-since-previous-activity signal (D11) unusual | identity match flag (M5) inconsistent
+txn_3550772,4219.600067138672,0,0.0028625954198473282,APPROVE,velocity/count signal (C13) elevated | card1 contributed to risk | billing address risk signal
+txn_3494916,1260.599983215332,1,0.926605504587156,BLOCK,velocity/count signal (C1) elevated | aggregate risk feature (V258) elevated | aggregate risk feature (V189) elevated
+txn_3514056,5979.5997314453125,0,0.0028625954198473282,APPROVE,velocity/count signal (C6) elevated | card5 contributed to risk | time-since-previous-activity signal (D10) unusual
+txn_3567290,9499.599731445312,1,0.022616136919315404,APPROVE,aggregate risk feature (V311) elevated | time-since-previous-activity signal (D2) unusual | velocity/count signal (C13) elevated
+txn_3557188,2992.0,0,0.004474861805738351,APPROVE,velocity/count signal (C13) elevated | aggregate risk feature (V70) elevated | card1 contributed to risk
+txn_3569919,443.6079902648926,1,0.9024390243902439,BLOCK,velocity/count signal (C1) elevated | velocity/count signal (C13) elevated | aggregate risk feature (V258) elevated
+txn_3528060,23051.60107421875,1,0.06521739130434782,REVIEW,transaction amount unusual for this profile | velocity/count signal (C13) elevated | card1 contributed to risk
+txn_3572542,5192.0,1,0.0028625954198473282,APPROVE,aggregate risk feature (V294) elevated | billing address risk signal | aggregate risk feature (V70) elevated
+txn_3551769,8536.0,1,0.023761031907671416,APPROVE,aggregate risk feature (V294) elevated | aggregate risk feature (V12) elevated | velocity/count signal (C9) elevated
+txn_3506529,5099.600067138672,0,0.004826060727930827,APPROVE,card1 contributed to risk | card5 contributed to risk | purchaser email domain risk signal
+txn_3478985,20851.599731445312,0,0.0028625954198473282,APPROVE,transaction amount unusual for this profile | card5 contributed to risk | billing address risk signal
+txn_3540772,58432.0,1,0.20668058455114824,BLOCK,transaction amount unusual for this profile | velocity/count signal (C1) elevated | velocity/count signal (C13) elevated
+txn_3540331,2277.7039489746094,0,0.0015037593984962407,APPROVE,aggregate risk feature (V258) elevated | aggregate risk feature (V187) elevated | id_02 contributed to risk
+txn_3519163,234.16800117492676,0,0.022616136919315404,APPROVE,aggregate risk feature (V294) elevated | aggregate risk feature (V62) elevated | velocity/count signal (C6) elevated
+txn_3508519,13992.0,0,0.20668058455114824,BLOCK,transaction amount unusual for this profile | velocity/count signal (C13) elevated | time-since-previous-activity signal (D2) unusual
+txn_3464478,9240.0,0,0.004826060727930827,APPROVE,purchaser email domain risk signal | aggregate risk feature (V317) elevated | aggregate risk feature (V70) elevated
+txn_3529000,4771.799865722656,1,0.999999,BLOCK,velocity/count signal (C1) elevated | velocity/count signal (C4) elevated | aggregate risk feature (V189) elevated
+txn_3549738,6067.5997314453125,0,0.008030488634816932,APPROVE,card2 contributed to risk | purchaser email domain risk signal | time-since-previous-activity signal (D2) unusual
+txn_3551074,11000.0,1,0.04038461538461539,APPROVE,browser risk signal | time-since-previous-activity signal (D14) unusual | recipient email domain risk signal
+txn_3466988,9499.599731445312,1,0.7831325301204819,BLOCK,velocity/count signal (C9) elevated | card1 contributed to risk | billing address risk signal
+txn_3494009,4198.304016113281,1,0.926605504587156,BLOCK,velocity/count signal (C1) elevated | aggregate risk feature (V258) elevated | aggregate risk feature (V189) elevated
+txn_3524550,5192.0,0,0.11591962905718702,REVIEW,aggregate risk feature (V294) elevated | card type (debit/credit) risk signal | purchaser email domain risk signal
+txn_3506846,5247.9681396484375,1,0.06521739130434782,REVIEW,card type (debit/credit) risk signal | velocity/count signal (C13) elevated | purchaser email domain risk signal
+txn_3510126,3018.927978515625,0,0.011466505733252867,APPROVE,velocity/count signal (C13) elevated | id_20 contributed to risk | recipient email domain risk signal
+txn_3542194,1839.4639892578125,1,0.37628865979381443,BLOCK,device fingerprint risk signal | aggregate risk feature (V258) elevated | velocity/count signal (C14) elevated
+txn_3464326,4752.0,0,1e-06,APPROVE,velocity/count signal (C1) elevated | aggregate risk feature (V294) elevated | aggregate risk feature (V70) elevated
+txn_3572365,15048.0,0,0.023761031907671416,APPROVE,transaction amount unusual for this profile | velocity/count signal (C13) elevated | purchaser email domain risk signal
+txn_3518103,29480.0,0,0.0032074126870990736,APPROVE,transaction amount unusual for this profile | identity match flag (M3) inconsistent | aggregate risk feature (V34) elevated
+txn_3540799,3432.0,0,0.0028625954198473282,APPROVE,aggregate risk feature (V70) elevated | identity match flag (M4) inconsistent | velocity/count signal (C6) elevated
+txn_3535875,1395.8560409545898,1,0.926605504587156,BLOCK,aggregate risk feature (V258) elevated | velocity/count signal (C1) elevated | velocity/count signal (C12) elevated
+txn_3527503,4312.0,0,0.01620491374803973,APPROVE,velocity/count signal (C6) elevated | identity match flag (M5) inconsistent | billing address risk signal
+txn_3500313,14075.599731445312,0,0.0028625954198473282,APPROVE,transaction amount unusual for this profile | purchaser email domain risk signal | aggregate risk feature (V310) elevated
+txn_3475819,2156.0,0,0.008030488634816932,APPROVE,billing/shipping distance unusual | velocity/count signal (C13) elevated | billing address risk signal
+txn_3465288,5192.0,1,0.2807017543859649,BLOCK,velocity/count signal (C6) elevated | card1 contributed to risk | billing/shipping distance unusual
+txn_3475255,18216.0,0,0.014556962025316455,APPROVE,velocity/count signal (C2) elevated | transaction amount unusual for this profile | identity match flag (M5) inconsistent
+txn_3460025,5192.0,0,0.17045454545454544,REVIEW,velocity/count signal (C1) elevated | card type (debit/credit) risk signal | aggregate risk feature (V294) elevated
+txn_3538464,5192.0,1,0.37628865979381443,BLOCK,card1 contributed to risk | billing/shipping distance unusual | billing address risk signal
+txn_3531234,7216.0,0,0.07626076260762607,REVIEW,billing address risk signal | velocity/count signal (C13) elevated | identity match flag (M5) inconsistent
+txn_3496711,8536.0,0,0.0028625954198473282,APPROVE,transaction amount unusual for this profile | aggregate risk feature (V320) elevated | identity match flag (M5) inconsistent
+txn_3517104,5192.0,1,0.18518518518518517,BLOCK,purchaser email domain risk signal | card1 contributed to risk | billing address risk signal
+txn_3540433,4771.799865722656,1,0.999999,BLOCK,velocity/count signal (C1) elevated | aggregate risk feature (V258) elevated | aggregate risk feature (V189) elevated
+txn_3558331,6330.015930175781,1,0.926605504587156,BLOCK,velocity/count signal (C1) elevated | velocity/count signal (C13) elevated | velocity/count signal (C4) elevated
+txn_3549029,87472.0,1,0.011466505733252867,APPROVE,transaction amount unusual for this profile | velocity/count signal (C13) elevated | time-since-previous-activity signal (D2) unusual
+txn_3523004,2107.600067138672,0,0.0028625954198473282,APPROVE,card1 contributed to risk | purchaser email domain risk signal | identity match flag (M3) inconsistent
+txn_3542850,4312.0,0,0.04038461538461539,APPROVE,velocity/count signal (C13) elevated | identity match flag (M6) inconsistent | purchaser email domain risk signal
+txn_3468642,3251.600067138672,0,0.008030488634816932,APPROVE,card2 contributed to risk | velocity/count signal (C13) elevated | billing/shipping distance unusual
+txn_3503659,2992.0,0,0.008030488634816932,APPROVE,billing address risk signal | purchaser email domain risk signal | identity match flag (M5) inconsistent
+txn_3496737,3867.600067138672,0,0.022616136919315404,APPROVE,time-since-previous-activity signal (D10) unusual | card1 contributed to risk | billing address risk signal
+txn_3528735,5099.600067138672,0,0.011466505733252867,APPROVE,purchaser email domain risk signal | velocity/count signal (C11) elevated | velocity/count signal (C1) elevated
+txn_3568843,4312.0,0,0.008030488634816932,APPROVE,aggregate risk feature (V70) elevated | card5 contributed to risk | time-since-previous-activity signal (D4) unusual
+txn_3540199,5192.0,0,0.011466505733252867,APPROVE,velocity/count signal (C13) elevated | card1 contributed to risk | aggregate risk feature (V70) elevated
+txn_3518462,5247.9681396484375,1,0.37628865979381443,BLOCK,velocity/count signal (C1) elevated | velocity/count signal (C13) elevated | velocity/count signal (C14) elevated
+txn_3513221,2723.600067138672,0,0.0028625954198473282,APPROVE,velocity/count signal (C1) elevated | card3 contributed to risk | card type (debit/credit) risk signal
+txn_3574424,8800.0,0,0.0028625954198473282,APPROVE,velocity/count signal (C14) elevated | velocity/count signal (C13) elevated | product category carries elevated risk
+txn_3568586,15400.0,0,0.11591962905718702,REVIEW,transaction amount unusual for this profile | velocity/count signal (C13) elevated | time-since-previous-activity signal (D2) unusual
+txn_3477219,3432.0,0,0.022616136919315404,APPROVE,card type (debit/credit) risk signal | aggregate risk feature (V294) elevated | identity match flag (M4) inconsistent
+txn_3554890,10490.479919433594,1,0.926605504587156,BLOCK,velocity/count signal (C1) elevated | velocity/count signal (C4) elevated | velocity/count signal (C13) elevated
+txn_3550103,145913.6787109375,0,0.011466505733252867,APPROVE,velocity/count signal (C14) elevated | velocity/count signal (C13) elevated | aggregate risk feature (V320) elevated
+txn_3572386,4219.600067138672,0,0.0028625954198473282,APPROVE,velocity/count signal (C11) elevated | purchaser email domain risk signal | aggregate risk feature (V136) elevated
+txn_3512628,6776.0,0,0.0028625954198473282,APPROVE,time-since-previous-activity signal (D11) unusual | aggregate risk feature (V70) elevated | card5 contributed to risk
+txn_3464593,2640.0,0,0.0028625954198473282,APPROVE,id_02 contributed to risk | recipient email domain risk signal | velocity/count signal (C13) elevated
+txn_3517134,25520.0,0,0.008030488634816932,APPROVE,transaction amount unusual for this profile | card3 contributed to risk | velocity/count signal (C1) elevated
+txn_3557637,10296.0,1,0.2807017543859649,BLOCK,time-since-previous-activity signal (D2) unusual | aggregate risk feature (V281) elevated | aggregate risk feature (V294) elevated
+txn_3512299,29480.0,0,0.06521739130434782,REVIEW,velocity/count signal (C14) elevated | velocity/count signal (C13) elevated | card type (debit/credit) risk signal
+txn_3523311,8800.0,0,0.004826060727930827,APPROVE,velocity/count signal (C13) elevated | velocity/count signal (C14) elevated | id_19 contributed to risk
+txn_3515129,8800.0,0,0.0032074126870990736,APPROVE,billing address risk signal | purchaser email domain risk signal | billing/shipping distance unusual
+txn_3566418,10296.0,0,0.06026785714285715,APPROVE,velocity/count signal (C13) elevated | card2 contributed to risk | identity match flag (M5) inconsistent
+txn_3534678,8800.0,0,0.0032074126870990736,APPROVE,velocity/count signal (C13) elevated | recipient email domain risk signal | screen resolution risk signal
+txn_3479806,28160.0,0,0.06521739130434782,REVIEW,card2 contributed to risk | transaction amount unusual for this profile | velocity/count signal (C13) elevated
+txn_3508514,4219.600067138672,0,0.004826060727930827,APPROVE,velocity/count signal (C1) elevated | aggregate risk feature (V90) elevated | velocity/count signal (C9) elevated
+txn_3491249,9548.0,0,0.01620491374803973,APPROVE,velocity/count signal (C13) elevated | card5 contributed to risk | aggregate risk feature (V70) elevated
+txn_3502995,3080.0,1,0.011466505733252867,APPROVE,velocity/count signal (C13) elevated | card1 contributed to risk | time-since-previous-activity signal (D1) unusual
+txn_3495525,2376.0,0,0.0032074126870990736,APPROVE,time-since-previous-activity signal (D2) unusual | aggregate risk feature (V70) elevated | time-since-previous-activity signal (D4) unusual
+txn_3566555,2373.3599395751953,0,0.0032074126870990736,APPROVE,velocity/count signal (C11) elevated | purchaser email domain risk signal | time-since-previous-activity signal (D10) unusual
+txn_3480610,2640.0,1,0.04038461538461539,APPROVE,aggregate risk feature (V294) elevated | id_02 contributed to risk | velocity/count signal (C8) elevated
+txn_3552699,5745.695983886719,0,0.008030488634816932,APPROVE,browser risk signal | velocity/count signal (C1) elevated | id_02 contributed to risk
+txn_3517930,9499.599731445312,1,0.023761031907671416,APPROVE,velocity/count signal (C1) elevated | velocity/count signal (C13) elevated | aggregate risk feature (V294) elevated
+txn_3530204,9856.0,1,0.01235657546337158,APPROVE,card1 contributed to risk | card2 contributed to risk | purchaser email domain risk signal
+txn_3577506,17600.0,0,0.0028625954198473282,APPROVE,transaction amount unusual for this profile | product category carries elevated risk | card2 contributed to risk
+txn_3555109,27451.60107421875,0,0.01235657546337158,APPROVE,transaction amount unusual for this profile | card type (debit/credit) risk signal | purchaser email domain risk signal
+txn_3506761,5099.600067138672,0,0.0028625954198473282,APPROVE,purchaser email domain risk signal | velocity/count signal (C2) elevated | time-since-previous-activity signal (D2) unusual
+txn_3525689,3520.0,0,0.0028625954198473282,APPROVE,browser risk signal | velocity/count signal (C13) elevated | id_13 contributed to risk
+txn_3488213,1476.9920349121094,0,0.0032074126870990736,APPROVE,id_01 contributed to risk | aggregate risk feature (V258) elevated | card type (debit/credit) risk signal
+txn_3557809,29480.0,0,0.06521739130434782,REVIEW,transaction amount unusual for this profile | velocity/count signal (C13) elevated | identity match flag (M5) inconsistent
+txn_3545096,2552.0,1,0.0028625954198473282,APPROVE,card2 contributed to risk | purchaser email domain risk signal | identity match flag (M5) inconsistent
+txn_3505315,2028.3119812011719,0,0.008030488634816932,APPROVE,card type (debit/credit) risk signal | card2 contributed to risk | card3 contributed to risk
+txn_3509508,14075.599731445312,1,0.06026785714285715,APPROVE,time-since-previous-activity signal (D2) unusual | transaction amount unusual for this profile | aggregate risk feature (V309) elevated
+txn_3546123,9240.0,0,0.008030488634816932,APPROVE,aggregate risk feature (V294) elevated | velocity/count signal (C8) elevated | card2 contributed to risk
+txn_3514193,7739.5997314453125,0,1e-06,APPROVE,velocity/count signal (C1) elevated | time-since-previous-activity signal (D4) unusual | velocity/count signal (C11) elevated
+txn_3470284,19888.0,0,0.14136125654450263,REVIEW,transaction amount unusual for this profile | billing/shipping distance unusual | card type (debit/credit) risk signal
+txn_3528954,9328.0,0,0.014556962025316455,APPROVE,aggregate risk feature (V258) elevated | velocity/count signal (C1) elevated | aggregate risk feature (V294) elevated
+txn_3539741,5280.0,1,0.0028625954198473282,APPROVE,card type (debit/credit) risk signal | recipient email domain risk signal | aggregate risk feature (V312) elevated
+txn_3557136,1403.599983215332,0,0.0028625954198473282,APPROVE,velocity/count signal (C1) elevated | velocity/count signal (C6) elevated | velocity/count signal (C2) elevated
+txn_3519378,9435.448059082031,1,0.9024390243902439,BLOCK,velocity/count signal (C1) elevated | velocity/count signal (C13) elevated | velocity/count signal (C14) elevated
+txn_3549060,2477.904083251953,0,0.024603836530442035,APPROVE,card type (debit/credit) risk signal | velocity/count signal (C11) elevated | card3 contributed to risk
+txn_3567781,29480.0,0,0.37628865979381443,BLOCK,card type (debit/credit) risk signal | transaction amount unusual for this profile | aggregate risk feature (V294) elevated
+txn_3512198,1969.3519744873047,0,0.008030488634816932,APPROVE,device fingerprint risk signal | card5 contributed to risk | card type (debit/credit) risk signal
+txn_3522194,5192.0,0,0.023761031907671416,APPROVE,purchaser email domain risk signal | aggregate risk feature (V70) elevated | time-since-previous-activity signal (D4) unusual
+txn_3566392,2596.0,0,0.014556962025316455,APPROVE,aggregate risk feature (V5) elevated | velocity/count signal (C11) elevated | time-since-previous-activity signal (D15) unusual
+txn_3563461,3432.0,0,0.0028625954198473282,APPROVE,aggregate risk feature (V294) elevated | aggregate risk feature (V133) elevated | identity match flag (M4) inconsistent
+txn_3558780,1040.3359603881836,1,0.6266666666666667,BLOCK,velocity/count signal (C1) elevated | aggregate risk feature (V258) elevated | recipient email domain risk signal
+txn_3556820,15048.0,0,0.01620491374803973,APPROVE,card type (debit/credit) risk signal | transaction amount unusual for this profile | card1 contributed to risk
+txn_3574549,6221.776306152344,1,0.7831325301204819,BLOCK,velocity/count signal (C1) elevated | velocity/count signal (C13) elevated | aggregate risk feature (V258) elevated
+txn_3469126,7656.0,1,0.036511156186612576,APPROVE,card2 contributed to risk | purchaser email domain risk signal | velocity/count signal (C2) elevated
+txn_3498278,9499.599731445312,1,0.5267857142857142,BLOCK,card2 contributed to risk | velocity/count signal (C1) elevated | card type (debit/credit) risk signal
+txn_3567752,6776.0,0,0.022616136919315404,APPROVE,card type (debit/credit) risk signal | aggregate risk feature (V70) elevated | purchaser email domain risk signal
+txn_3483172,3163.600067138672,0,0.0028625954198473282,APPROVE,velocity/count signal (C1) elevated | aggregate risk feature (V70) elevated | velocity/count signal (C6) elevated
+txn_3527331,13200.0,0,0.036511156186612576,APPROVE,transaction amount unusual for this profile | id_01 contributed to risk | recipient email domain risk signal
+txn_3476546,6776.0,0,0.008030488634816932,APPROVE,card1 contributed to risk | velocity/count signal (C6) elevated | velocity/count signal (C13) elevated
+txn_3474505,23320.0,0,0.023761031907671416,APPROVE,transaction amount unusual for this profile | velocity/count signal (C13) elevated | purchaser email domain risk signal
+txn_3500258,9416.0,1,0.24630541871921183,BLOCK,card type (debit/credit) risk signal | velocity/count signal (C13) elevated | aggregate risk feature (V294) elevated
+txn_3471403,9587.599731445312,0,0.004474861805738351,APPROVE,card1 contributed to risk | velocity/count signal (C6) elevated | card2 contributed to risk
+txn_3484204,3473.360107421875,1,0.926605504587156,BLOCK,velocity/count signal (C13) elevated | velocity/count signal (C1) elevated | card type (debit/credit) risk signal
+txn_3479554,4219.600067138672,0,0.0028625954198473282,APPROVE,card1 contributed to risk | purchaser email domain risk signal | time-since-previous-activity signal (D5) unusual
+txn_3477471,3916.0,0,0.011466505733252867,APPROVE,card1 contributed to risk | billing address risk signal | card2 contributed to risk
+txn_3531654,6776.0,0,0.022616136919315404,APPROVE,velocity/count signal (C13) elevated | purchaser email domain risk signal | aggregate risk feature (V70) elevated
+txn_3522699,3165.0079650878906,1,0.07626076260762607,REVIEW,aggregate risk feature (V258) elevated | card type (debit/credit) risk signal | device fingerprint risk signal
+txn_3496736,13200.0,0,0.004826060727930827,APPROVE,transaction amount unusual for this profile | velocity/count signal (C13) elevated | id_20 contributed to risk
+txn_3551992,22440.0,1,0.06026785714285715,APPROVE,transaction amount unusual for this profile | velocity/count signal (C14) elevated | velocity/count signal (C13) elevated
+txn_3467785,19888.0,1,0.37628865979381443,BLOCK,velocity/count signal (C13) elevated | transaction amount unusual for this profile | velocity/count signal (C14) elevated
+txn_3502191,18299.599731445312,0,0.0028625954198473282,APPROVE,transaction amount unusual for this profile | billing/shipping distance unusual | billing address risk signal
+txn_3494858,2640.0,0,0.0015037593984962407,APPROVE,aggregate risk feature (V70) elevated | purchaser email domain risk signal | aggregate risk feature (V30) elevated
+txn_3468067,12443.552612304688,1,0.11591962905718702,REVIEW,card type (debit/credit) risk signal | id_09 contributed to risk | transaction amount unusual for this profile
+txn_3492444,8800.0,0,0.004826060727930827,APPROVE,recipient email domain risk signal | screen resolution risk signal | id_04 contributed to risk
+txn_3538828,2283.600067138672,0,0.0015037593984962407,APPROVE,card type (debit/credit) risk signal | aggregate risk feature (V281) elevated | card5 contributed to risk
+txn_3476339,2200.0,0,0.014556962025316455,APPROVE,browser risk signal | id_02 contributed to risk | velocity/count signal (C13) elevated
+txn_3480726,8184.0,0,0.004474861805738351,APPROVE,product category carries elevated risk | velocity/count signal (C13) elevated | id_18 contributed to risk
+txn_3483044,5192.0,0,0.014556962025316455,APPROVE,velocity/count signal (C13) elevated | billing address risk signal | billing/shipping distance unusual
+txn_3510224,5192.0,0,0.0032074126870990736,APPROVE,billing/shipping distance unusual | card5 contributed to risk | purchaser email domain risk signal
+txn_3536348,3872.0,1,0.5648148148148149,BLOCK,aggregate risk feature (V76) elevated | aggregate risk feature (V54) elevated | card1 contributed to risk
+txn_3482025,29480.0,0,0.036511156186612576,APPROVE,velocity/count signal (C14) elevated | velocity/count signal (C13) elevated | card type (debit/credit) risk signal
+txn_3566455,4312.0,1,0.04038461538461539,APPROVE,velocity/count signal (C13) elevated | time-since-previous-activity signal (D2) unusual | time-since-previous-activity signal (D15) unusual
+txn_3479134,4092.0,0,0.036511156186612576,APPROVE,velocity/count signal (C13) elevated | velocity/count signal (C14) elevated | card2 contributed to risk
+txn_3473397,2112.0,0,0.008030488634816932,APPROVE,time-since-previous-activity signal (D10) unusual | aggregate risk feature (V70) elevated | purchaser email domain risk signal
+txn_3544383,5016.0,0,0.008030488634816932,APPROVE,velocity/count signal (C13) elevated | aggregate risk feature (V70) elevated | purchaser email domain risk signal
+txn_3527029,15048.0,0,0.015625,APPROVE,transaction amount unusual for this profile | aggregate risk feature (V5) elevated | card1 contributed to risk
+txn_3576078,5187.600067138672,0,0.004826060727930827,APPROVE,card type (debit/credit) risk signal | velocity/count signal (C2) elevated | card1 contributed to risk
+txn_3464218,10296.0,0,0.0028625954198473282,APPROVE,aggregate risk feature (V70) elevated | billing address risk signal | identity match flag (M5) inconsistent
+txn_3504578,2371.600067138672,0,0.0028625954198473282,APPROVE,billing address risk signal | billing/shipping distance unusual | card5 contributed to risk
+txn_3521656,4441.799865722656,0,0.008030488634816932,APPROVE,device fingerprint risk signal | id_05 contributed to risk | id_06 contributed to risk
+txn_3466664,8707.599731445312,0,0.0028625954198473282,APPROVE,billing address risk signal | time-since-previous-activity signal (D4) unusual | card1 contributed to risk
+txn_3543709,2723.600067138672,0,0.0028625954198473282,APPROVE,velocity/count signal (C6) elevated | purchaser email domain risk signal | time-since-previous-activity signal (D10) unusual
+txn_3517391,2200.0,1,0.008030488634816932,APPROVE,velocity/count signal (C13) elevated | velocity/count signal (C14) elevated | id_01 contributed to risk
+txn_3471848,12315.599731445312,0,0.004474861805738351,APPROVE,aggregate risk feature (V294) elevated | velocity/count signal (C1) elevated | transaction amount unusual for this profile
+txn_3549943,10120.0,0,0.008030488634816932,APPROVE,billing/shipping distance unusual | card2 contributed to risk | aggregate risk feature (V70) elevated
+txn_3517081,4752.0,0,0.008030488634816932,APPROVE,billing address risk signal | velocity/count signal (C13) elevated | purchaser email domain risk signal
+txn_3513392,2200.0,1,0.07626076260762607,REVIEW,card1 contributed to risk | card3 contributed to risk | aggregate risk feature (V54) elevated
+txn_3518635,5192.0,0,0.0028625954198473282,APPROVE,aggregate risk feature (V136) elevated | aggregate risk feature (V320) elevated | velocity/count signal (C1) elevated
+txn_3521822,91696.0,0,0.0032074126870990736,APPROVE,transaction amount unusual for this profile | purchaser email domain risk signal | aggregate risk feature (V312) elevated
+txn_3536466,3251.600067138672,0,0.0028625954198473282,APPROVE,velocity/count signal (C13) elevated | card5 contributed to risk | time-since-previous-activity signal (D4) unusual
+txn_3515507,3432.0,0,0.0032074126870990736,APPROVE,time-since-previous-activity signal (D5) unusual | purchaser email domain risk signal | aggregate risk feature (V70) elevated
+txn_3496449,3251.600067138672,0,0.0032074126870990736,APPROVE,purchaser email domain risk signal | card5 contributed to risk | time-since-previous-activity signal (D15) unusual
+txn_3499552,3520.0,0,0.0028625954198473282,APPROVE,recipient email domain risk signal | id_36 contributed to risk | id_02 contributed to risk
+txn_3466223,5192.0,0,0.024603836530442035,APPROVE,velocity/count signal (C13) elevated | velocity/count signal (C14) elevated | aggregate risk feature (V70) elevated
+txn_3553008,5099.600067138672,0,0.0028625954198473282,APPROVE,velocity/count signal (C6) elevated | velocity/count signal (C9) elevated | velocity/count signal (C11) elevated
+txn_3492780,14163.599731445312,0,0.005319148936170213,APPROVE,velocity/count signal (C1) elevated | velocity/count signal (C11) elevated | transaction amount unusual for this profile
+txn_3512161,1157.8159637451172,0,0.0028625954198473282,APPROVE,velocity/count signal (C11) elevated | velocity/count signal (C4) elevated | velocity/count signal (C8) elevated
+txn_3534387,2926.9681396484375,1,0.926605504587156,BLOCK,aggregate risk feature (V258) elevated | velocity/count signal (C1) elevated | velocity/count signal (C13) elevated
+txn_3536011,1244.3200302124023,0,0.01235657546337158,APPROVE,time-since-previous-activity signal (D5) unusual | velocity/count signal (C11) elevated | billing country risk signal
+txn_3498746,6419.5997314453125,0,0.0032074126870990736,APPROVE,velocity/count signal (C1) elevated | time-since-previous-activity signal (D5) unusual | billing/shipping distance unusual
+txn_3511443,19355.599731445312,0,0.0028625954198473282,APPROVE,transaction amount unusual for this profile | card1 contributed to risk | aggregate risk feature (V78) elevated
+txn_3558931,2001.8239288330078,1,0.926605504587156,BLOCK,velocity/count signal (C1) elevated | aggregate risk feature (V258) elevated | velocity/count signal (C11) elevated
+txn_3462892,3872.0,0,0.014556962025316455,APPROVE,velocity/count signal (C13) elevated | billing/shipping distance unusual | aggregate risk feature (V70) elevated
+txn_3534447,2992.0,0,0.022616136919315404,APPROVE,purchaser email domain risk signal | velocity/count signal (C11) elevated | aggregate risk feature (V83) elevated
+txn_3480906,2407.5919342041016,0,0.7540023048766968,BLOCK,aggregate risk feature (V258) elevated | velocity/count signal (C14) elevated | velocity/count signal (C13) elevated
+txn_3468323,6424.0,1,0.37628865979381443,BLOCK,velocity/count signal (C13) elevated | card type (debit/credit) risk signal | aggregate risk feature (V294) elevated
+txn_3474167,15048.0,0,0.024603836530442035,APPROVE,card2 contributed to risk | billing address risk signal | purchaser email domain risk signal
+txn_3520108,4400.0,0,0.0028625954198473282,APPROVE,velocity/count signal (C13) elevated | time-since-previous-activity signal (D10) unusual | id_18 contributed to risk
+txn_3497040,1320.0,0,0.005319148936170213,APPROVE,velocity/count signal (C11) elevated | purchaser email domain risk signal | aggregate risk feature (V70) elevated
+txn_3473230,3432.0,0,0.008030488634816932,APPROVE,billing/shipping distance unusual | card type (debit/credit) risk signal | card1 contributed to risk
+txn_3560358,5237.14404296875,1,0.014556962025316455,APPROVE,device fingerprint risk signal | card type (debit/credit) risk signal | velocity/count signal (C13) elevated
+txn_3541681,4312.0,0,0.024603836530442035,APPROVE,velocity/count signal (C13) elevated | billing/shipping distance unusual | aggregate risk feature (V70) elevated
+txn_3495289,2552.0,0,0.036511156186612576,APPROVE,velocity/count signal (C13) elevated | identity match flag (M5) inconsistent | card2 contributed to risk
+txn_3558930,10296.0,0,0.37628865979381443,BLOCK,aggregate risk feature (V294) elevated | velocity/count signal (C1) elevated | card type (debit/credit) risk signal
+txn_3570794,3916.0,0,0.022616136919315404,APPROVE,aggregate risk feature (V294) elevated | identity match flag (M2) inconsistent | aggregate risk feature (V70) elevated
+txn_3572919,5099.600067138672,0,0.0028625954198473282,APPROVE,card2 contributed to risk | card1 contributed to risk | velocity/count signal (C2) elevated
+txn_3533780,4312.0,0,0.008030488634816932,APPROVE,card1 contributed to risk | identity match flag (M5) inconsistent | billing/shipping distance unusual
+txn_3476267,10296.0,0,0.022616136919315404,APPROVE,aggregate risk feature (V294) elevated | time-since-previous-activity signal (D10) unusual | velocity/count signal (C6) elevated
+txn_3572950,3304.311981201172,0,0.07626076260762607,REVIEW,velocity/count signal (C13) elevated | velocity/count signal (C11) elevated | card type (debit/credit) risk signal
+txn_3508906,9499.599731445312,0,0.004826060727930827,APPROVE,velocity/count signal (C13) elevated | purchaser email domain risk signal | identity match flag (M6) inconsistent
+txn_3468523,3251.600067138672,0,0.022616136919315404,APPROVE,velocity/count signal (C13) elevated | purchaser email domain risk signal | aggregate risk feature (V70) elevated
+txn_3570345,19360.0,0,0.0032074126870990736,APPROVE,transaction amount unusual for this profile | card1 contributed to risk | card2 contributed to risk
+txn_3558877,34320.0,0,0.036511156186612576,APPROVE,transaction amount unusual for this profile | velocity/count signal (C13) elevated | time-since-previous-activity signal (D4) unusual
+txn_3569465,3432.0,0,0.008030488634816932,APPROVE,velocity/count signal (C1) elevated | identity match flag (M5) inconsistent | card5 contributed to risk
+txn_3566504,27940.0,1,0.06521739130434782,REVIEW,velocity/count signal (C13) elevated | velocity/count signal (C14) elevated | card type (debit/credit) risk signal
+txn_3573979,5192.0,0,0.0032074126870990736,APPROVE,aggregate risk feature (V311) elevated | time-since-previous-activity signal (D10) unusual | velocity/count signal (C2) elevated
+txn_3462491,1320.0,1,0.0032074126870990736,APPROVE,aggregate risk feature (V294) elevated | aggregate risk feature (V70) elevated | aggregate risk feature (V317) elevated
+txn_3536080,10296.0,0,0.024603836530442035,APPROVE,velocity/count signal (C13) elevated | billing address risk signal | transaction amount unusual for this profile
+txn_3552934,4084.6959838867188,1,0.6266666666666667,BLOCK,aggregate risk feature (V258) elevated | device fingerprint risk signal | velocity/count signal (C1) elevated
+txn_3465760,6859.5997314453125,0,0.0028625954198473282,APPROVE,purchaser email domain risk signal | card5 contributed to risk | card1 contributed to risk
+txn_3461949,2283.600067138672,0,0.0032074126870990736,APPROVE,velocity/count signal (C1) elevated | velocity/count signal (C11) elevated | velocity/count signal (C2) elevated
+txn_3548919,2283.600067138672,0,0.0032074126870990736,APPROVE,aggregate risk feature (V294) elevated | time-since-previous-activity signal (D10) unusual | velocity/count signal (C1) elevated
+txn_3574965,2552.0,0,0.022616136919315404,APPROVE,velocity/count signal (C13) elevated | aggregate risk feature (V294) elevated | card2 contributed to risk
+txn_3567832,4219.600067138672,0,0.0028625954198473282,APPROVE,card1 contributed to risk | billing address risk signal | time-since-previous-activity signal (D10) unusual
+txn_3562884,27451.60107421875,1,0.008030488634816932,APPROVE,transaction amount unusual for this profile | card1 contributed to risk | purchaser email domain risk signal
+txn_3570161,880.0,0,0.008030488634816932,APPROVE,velocity/count signal (C10) elevated | velocity/count signal (C11) elevated | velocity/count signal (C8) elevated
+txn_3464352,8096.0,0,0.024603836530442035,APPROVE,velocity/count signal (C13) elevated | card1 contributed to risk | card2 contributed to risk
+txn_3496202,6949.360107421875,0,0.0028625954198473282,APPROVE,velocity/count signal (C1) elevated | card type (debit/credit) risk signal | velocity/count signal (C11) elevated
+txn_3503601,5192.0,0,0.0028625954198473282,APPROVE,purchaser email domain risk signal | aggregate risk feature (V70) elevated | identity match flag (M5) inconsistent
+txn_3479522,2552.0,0,0.0028625954198473282,APPROVE,velocity/count signal (C6) elevated | velocity/count signal (C1) elevated | aggregate risk feature (V70) elevated
+txn_3521314,3163.600067138672,0,1e-06,APPROVE,velocity/count signal (C1) elevated | time-since-previous-activity signal (D2) unusual | velocity/count signal (C11) elevated
+txn_3553560,29480.0,0,0.008030488634816932,APPROVE,transaction amount unusual for this profile | velocity/count signal (C1) elevated | aggregate risk feature (V70) elevated
+txn_3545107,860.1999664306641,0,0.008030488634816932,APPROVE,velocity/count signal (C13) elevated | purchaser email domain risk signal | recipient email domain risk signal
+txn_3473505,3432.0,0,0.023761031907671416,APPROVE,card2 contributed to risk | velocity/count signal (C13) elevated | identity match flag (M5) inconsistent
+txn_3534330,3192.023895263672,0,0.024603836530442035,APPROVE,card type (debit/credit) risk signal | velocity/count signal (C13) elevated | id_20 contributed to risk
+txn_3475249,9499.599731445312,0,0.008030488634816932,APPROVE,aggregate risk feature (V311) elevated | velocity/count signal (C1) elevated | billing address risk signal
+txn_3525175,19184.0,1,0.0032074126870990736,APPROVE,transaction amount unusual for this profile | time-since-previous-activity signal (D5) unusual | card2 contributed to risk
+txn_3467050,23760.0,1,0.06521739130434782,REVIEW,transaction amount unusual for this profile | card type (debit/credit) risk signal | aggregate risk feature (V294) elevated
+txn_3522811,8800.0,0,0.004826060727930827,APPROVE,browser risk signal | velocity/count signal (C13) elevated | recipient email domain risk signal
+txn_3515647,8096.0,0,0.024603836530442035,APPROVE,card1 contributed to risk | purchaser email domain risk signal | identity match flag (M5) inconsistent
+txn_3493810,60275.60107421875,0,0.011466505733252867,APPROVE,transaction amount unusual for this profile | card type (debit/credit) risk signal | velocity/count signal (C13) elevated
+txn_3472467,5099.600067138672,1,0.0028625954198473282,APPROVE,velocity/count signal (C1) elevated | velocity/count signal (C11) elevated | velocity/count signal (C2) elevated
+txn_3488730,5275.600067138672,0,0.0028625954198473282,APPROVE,purchaser email domain risk signal | billing address risk signal | card5 contributed to risk
+txn_3534667,16275.599731445312,0,0.0028625954198473282,APPROVE,transaction amount unusual for this profile | velocity/count signal (C6) elevated | velocity/count signal (C11) elevated
+txn_3532992,18475.599731445312,0,0.01235657546337158,APPROVE,transaction amount unusual for this profile | velocity/count signal (C13) elevated | time-since-previous-activity signal (D15) unusual
+txn_3498679,10032.0,1,0.11591962905718702,REVIEW,time-since-previous-activity signal (D2) unusual | card type (debit/credit) risk signal | billing/shipping distance unusual
+txn_3530979,6237.9681396484375,0,0.04038461538461539,APPROVE,velocity/count signal (C13) elevated | card1 contributed to risk | id_13 contributed to risk
+txn_3518806,1100.0,0,0.0028625954198473282,APPROVE,aggregate risk feature (V70) elevated | identity match flag (M5) inconsistent | identity match flag (M4) inconsistent
+txn_3556286,8800.0,0,0.008030488634816932,APPROVE,velocity/count signal (C13) elevated | card2 contributed to risk | card1 contributed to risk
+txn_3571264,27451.60107421875,0,0.04038461538461539,APPROVE,transaction amount unusual for this profile | purchaser email domain risk signal | card1 contributed to risk
+txn_3463745,10296.0,0,0.011466505733252867,APPROVE,card type (debit/credit) risk signal | billing/shipping distance unusual | transaction amount unusual for this profile
+txn_3570563,5099.600067138672,0,0.023761031907671416,APPROVE,velocity/count signal (C1) elevated | time-since-previous-activity signal (D15) unusual | card5 contributed to risk
+txn_3574816,9587.599731445312,0,0.004826060727930827,APPROVE,card5 contributed to risk | card2 contributed to risk | purchaser email domain risk signal
+txn_3502385,19888.0,0,0.008030488634816932,APPROVE,transaction amount unusual for this profile | time-since-previous-activity signal (D10) unusual | card2 contributed to risk
+txn_3466041,3432.0,0,0.0028625954198473282,APPROVE,card2 contributed to risk | aggregate risk feature (V70) elevated | identity match flag (M6) inconsistent
+txn_3468002,6859.5997314453125,0,0.023761031907671416,APPROVE,transaction amount unusual for this profile | velocity/count signal (C13) elevated | time-since-previous-activity signal (D4) unusual
+txn_3465596,2200.0,0,0.004474861805738351,APPROVE,recipient email domain risk signal | velocity/count signal (C8) elevated | velocity/count signal (C1) elevated
+txn_3575686,4219.600067138672,0,0.0028625954198473282,APPROVE,card5 contributed to risk | purchaser email domain risk signal | velocity/count signal (C1) elevated
+txn_3558613,4312.0,0,0.06521739130434782,REVIEW,velocity/count signal (C13) elevated | identity match flag (M5) inconsistent | card1 contributed to risk
+txn_3492131,9499.599731445312,0,0.0028625954198473282,APPROVE,card type (debit/credit) risk signal | velocity/count signal (C1) elevated | card2 contributed to risk
+txn_3499087,1760.0,0,0.008030488634816932,APPROVE,aggregate risk feature (V294) elevated | billing address risk signal | identity match flag (M5) inconsistent
+txn_3576983,11000.0,0,0.024603836530442035,APPROVE,time-since-previous-activity signal (D2) unusual | card type (debit/credit) risk signal | velocity/count signal (C13) elevated
+txn_3509683,8800.0,0,0.0028625954198473282,APPROVE,velocity/count signal (C13) elevated | card type (debit/credit) risk signal | card2 contributed to risk
+txn_3505527,87472.0,0,0.8557692307692307,BLOCK,aggregate risk feature (V294) elevated | transaction amount unusual for this profile | card type (debit/credit) risk signal
+txn_3518471,3432.0,0,0.008030488634816932,APPROVE,velocity/count signal (C13) elevated | velocity/count signal (C14) elevated | aggregate risk feature (V70) elevated
+txn_3531207,5099.600067138672,0,0.0028625954198473282,APPROVE,card5 contributed to risk | card1 contributed to risk | purchaser email domain risk signal
+txn_3478065,4084.6959838867188,1,0.926605504587156,BLOCK,velocity/count signal (C14) elevated | aggregate risk feature (V258) elevated | recipient email domain risk signal
+txn_3495942,25960.0,1,0.11591962905718702,REVIEW,transaction amount unusual for this profile | velocity/count signal (C13) elevated | velocity/count signal (C14) elevated
+txn_3540434,4771.799865722656,1,0.999999,BLOCK,velocity/count signal (C1) elevated | aggregate risk feature (V258) elevated | velocity/count signal (C11) elevated
+txn_3560926,8800.0,0,0.0015037593984962407,APPROVE,card type (debit/credit) risk signal | recipient email domain risk signal | velocity/count signal (C13) elevated
+txn_3562560,562.672004699707,1,0.04038461538461539,APPROVE,aggregate risk feature (V258) elevated | velocity/count signal (C13) elevated | recipient email domain risk signal
+txn_3549265,5099.600067138672,0,0.004474861805738351,APPROVE,purchaser email domain risk signal | time-since-previous-activity signal (D4) unusual | card2 contributed to risk
+txn_3520772,9554.511779785156,0,0.004474861805738351,APPROVE,browser risk signal | velocity/count signal (C13) elevated | card3 contributed to risk
+txn_3559328,4923.600067138672,0,0.004826060727930827,APPROVE,velocity/count signal (C1) elevated | aggregate risk feature (V136) elevated | time-since-previous-activity signal (D2) unusual
+txn_3519668,4609.528045654297,0,0.014556962025316455,APPROVE,id_25 contributed to risk | velocity/count signal (C13) elevated | card3 contributed to risk
+txn_3481979,5192.0,0,0.024603836530442035,APPROVE,card2 contributed to risk | aggregate risk feature (V294) elevated | aggregate risk feature (V281) elevated
+txn_3473572,665.455982208252,0,0.0032074126870990736,APPROVE,card3 contributed to risk | card2 contributed to risk | velocity/count signal (C2) elevated
+txn_3524252,1403.599983215332,0,0.022616136919315404,APPROVE,velocity/count signal (C13) elevated | velocity/count signal (C14) elevated | card type (debit/credit) risk signal
+txn_3519111,10296.0,0,0.014556962025316455,APPROVE,card1 contributed to risk | velocity/count signal (C9) elevated | aggregate risk feature (V70) elevated
+txn_3545864,2672.6480255126953,0,0.04038461538461539,APPROVE,device fingerprint risk signal | card type (debit/credit) risk signal | velocity/count signal (C13) elevated
+txn_3551788,4219.600067138672,0,0.004474861805738351,APPROVE,velocity/count signal (C11) elevated | purchaser email domain risk signal | velocity/count signal (C6) elevated
+txn_3521903,6336.0,1,0.024603836530442035,APPROVE,velocity/count signal (C13) elevated | aggregate risk feature (V294) elevated | purchaser email domain risk signal
+txn_3549285,4458.079986572266,0,0.01620491374803973,APPROVE,velocity/count signal (C13) elevated | purchaser email domain risk signal | card3 contributed to risk
+txn_3572194,18475.599731445312,0,0.014556962025316455,APPROVE,transaction amount unusual for this profile | card type (debit/credit) risk signal | velocity/count signal (C13) elevated
+txn_3576880,9856.0,0,0.11591962905718702,REVIEW,velocity/count signal (C13) elevated | billing/shipping distance unusual | time-since-previous-activity signal (D2) unusual
+txn_3536115,5192.0,0,0.0028625954198473282,APPROVE,aggregate risk feature (V294) elevated | aggregate risk feature (V317) elevated | aggregate risk feature (V133) elevated
+txn_3529874,5192.0,0,0.20668058455114824,BLOCK,aggregate risk feature (V294) elevated | aggregate risk feature (V67) elevated | card1 contributed to risk
+txn_3511854,9499.599731445312,1,0.20668058455114824,BLOCK,time-since-previous-activity signal (D2) unusual | transaction amount unusual for this profile | aggregate risk feature (V281) elevated
+txn_3486183,3779.600067138672,0,0.0028625954198473282,APPROVE,velocity/count signal (C1) elevated | velocity/count signal (C11) elevated | velocity/count signal (C2) elevated
+txn_3470263,2640.0,1,0.78,BLOCK,velocity/count signal (C1) elevated | velocity/count signal (C6) elevated | velocity/count signal (C2) elevated
+txn_3499351,39160.0,0,0.008030488634816932,APPROVE,transaction amount unusual for this profile | aggregate risk feature (V70) elevated | purchaser email domain risk signal
+txn_3554313,6102.7119140625,1,0.01620491374803973,APPROVE,card type (debit/credit) risk signal | velocity/count signal (C13) elevated | id_05 contributed to risk
+txn_3466084,10296.0,0,0.008030488634816932,APPROVE,aggregate risk feature (V294) elevated | aggregate risk feature (V75) elevated | billing address risk signal
+txn_3550819,9587.599731445312,1,0.11591962905718702,REVIEW,card2 contributed to risk | card type (debit/credit) risk signal | purchaser email domain risk signal
+txn_3535723,7480.0,0,0.008030488634816932,APPROVE,card2 contributed to risk | purchaser email domain risk signal | card5 contributed to risk
+txn_3486716,3163.600067138672,0,0.0028625954198473282,APPROVE,aggregate risk feature (V311) elevated | velocity/count signal (C1) elevated | card type (debit/credit) risk signal
+txn_3541072,5192.0,1,0.6875,BLOCK,aggregate risk feature (V76) elevated | aggregate risk feature (V54) elevated | card1 contributed to risk
+txn_3560875,5539.600067138672,0,0.0028625954198473282,APPROVE,velocity/count signal (C1) elevated | aggregate risk feature (V294) elevated | card type (debit/credit) risk signal
+txn_3576658,6221.776306152344,1,0.5267857142857142,BLOCK,aggregate risk feature (V258) elevated | velocity/count signal (C1) elevated | velocity/count signal (C13) elevated
+txn_3491888,4030.6641235351562,1,0.9024390243902439,BLOCK,velocity/count signal (C1) elevated | velocity/count signal (C4) elevated | recipient email domain risk signal
+txn_3464574,10296.0,0,0.0028625954198473282,APPROVE,card1 contributed to risk | purchaser email domain risk signal | aggregate risk feature (V309) elevated
+txn_3510923,2813.3599395751953,1,0.926605504587156,BLOCK,velocity/count signal (C1) elevated | velocity/count signal (C13) elevated | id_02 contributed to risk
+txn_3534803,5099.600067138672,0,0.01620491374803973,APPROVE,time-since-previous-activity signal (D4) unusual | velocity/count signal (C13) elevated | billing address risk signal
+txn_3482618,5192.0,0,0.0028625954198473282,APPROVE,aggregate risk feature (V294) elevated | aggregate risk feature (V317) elevated | aggregate risk feature (V70) elevated
+txn_3480264,7195.583801269531,1,0.06666666666666667,REVIEW,recipient email domain risk signal | card type (debit/credit) risk signal | card5 contributed to risk
+txn_3520684,24640.0,0,0.014556962025316455,APPROVE,transaction amount unusual for this profile | aggregate risk feature (V5) elevated | identity match flag (M6) inconsistent
+txn_3569918,443.6079902648926,1,0.8557692307692307,BLOCK,velocity/count signal (C1) elevated | velocity/count signal (C13) elevated | velocity/count signal (C14) elevated
+txn_3516653,2723.600067138672,0,0.004826060727930827,APPROVE,velocity/count signal (C1) elevated | velocity/count signal (C11) elevated | billing address risk signal
+txn_3462396,45051.60107421875,0,0.004826060727930827,APPROVE,transaction amount unusual for this profile | time-since-previous-activity signal (D2) unusual | velocity/count signal (C11) elevated
+txn_3544292,18744.0,0,0.022616136919315404,APPROVE,transaction amount unusual for this profile | velocity/count signal (C13) elevated | aggregate risk feature (V70) elevated
+txn_3461003,6859.5997314453125,1,0.0028625954198473282,APPROVE,velocity/count signal (C13) elevated | velocity/count signal (C11) elevated | time-since-previous-activity signal (D4) unusual
+txn_3479330,18563.599731445312,0,0.0028625954198473282,APPROVE,transaction amount unusual for this profile | time-since-previous-activity signal (D15) unusual | velocity/count signal (C11) elevated
+txn_3468362,13200.0,1,0.78,BLOCK,velocity/count signal (C14) elevated | velocity/count signal (C13) elevated | id_01 contributed to risk
+txn_3500136,6600.0,1,0.01620491374803973,APPROVE,velocity/count signal (C13) elevated | velocity/count signal (C14) elevated | aggregate risk feature (V294) elevated
+txn_3528600,9499.599731445312,0,0.0028625954198473282,APPROVE,purchaser email domain risk signal | aggregate risk feature (V82) elevated | time-since-previous-activity signal (D11) unusual
+txn_3464518,9499.599731445312,1,0.024603836530442035,APPROVE,time-since-previous-activity signal (D15) unusual | time-since-previous-activity signal (D2) unusual | velocity/count signal (C11) elevated
+txn_3522221,15048.0,0,0.004474861805738351,APPROVE,transaction amount unusual for this profile | aggregate risk feature (V131) elevated | aggregate risk feature (V312) elevated
+txn_3570777,8800.0,0,0.0028625954198473282,APPROVE,aggregate risk feature (V258) elevated | id_02 contributed to risk | aggregate risk feature (V187) elevated
+txn_3537514,4312.0,1,0.37628865979381443,BLOCK,aggregate risk feature (V294) elevated | card2 contributed to risk | aggregate risk feature (V67) elevated
+txn_3576801,17688.0,0,0.008030488634816932,APPROVE,billing/shipping distance unusual | transaction amount unusual for this profile | time-since-previous-activity signal (D10) unusual
+txn_3546151,4312.0,0,0.0028625954198473282,APPROVE,card type (debit/credit) risk signal | billing/shipping distance unusual | time-since-previous-activity signal (D10) unusual
+txn_3550123,2811.600067138672,0,0.008030488634816932,APPROVE,velocity/count signal (C11) elevated | velocity/count signal (C2) elevated | velocity/count signal (C1) elevated
+txn_3490678,5979.5997314453125,0,0.008030488634816932,APPROVE,velocity/count signal (C1) elevated | velocity/count signal (C9) elevated | card2 contributed to risk
+txn_3552144,17600.0,1,0.2,BLOCK,transaction amount unusual for this profile | aggregate risk feature (V149) elevated | velocity/count signal (C13) elevated
+txn_3556562,26400.0,1,0.926605504587156,BLOCK,transaction amount unusual for this profile | velocity/count signal (C14) elevated | recipient email domain risk signal
+txn_3544241,1579.7759704589844,1,0.7831325301204819,BLOCK,velocity/count signal (C1) elevated | velocity/count signal (C13) elevated | velocity/count signal (C4) elevated
+txn_3488139,9499.599731445312,0,0.004474861805738351,APPROVE,velocity/count signal (C6) elevated | velocity/count signal (C1) elevated | purchaser email domain risk signal
+txn_3470128,5099.600067138672,0,0.0028625954198473282,APPROVE,card1 contributed to risk | billing address risk signal | card type (debit/credit) risk signal
+txn_3528429,5979.5997314453125,0,0.0028625954198473282,APPROVE,card2 contributed to risk | velocity/count signal (C6) elevated | velocity/count signal (C2) elevated
+txn_3551572,4307.600067138672,0,0.005319148936170213,APPROVE,velocity/count signal (C1) elevated | purchaser email domain risk signal | velocity/count signal (C11) elevated
+txn_3521833,4219.600067138672,0,0.04038461538461539,APPROVE,card1 contributed to risk | velocity/count signal (C13) elevated | identity match flag (M6) inconsistent
+txn_3572068,6776.0,0,0.022616136919315404,APPROVE,aggregate risk feature (V133) elevated | card5 contributed to risk | aggregate risk feature (V70) elevated
+txn_3530540,5099.600067138672,0,0.0011547344110854503,APPROVE,velocity/count signal (C11) elevated | velocity/count signal (C6) elevated | identity match flag (M6) inconsistent
+txn_3555044,4312.0,0,0.024603836530442035,APPROVE,card2 contributed to risk | card1 contributed to risk | card5 contributed to risk
+txn_3557893,14075.599731445312,0,0.008030488634816932,APPROVE,transaction amount unusual for this profile | aggregate risk feature (V294) elevated | card2 contributed to risk
+txn_3496488,5192.0,0,0.004826060727930827,APPROVE,identity match flag (M5) inconsistent | card2 contributed to risk | card5 contributed to risk
+txn_3503236,18475.599731445312,0,0.06521739130434782,REVIEW,aggregate risk feature (V294) elevated | card type (debit/credit) risk signal | transaction amount unusual for this profile
+txn_3492984,4219.600067138672,0,0.0028625954198473282,APPROVE,time-since-previous-activity signal (D10) unusual | card5 contributed to risk | velocity/count signal (C11) elevated
+txn_3548072,11000.0,0,0.024603836530442035,APPROVE,aggregate risk feature (V294) elevated | velocity/count signal (C8) elevated | screen resolution risk signal
+txn_3542887,13200.0,0,0.004474861805738351,APPROVE,transaction amount unusual for this profile | velocity/count signal (C13) elevated | id_20 contributed to risk
+txn_3539092,2552.0,0,0.004474861805738351,APPROVE,billing/shipping distance unusual | aggregate risk feature (V70) elevated | purchaser email domain risk signal
+txn_3486870,2725.3599395751953,0,1e-06,APPROVE,billing/shipping distance unusual | aggregate risk feature (V70) elevated | billing address risk signal
+txn_3464399,9499.599731445312,0,0.004826060727930827,APPROVE,velocity/count signal (C1) elevated | velocity/count signal (C11) elevated | velocity/count signal (C2) elevated
+txn_3571037,107712.0,0,0.014556962025316455,APPROVE,transaction amount unusual for this profile | card2 contributed to risk | velocity/count signal (C13) elevated
+txn_3558225,5192.0,0,0.004474861805738351,APPROVE,aggregate risk feature (V294) elevated | time-since-previous-activity signal (D10) unusual | aggregate risk feature (V318) elevated

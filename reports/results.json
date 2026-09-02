@@ -1,0 +1,35 @@
+{
+  "cost_model_version": "1.0.0",
+  "usd_to_inr": 88.0,
+  "best_iteration": 556,
+  "test_pr_auc": 0.49807504369559336,
+  "test_pr_auc_calibrated": 0.4792290875272375,
+  "test_roc_auc": 0.8824602090138162,
+  "test_recall_at_0.5pct_fpr": 0.3631889763779528,
+  "test_accuracy_never_fraud": 0.9655908151861009,
+  "test_ece_before": 0.013603931923210966,
+  "test_ece_after": 0.004079356184067287,
+  "test_oracle_threshold": 0.12,
+  "test_oracle_cost_per_10k": 3287938.6420653556,
+  "frozen_minus_oracle_per_10k": 7455.864856112748,
+  "headline_f1_minus_cost_per_10k": 112750.16137960693,
+  "headline_global_minus_adaptive_per_10k": -1829.9855510974303,
+  "ci_f1_vs_cost": {
+    "point_estimate": 112750.16137960693,
+    "ci_low": 34904.37983896121,
+    "ci_high": 200873.14024893456,
+    "crosses_zero": false
+  },
+  "ci_global_vs_adaptive": {
+    "point_estimate": -1829.9855510974303,
+    "ci_low": -76936.51244303405,
+    "ci_high": 86062.1700752907,
+    "crosses_zero": true
+  },
+  "review_band": [
+    0.06521739130434782,
+    0.18518518518518517
+  ],
+  "review_rate": 0.04999661326921123,
+  "fraud_share_in_review_band": 0.09314140558848434
+}
