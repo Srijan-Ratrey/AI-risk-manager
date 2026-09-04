@@ -81,7 +81,7 @@ The whole file, since "everything lives here" is only a useful claim if you can 
 ```yaml
 version: "1.0.0"
 currency: INR
-usd_to_inr: 88.0                      # IEEE-CIS amounts are USD; see §3
+usd_to_inr: 88.0                      # an ASSUMPTION, not a spot rate; see §3
 
 false_negative:                       # fraud approved
   chargeback_amount_multiplier: 1.0   # you eat the full transaction value
@@ -89,7 +89,7 @@ false_negative:                       # fraud approved
   ops_handling_inr: 200.0             # analyst time on the dispute
 
 false_positive:                       # legitimate customer blocked
-  margin_rate: 0.12                   # you lose MARGIN, not revenue
+  margin_rate: 0.12                   # THE load-bearing assumption; see §3
   churn_probability: 0.05
   customer_ltv_inr: 3000.0
   support_contact_inr: 100.0
@@ -99,7 +99,7 @@ review:
   max_review_rate: 0.05               # operational capacity ceiling
 ```
 
-Two caveats on that file. `usd_to_inr` multiplies through **every** rupee figure in this project, so it belongs in view rather than in a footnote. And `cost_per_review_inr` is currently **decorative** — no reported number includes it (see §16).
+Three caveats on that file. `usd_to_inr` multiplies through **every** rupee figure, so it belongs in view rather than in a footnote. `margin_rate` is the one constant the headline actually depends on — see §3. And `cost_per_review_inr` is currently **decorative**: no reported number includes it (§16.2).
 
 Which gives:
 
@@ -201,9 +201,60 @@ Two implications the code and README both flag:
 - **Label propagation.** Once an account is compromised, *all subsequent transactions on it* are labelled fraud. So a model that identifies the account is partly predicting the labelling rule, not the fraud. This is why UID features are so powerful on this dataset and why we treat that power sceptically.
 - **Unreported fraud sits in the negative class.** Our recall is measured against *reported chargebacks*, not against fraud. True recall is unknowable here.
 
-### Currency
+### Currency, and which assumptions actually matter
 
-`TransactionAmt` is USD. We re-denominate at a single declared ₹88/USD in `costs.yaml`. The method transfers to an Indian merchant unchanged; the absolute rupee figures are illustrative. Blurring this would be the fastest way to lose credibility with a judge who knows the dataset.
+`TransactionAmt` is USD. We re-denominate at a single declared ₹88/USD in `costs.yaml`.
+
+**88 is an assumption, not a spot rate.** I should be blunt about how it got there: I wrote it from memory while building the cost model and never verified it. The rate as of September 2026 is ~₹94. That is a real lapse in a project whose pitch is auditable assumptions.
+
+But there is a more interesting problem underneath the sloppy one: **there is no single correct rate.** The transactions are from **2019**, when USD/INR was ~₹70. Valuing them at a 2026 rate is a choice — you can argue for 70 (what those amounts were actually worth when transacted) or for today's 94 (what an Indian merchant thinks in current money). The file previously made that choice silently, which was the worse sin.
+
+`run_rate_sensitivity.py` settles whether any of it matters. Reproduce with:
+
+```bash
+.venv/bin/python run_rate_sensitivity.py   # -> reports/rate_sensitivity.csv
+```
+
+| `usd_to_inr` | Cost-optimal threshold | `t*(a)` range | Cost / 10k | Headline / 10k |
+|---|---|---|---|---|
+| 70 (2019 rate) | 0.130 | 0.107–0.172 | ₹2,675,089 | ₹88,660 |
+| 80 | 0.130 | 0.107–0.172 | ₹3,019,703 | ₹102,043 |
+| **88 (shipped)** | **0.130** | 0.107–0.172 | **₹3,295,395** | **₹112,750** |
+| 94 (Sept 2026) | 0.130 | 0.107–0.172 | ₹3,502,163 | ₹120,780 |
+| 100 | 0.130 | 0.107–0.172 | ₹3,708,932 | ₹128,810 |
+
+**The decision never changes.** One distinct operating point across the whole range — 0.130 — to the resolution of the 0.001 sweep grid. (Unchanged *at that resolution*, not exactly invariant in the mathematical sense; overclaiming here would repeat the original error in a new place.)
+
+`t*(a)`'s range does not move **at all**, and the reason is worth seeing:
+
+```
+t*(a) → fixed_fp / (fixed_fp + fixed_fn)                    as a → 0     = 0.172
+t*(a) → margin_rate / (margin_rate + chargeback_multiplier) as a → ∞     = 0.107
+```
+
+Neither limit contains the exchange rate. The rate only relocates where each transaction sits *along* the curve; it cannot reshape the curve. Only absolute magnitudes scale, and even they scale sub-proportionally (+6.3% for a +6.8% rate change) because the flat ₹1,200 and ₹250 terms don't move.
+
+### The assumptions that do matter, and where the thesis stops holding
+
+Sweeping all eight constants at ±50%, **six leave the operating point at 0.130.** The exchange rate, chargeback fee, ops cost, churn probability, customer LTV and support cost all fail to move it.
+
+Two do move it — `margin_rate` and `chargeback_amount_multiplier` — and they turn out to be **one mechanism, not two.** Both control the *ratio* between what a missed fraud costs and what a false block costs. Raising the margin makes a false positive dearer; recovering part of a chargeback makes a false negative cheaper. Either narrows the ratio, and the cost-optimal threshold climbs toward the F1-optimal one (0.222) — which is precisely what closes the gap the headline measures.
+
+Ordered by that ratio, the picture is monotone and the boundary is sharp:
+
+| FN:FP ratio (at ₹1,000) | Driven by | Threshold | Headline / 10k | 95% CI | |
+|---|---|---|---|---|---|
+| 7.3× | chargeback multiplier 1.5 | 0.041 | ₹460,879 | 247,957 – 692,695 | significant |
+| 7.1× | margin 6% | 0.037 | ₹392,790 | 240,246 – 556,373 | significant |
+| **5.9×** | **shipped** | **0.130** | **₹112,750** | 34,904 – 200,873 | significant |
+| 5.1× | margin 18% | 0.142 | −₹3,419 | −70,590 – 74,592 | **not significant** |
+| 4.6× | chargeback multiplier 0.5 | 0.142 | **−₹48,814** | −85,776 – −6,229 | **significantly negative** |
+
+**Around a 5× ratio the advantage vanishes. Below it, cost-optimising is measurably worse than optimising F1** — a result I did not expect and would not have found without sweeping. The mechanism is a generalisation effect: as the ratio narrows, the cost curve flattens near its minimum, so the threshold chosen on val-B is a noisier estimate of the test-optimal one, and it can land worse than F1's 0.222. The same flatness that makes the choice less consequential also makes it less reliable.
+
+**So the thesis is a claim about merchants with thin margins and unrecoverable chargebacks** — and that should have been stated up front rather than discovered by sweeping. Electronics, marketplaces and groceries live at the profitable end. A digital-goods merchant at a 60% margin, or one who wins half their disputes, should expect nothing here and possibly a small loss.
+
+That is a boundary condition, not a refutation. But anyone quoting ₹112,750 without the 12%-margin assumption behind it is overstating the result, and blurring it would be the fastest way to lose credibility with a judge who knows retail economics.
 
 ### Memory handling
 
@@ -687,7 +738,7 @@ Ordered by value per hour of work.
 
 3. **Report per-segment cost with confidence intervals (~30 min).** The `discover` card segment shows ₹20.1M per 10k against ₹3.35M for visa — but it has only 1,257 rows. That is very likely noise, and presenting it without an interval invites a judge to catch you.
 
-4. **Sensitivity analysis on the cost constants (~1 hour).** Every headline number depends on ₹1,000 fee / 12% margin / 5% churn / ₹3,000 LTV. Sweep each ±50% and report how the optimal threshold and the headline gap move. This converts "we assumed" into "we tested our assumptions," which is a much stronger position — and it is exactly the question a sharp judge will ask.
+4. ~~**Sensitivity analysis on the cost constants.**~~ **Done** — `run_rate_sensitivity.py`, results in §3. Seven of eight constants leave the operating point untouched at ±50%; `margin_rate` is the only one that moves it, and it bounds the whole thesis to thin-margin merchants. What remains: sweep the constants *jointly* rather than one at a time, since a merchant's margin and LTV are unlikely to be independent.
 
 ### High value, medium effort
 
@@ -722,9 +773,11 @@ Ordered by value per hour of work.
 
 **If a judge probes, these are where the soft spots are. Better to volunteer them.**
 
-1. **The cost constants are invented.** Not measured from Razorpay data, not sourced from an industry report — chosen as plausible. Every rupee figure scales with them. *Mitigation:* they're isolated in one versioned file, the README says so plainly, and improvement #4 would close this properly.
+1. **The cost constants are invented** — not measured from Razorpay data, not sourced from an industry report, chosen as plausible. The ₹88/USD rate is the clearest example: written from memory, never verified, and wrong by about 6% against the September 2026 spot rate.
 
-2. **US data wearing a rupee costume.** IEEE-CIS is US e-commerce in USD. Indian traffic has a different amount distribution and a completely different method mix. The method transfers; the numbers are illustrative.
+   *Mitigation, and it is now a real one:* their influence is **measured**, not asserted (§3). Seven of eight constants do not move the operating point at ±50%. But the eighth does, and it does not merely shift the number — **at an 18% margin the headline claim stops being statistically distinguishable from zero.** That is the single biggest caveat in this project. It is a boundary condition on the thesis rather than a refutation of it, but anyone quoting ₹112,750 without also quoting the 12%-margin assumption behind it is overstating the result.
+
+2. **US data wearing a rupee costume.** IEEE-CIS is US e-commerce in USD, and 2019-vintage at that — converting those amounts at any 2026 rate is a choice, not a conversion. Indian traffic has a different amount distribution and a completely different method mix. The method transfers; the numbers are illustrative. At least this one provably doesn't change the decision (§3).
 
 3. **PR-AUC 0.498 is not a strong model.** Competitive solutions reach 0.60+ on temporal splits. We are at the bottom of our pre-registered range, because we have no UID/velocity features. Honest, but don't oversell the model — the *protocol* is the contribution, not the classifier.
 
@@ -757,6 +810,10 @@ Everything under `reports/` is generated and committed — `.gitignore` excludes
 | `reports/band_diagnosis.csv` | `run_band_calibration.py` | Per-amount-band fraud rate, mean predicted, ECE, PR-AUC — the evidence for the Failure 1 diagnosis |
 | `reports/band_calibration.csv` | `run_band_calibration.py` | Per-band ECE, global vs per-band calibration |
 | `reports/configuration_choice.json` | `run_configuration_choice.py` | The 2×2 selection under permissive and strict per-band rules — the Failure 2 verdict |
+| `reports/rate_sensitivity.csv` | `run_rate_sensitivity.py` | Operating point and headline at `usd_to_inr` 70–100 |
+| `reports/cost_sensitivity.csv` | `run_rate_sensitivity.py` | All six other cost constants at ±50%, 18 rows |
+| `reports/margin_sensitivity.csv` | `run_rate_sensitivity.py` | Headline **with bootstrap CIs** at 6% / 12% / 18% margin — the boundary condition on the thesis |
+| `reports/payload_sensitivity.csv` · `.json` | `run_payload_sensitivity.py` | Score vs payload completeness; the demo constraint in §12 |
 | `reports/latency.json` | `run_demo.py` | p50/p95/p99/max over 1,000 requests, and whether the budget was met |
 | `reports/demo_decisions.csv` | `run_demo.py` | 1,000 replayed decisions with score, decision, reason codes, true label |
 | `reports/figures/*.png` | `run_figures.py` | cost_curve · baseline_ladder · reliability · threshold_curve · segments |

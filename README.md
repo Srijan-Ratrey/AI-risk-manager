@@ -66,7 +66,9 @@ Three things IEEE-CIS does **not** contain, which materially shaped this project
 - **No card / device / IP identifier.** True velocity features ("4 transactions on this card in 6 minutes") cannot be built. `card1` is a bank/BIN-like bucket with ~13,553 values over 590k rows, not a card. We use Vesta's own pre-computed `C1–C14` counting features and flag that the counting was done by the data provider, with masked definitions.
 - **No payment-method or currency column.** There is no UPI-vs-cards analysis here, because the data cannot support one.
 
-**Currency:** `TransactionAmt` is **USD**. We re-denominate at a single declared rate (₹88/USD) in [`costs.yaml`](costs.yaml). The *method* transfers to an Indian merchant unchanged; the absolute rupee figures are illustrative, not measured from Indian traffic.
+**Currency:** `TransactionAmt` is **USD**. We re-denominate at a single declared rate of ₹88/USD in [`costs.yaml`](costs.yaml). That is **an assumption, not a spot rate** — the rate as of September 2026 is ~₹94, while the transactions themselves are from 2019 when it was ~₹70, so converting 2019 amounts at any 2026 rate is a modelling choice with no single correct answer.
+
+It also turns out not to matter. Sweeping 70–100, the cost-optimal operating point stays at **0.130 throughout** and only the magnitudes scale (headline ₹88,660 at rate 70, ₹128,810 at rate 100). The *method* transfers to an Indian merchant unchanged; the absolute rupee figures are illustrative.
 
 **Identity coverage is 23.8%** — device, browser and OS features are absent for three quarters of rows. We leave them missing rather than imputing; the missingness is itself signal.
 
@@ -295,8 +297,23 @@ The audit table stores transaction id, amount, score, threshold used, decision, 
 
 Stated plainly, because the rubric asks for honest metrics and because several of these are load-bearing.
 
-1. **Cost constants are estimates, not measurements.** ₹1,000 chargeback fee, 12% margin, 5% churn, ₹3,000 LTV. Every headline number scales with them. They are in one versioned config file precisely so a merchant can substitute their own and re-run. The *method* is the contribution; the specific rupee figures are illustrative.
-2. **US data re-denominated to INR.** IEEE-CIS is US e-commerce in USD at ₹88/USD. Indian payment traffic has a different amount distribution and a different method mix.
+1. **Cost constants are estimates, not measurements** — ₹1,000 chargeback fee, 12% margin, 5% churn, ₹3,000 LTV. Their influence is now **measured rather than hand-waved**: `run_rate_sensitivity.py` perturbs the seven cost constants by ±50% and sweeps the exchange rate across 70–100. **Six of the eight leave the operating point at 0.130**, the exchange rate among them.
+
+   The two that matter are the two that set the **ratio between what a missed fraud costs and what a false block costs**. Raising the margin makes a false block dearer; recovering part of a chargeback makes a missed fraud cheaper. Either way the ratio narrows, the cost-optimal threshold rises toward the F1-optimal one (0.222), and the gap between them closes:
+
+   | FN:FP ratio | Driven by | Threshold | Headline / 10k | 95% CI | |
+   |---|---|---|---|---|---|
+   | 7.3× | chargeback recovery ×1.5 | 0.041 | ₹460,879 | 247,957 – 692,695 | significant |
+   | 7.1× | 6% margin | 0.037 | ₹392,790 | 240,246 – 556,373 | significant |
+   | **5.9×** | **shipped assumptions** | 0.130 | **₹112,750** | 34,904 – 200,873 | significant |
+   | 5.1× | 18% margin | 0.142 | −₹3,419 | −70,590 – 74,592 | **not significant** |
+   | 4.6× | half the chargeback recovered | 0.142 | **−₹48,814** | −85,776 – −6,229 | **significantly negative** |
+
+   Read the bottom two rows carefully. Around a **5× ratio the advantage disappears**, and below it **cost-optimising is measurably worse than optimising F1** — the cost curve flattens near its minimum, so the threshold picked on validation stops generalising better than F1's.
+
+   **So this is a claim about merchants with thin margins and unrecoverable chargebacks.** Electronics, marketplaces and groceries sit at the profitable end. A digital-goods merchant at a 60% margin, or one who recovers half their chargebacks, should expect nothing from this approach — and possibly a small loss. Substitute your own numbers in [`costs.yaml`](costs.yaml) and re-run before trusting the headline.
+
+2. **US data re-denominated to INR.** IEEE-CIS is US e-commerce in USD at a declared ₹88/USD (see §2 — an assumption, not a spot rate). Indian payment traffic has a different amount distribution and a different method mix.
 3. **No UPI, no payment methods, no merchants.** The dataset has no such columns. Anyone claiming UPI-specific fraud results from this dataset is fabricating them.
 4. **Label definition is a known artifact.** Vesta labels a reported chargeback as fraud *and all subsequent transactions on the linked account* as fraud, with unreported fraud after 120 days labelled legit. So the labels partly encode a propagation rule, and true-but-unreported fraud sits in the negative class. Our recall is measured against reported chargebacks, not against fraud.
 5. **Label delay makes the feedback loop slower than it looks.** Chargebacks arrive up to 120 days after the transaction. `POST /v1/appeal` exists, but nothing in production could evaluate a recent decision for months. Any "continuous retraining" story on this problem is overselling.

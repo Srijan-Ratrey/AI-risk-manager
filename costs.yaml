@@ -10,6 +10,18 @@
 # are illustrative, not measured from Indian payment traffic.
 version: "1.0.0"
 currency: INR
+
+# A DECLARED ASSUMPTION, NOT A SPOT RATE. Two reasons it is not simply "the"
+# exchange rate: the transactions are from 2019, when USD/INR was ~70, while
+# the rate as of 2026-09 is ~94 -- so converting 2019 amounts at a 2026 rate
+# is a modelling choice either way, and there is no single correct answer.
+#
+# It turns out not to matter. run_rate_sensitivity.py sweeps 70-100 and the
+# cost-optimal operating point stays at 0.130 throughout; only the absolute
+# magnitudes scale (headline Rs 88,660 at 70, Rs 128,810 at 100). t*(a)'s
+# limits do not move at all, because they are fixed_fp/(fixed_fp+fixed_fn)
+# and margin_rate/(margin_rate+chargeback_multiplier) -- neither contains
+# the rate. See reports/rate_sensitivity.csv.
 usd_to_inr: 88.0
 
 # ---------------------------------------------------------------------------
@@ -32,6 +44,21 @@ false_negative:
 # and pushes the optimal threshold far too high.
 # ---------------------------------------------------------------------------
 false_positive:
+  # LOAD-BEARING. Of the eight constants here, only this one and
+  # chargeback_amount_multiplier move the operating point under +/-50%, and
+  # they are one mechanism: both set the ratio between what a missed fraud
+  # costs and what a false block costs. Ordered by that ratio:
+  #
+  #   7.1x (margin 6%)      -> threshold 0.037, headline Rs 392,790  significant
+  #   5.9x (SHIPPED)        -> threshold 0.130, headline Rs 112,750  significant
+  #   5.1x (margin 18%)     -> threshold 0.142, headline Rs  -3,419  not significant
+  #   4.6x (recover half)   -> threshold 0.142, headline Rs -48,814  SIGNIFICANTLY NEGATIVE
+  #
+  # Around 5x the advantage vanishes; below it, cost-optimising is measurably
+  # WORSE than optimising F1. This project's thesis is therefore a claim about
+  # merchants with thin margins and unrecoverable chargebacks. Substitute your
+  # own numbers and re-run before trusting the headline.
+  # See reports/margin_sensitivity.csv.
   margin_rate: 0.12
   churn_probability: 0.05
   customer_ltv_inr: 3000.0
